@@ -37,8 +37,8 @@ const datasets: Record<string, Dataset> = {
     source: "工业和信息化部、中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
     boundary: "2023年起化纤统计方法有调整，2022年数据亦有修订；序列适合观察规模和方向。",
     views: [{
-      id: "structure", label: "看结构", title: "2025 年主要化学纤维产量结构",
-      intro: "涤纶定义主量；锦纶、氨纶和其他小品类共同定义分选复杂度。",
+      id: "structure", label: "品类结构", title: "2025 年主要化学纤维产量结构",
+      intro: "主量材料与小品类共同构成规模—复杂度并存的供给格局。",
       bars: [
         { label: "涤纶", value: 6477 }, { label: "再生纤维素", value: 548 }, { label: "锦纶", value: 472 },
         { label: "氨纶", value: 110 }, { label: "腈纶", value: 62.6 }, { label: "丙纶", value: 47 }, { label: "维纶", value: 8.5 },
@@ -58,16 +58,16 @@ const datasets: Record<string, Dataset> = {
     boundary: "企业年报披露的产品边界并非完全相同，企业图只做公开产量比较，不计算严格市场份额。",
     views: [
       {
-        id: "enterprise", label: "查看企业", title: "2025 年代表性涤纶龙头企业公开产量",
-        intro: "点击材料后继续进入企业层，比较同年度公开生产量。",
+        id: "enterprise", label: "企业对照", title: "2025 年代表性涤纶企业公开产量",
+        intro: "基于同年度企业公开披露，观察代表性生产主体的规模差异。",
         bars: [
           { label: "桐昆股份", value: 1326.68, note: "涤纶丝" }, { label: "恒逸石化", value: 867.97, note: "涤纶产品" },
           { label: "新凤鸣", value: 808.67, note: "涤纶长丝" }, { label: "东方盛虹", value: 287.52, note: "涤纶丝" },
         ],
       },
       {
-        id: "subtype", label: "看长短丝", title: "2025 年涤纶短纤与长丝结构",
-        intro: "长丝占涤纶总产量的 79.2%，是产业供给结构中的主要部分。",
+        id: "subtype", label: "长短丝结构", title: "2025 年涤纶短纤与长丝结构",
+        intro: "长丝占涤纶总产量的 79.2%，构成供给结构中的主体部分。",
         bars: [{ label: "涤纶长丝", value: 5129 }, { label: "涤纶短纤", value: 1348 }],
       },
     ],
@@ -84,8 +84,8 @@ const datasets: Record<string, Dataset> = {
     source: "中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
     boundary: "企业层仅列可检索到同口径锦纶长丝生产量的代表性上市公司。",
     views: [{
-      id: "enterprise", label: "查看企业", title: "2025 年代表性锦纶长丝企业公开产量",
-      intro: "企业数量少不是市场企业少，而是公开、可比口径的数据有限。",
+      id: "enterprise", label: "企业对照", title: "2025 年代表性锦纶长丝企业公开产量",
+      intro: "图示范围由公开、可比口径的数据可得性决定，不代表完整市场主体集合。",
       bars: [{ label: "华鼎股份", value: 30.11 }, { label: "台华新材", value: 21.53 }],
     }],
   },
@@ -101,8 +101,8 @@ const datasets: Record<string, Dataset> = {
     source: "中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
     boundary: "华峰按化学纤维口径披露；泰和值由纤维总量扣除芳纶量计算，仅作近似参考。",
     views: [{
-      id: "enterprise", label: "查看企业", title: "2025 年代表性氨纶企业公开产量",
-      intro: "图中保留年报披露口径差异，避免把近似数当成严格同口径排名。",
+      id: "enterprise", label: "企业对照", title: "2025 年代表性氨纶企业公开产量",
+      intro: "保留年报披露口径差异，近似值不纳入严格同口径市场排序。",
       bars: [
         { label: "华峰化学", value: 39.92, note: "化学纤维口径*" },
         { label: "新乡化纤", value: 20.15, note: "氨纶纤维" },
@@ -122,7 +122,7 @@ const datasets: Record<string, Dataset> = {
     source: "国家统计局年度棉花产量公告。",
     boundary: "棉花属于农业生产，页面呈现产区集中度，不套用化纤企业产量排名逻辑。",
     views: [{
-      id: "region", label: "看产区", title: "2025 年中国棉花产地集中度",
+      id: "region", label: "产区集中度", title: "2025 年中国棉花产地集中度",
       intro: "新疆产量 616.5 万吨，占全国 92.8%；其他地区为全国量减新疆量。",
       bars: [{ label: "新疆", value: 616.5, note: "92.8%" }, { label: "其他地区", value: 47.6, note: "7.2%" }],
     }],
@@ -139,8 +139,8 @@ const datasets: Record<string, Dataset> = {
     source: "《中国再生资源回收行业发展报告》系列及 2024 年行业公开数据。",
     boundary: "回收业务量不等于再生纤维产量，更不等于 T2T 闭环量；2023 年约 480 万吨为按 2024 年同比 7.3% 反推。",
     views: [{
-      id: "method", label: "看口径", title: "先区分“回收量”与“T2T 闭环量”",
-      intro: "515 万吨回答的是进入回收体系的规模，不能直接说明其中有多少重新成为纺织级纤维。",
+      id: "method", label: "口径辨析", title: "回收业务量、再生纤维量与 T2T 闭环量的边界",
+      intro: "515 万吨表征进入回收体系的业务规模，不能直接推导纺织级闭环产出。",
       kind: "method",
     }],
   },
@@ -241,11 +241,11 @@ function BarPanel({ view, color }: { view: SecondaryView; color: string }) {
   if (view.kind === "method") {
     return (
       <div className="method-grid">
-        <article><span>01</span><strong>回收业务量</strong><p>进入回收体系的旧纺织品规模。</p></article>
+        <article><span>01 · COLLECTION</span><strong>回收业务量</strong><p>进入回收体系的废旧纺织品规模。</p></article>
         <div className="method-arrow">≠</div>
-        <article><span>02</span><strong>再生纤维产量</strong><p>经过处理后形成的纤维产品规模。</p></article>
+        <article><span>02 · REGENERATION</span><strong>再生纤维产量</strong><p>经处理后形成的再生纤维产品规模。</p></article>
         <div className="method-arrow">≠</div>
-        <article><span>03</span><strong>T2T 闭环量</strong><p>重新用于纺织级产品的闭环规模。</p></article>
+        <article><span>03 · CLOSED LOOP</span><strong>T2T 闭环量</strong><p>重新进入纺织级产品体系的闭环规模。</p></article>
       </div>
     );
   }
@@ -285,8 +285,8 @@ export default function DataExplorer() {
   return (
     <section className="data-lab section-shell" id="data-lab">
       <div className="data-lab-heading">
-        <div><p className="eyebrow">02 · PAPER DATA EXPLORER</p><h2>把论文里的图，变成可以点击的数据</h2></div>
-        <p>先选材料，再选年份；查看趋势后，可继续切换企业、品类或产区。所有数值沿用原文口径。</p>
+        <div><p className="eyebrow">02 · MULTI-SCALE EVIDENCE EXPLORER</p><h2>跨尺度审视：从宏观供给到企业证据</h2></div>
+        <p>以材料为索引，将年度时序、品类结构、产区集中度与企业公开披露纳入同一分析界面；数值与口径均沿用论文证据链。</p>
       </div>
 
       <div className="dataset-tabs" role="tablist" aria-label="选择论文数据主题">
@@ -300,45 +300,45 @@ export default function DataExplorer() {
       <div className="data-stage">
         <aside className="data-controls">
           <div className="control-group">
-            <span className="control-label">VIEW · 查看方式</span>
-            <button className={viewId === "trend" ? "active" : ""} onClick={() => setViewId("trend")}><i>01</i><strong>产量趋势</strong><small>折线图</small></button>
+            <span className="control-label">ANALYTICAL VIEW · 分析视图</span>
+            <button className={viewId === "trend" ? "active" : ""} onClick={() => setViewId("trend")}><i>01</i><strong>产量时序</strong><small>TREND SERIES</small></button>
             {dataset.views.map((view, index) => (
-              <button key={view.id} className={viewId === view.id ? "active" : ""} onClick={() => setViewId(view.id)}><i>0{index + 2}</i><strong>{view.label}</strong><small>{view.id === "enterprise" ? "企业图" : "结构图"}</small></button>
+              <button key={view.id} className={viewId === view.id ? "active" : ""} onClick={() => setViewId(view.id)}><i>0{index + 2}</i><strong>{view.label}</strong><small>{view.id === "enterprise" ? "ENTERPRISE EVIDENCE" : "STRUCTURAL VIEW"}</small></button>
             ))}
           </div>
           {viewId === "trend" && <div className="control-group range-control">
-            <span className="control-label">RANGE · 年份</span>
+            <span className="control-label">OBSERVATION WINDOW · 观测区间</span>
             {ranges.map((range) => <button key={range.id} className={rangeId === range.id ? "active" : ""} onClick={() => setRangeId(range.id)}><strong>{range.label}</strong></button>)}
           </div>}
         </aside>
 
         <div className="data-visual">
           <div className="data-visual-head">
-            <div><span>{dataset.code} · {viewId === "trend" ? `${activeRange.from}—${activeRange.to}` : "2025"}</span><h3>{secondary?.title ?? `${dataset.label}产量趋势`}</h3><p>{secondary?.intro ?? `鼠标经过折线节点可查看${dataset.label}的年度公开数值。`}</p></div>
-            <div className="unit-badge">单位<br /><strong>万吨</strong></div>
+            <div><span>{dataset.code} · {viewId === "trend" ? `${activeRange.from}—${activeRange.to}` : "2025"}</span><h3>{secondary?.title ?? `${dataset.label}产量时序`}</h3><p>{secondary?.intro ?? `年度公开统计构成连续观测序列；节点对应${dataset.label}的原文记录值。`}</p></div>
+            <div className="unit-badge">UNIT<br /><strong>万吨</strong></div>
           </div>
           {viewId === "trend" ? (
             <>
               <TrendCanvas data={visibleTrend} color={dataset.color} label={dataset.label} />
               <div className="trend-summary">
-                <div><span>起点</span><strong>{formatNumber(visibleTrend[0].value)}</strong><small>{visibleTrend[0].year}</small></div>
-                <div><span>终点</span><strong>{formatNumber(visibleTrend.at(-1)!.value)}</strong><small>{visibleTrend.at(-1)!.year}</small></div>
-                <div><span>区间变化</span><strong>{change >= 0 ? "+" : ""}{change.toFixed(1)}%</strong><small>本文计算</small></div>
+                <div><span>BASE YEAR</span><strong>{formatNumber(visibleTrend[0].value)}</strong><small>{visibleTrend[0].year}</small></div>
+                <div><span>END YEAR</span><strong>{formatNumber(visibleTrend.at(-1)!.value)}</strong><small>{visibleTrend.at(-1)!.year}</small></div>
+                <div><span>INTERVAL CHANGE</span><strong>{change >= 0 ? "+" : ""}{change.toFixed(1)}%</strong><small>本文计算</small></div>
               </div>
             </>
           ) : secondary ? <BarPanel view={secondary} color={dataset.color} /> : null}
         </div>
 
         <aside className="data-evidence">
-          <p>DATA NOTE</p>
-          <h3>证据与口径</h3>
+          <p>EVIDENCE NOTE</p>
+          <h3>来源与证据边界</h3>
           <div><span>来源</span><p>{dataset.source}</p></div>
           <div><span>边界提示</span><p>{dataset.boundary}</p></div>
-          <div className="evidence-chip"><i /><strong>原文数据 · 可追溯</strong></div>
+          <div className="evidence-chip"><i /><strong>TRACEABLE TO SOURCE EVIDENCE</strong></div>
         </aside>
       </div>
 
-      <div className="data-footnote"><span>使用提示</span><p>涤纶、锦纶、氨纶的连续可核验序列从 2020 年开始；2018–2022 的完整序列属于废旧纺织品回收量。页面不对缺失年份进行插值或补造。</p></div>
+      <div className="data-footnote"><span>EVIDENCE SCOPE · 证据范围</span><p>涤纶、锦纶与氨纶的连续可核验序列始于 2020 年；2018—2022 的完整序列对应废旧纺织品回收业务量。缺失年份不插值，未公开数据不外推。</p></div>
     </section>
   );
 }

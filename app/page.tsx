@@ -100,29 +100,29 @@ export default function Home() {
       <header className="topbar">
         <a className="brand" href="#top" aria-label="返回首页">
           <span className="brand-mark">T2T</span>
-          <span>纺织循环数据观察</span>
+          <span>中国纺织循环研究图谱</span>
         </a>
         <nav aria-label="页面导航">
-          <a href="#overview">供给概览</a>
-          <a href="#data-lab">论文数据</a>
-          <a href="#pathways">循环路径</a>
-          <a href="#technology">技术比较</a>
-          <a href="#roadmap">推进路线</a>
-          <span className="status-dot">研究型原型</span>
+          <a href="#overview">物质供给</a>
+          <a href="#data-lab">数据图谱</a>
+          <a href="#pathways">材料路径</a>
+          <a href="#technology">技术证据</a>
+          <a href="#roadmap">演进框架</a>
+          <span className="status-dot">EVIDENCE ATLAS</span>
         </nav>
       </header>
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">CHINA TEXTILE-TO-TEXTILE · 2025</p>
-          <h1>从纤维供给，<br />看见下一次循环。</h1>
+          <p className="eyebrow">CHINA TEXTILE-TO-TEXTILE CIRCULARITY · RESEARCH ATLAS</p>
+          <h1>纤维流动与<br />闭环再生图谱</h1>
           <p className="hero-intro">
-            将论文中的材料供给、废纺回收与技术成熟度组织成一个可交互的决策界面，
-            帮助读者从“有多少”进一步理解“流向哪里、如何再生”。
+            以材料供给为底图，以回收—分选—再生为主轴，汇集论文中的可核验数据与项目证据，
+            描绘中国纺织品—纺织品循环的规模基础、技术边界与产业演进路径。
           </p>
           <div className="hero-actions">
-            <a className="primary-btn" href="#data-lab">打开论文数据 <span>↘</span></a>
-            <p>数据口径：论文文稿与公开资料整理</p>
+            <a className="primary-btn" href="#data-lab">进入研究图谱 <span>↘</span></a>
+            <p>EVIDENCE BASE · 2018—2025</p>
           </div>
         </div>
         <div className="hero-visual" aria-label="7793万吨化纤产量数据图形">
@@ -131,8 +131,8 @@ export default function Home() {
             <strong>7,793</strong>
             <span>万吨 · 2025</span>
           </div>
-          <div className="orb orb-small orb-a"><strong>83%</strong><span>涤纶占化纤</span></div>
-          <div className="orb orb-small orb-b"><strong>515</strong><span>万吨废纺回收</span></div>
+          <div className="orb orb-small orb-a"><strong>83.1%</strong><span>PET / 化纤比重</span></div>
+          <div className="orb orb-small orb-b"><strong>515</strong><span>万吨 · 回收业务量</span></div>
           <div className="orbit-line orbit-one" />
           <div className="orbit-line orbit-two" />
         </div>
@@ -141,38 +141,38 @@ export default function Home() {
       <section className="overview section-shell" id="overview">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 · MATERIAL SUPPLY</p>
-            <h2>供给规模，决定循环的起点</h2>
+            <p className="eyebrow">01 · MATERIAL SUPPLY BOUNDARY</p>
+            <h2>材料供给构成闭环再生的规模边界</h2>
           </div>
-          <p>同一单位呈现核心规模；比例为页面依据文稿数值计算后的辅助读数。</p>
+          <p>以年度公开统计刻画物质基础，并将总量、结构与回收规模置于同一证据框架中审视。</p>
         </div>
         <div className="metric-grid">
           <article className="metric-card metric-dark">
-            <p>主要化学纤维产量</p>
+            <p>主要化纤生产规模</p>
             <div><strong>7,793</strong><span>万吨</span></div>
-            <small>2025 · 总体规模</small>
+            <small>2025 · NATIONAL OUTPUT</small>
           </article>
           <article className="metric-card metric-teal">
-            <p>涤纶产量</p>
+            <p>PET / 涤纶生产规模</p>
             <div><strong>6,477</strong><span>万吨</span></div>
-            <small>主量材料 · 优先闭环</small>
+            <small>DOMINANT MATERIAL · 83.1%</small>
           </article>
           <article className="metric-card metric-sand">
-            <p>棉花产量</p>
+            <p>棉花生产规模</p>
             <div><strong>664.1</strong><span>万吨</span></div>
-            <small>天然纤维 · 双路径再生</small>
+            <small>2025 · NATURAL FIBER</small>
           </article>
           <article className="metric-card metric-paper">
-            <p>废旧纺织品回收量</p>
+            <p>废纺回收业务量</p>
             <div><strong>≈515</strong><span>万吨</span></div>
-            <small>回收端 · 待提升高值利用</small>
+            <small>2024 · RECOVERY VOLUME</small>
           </article>
         </div>
         <div className="supply-structure">
           <div className="structure-copy">
-            <p className="eyebrow">COMPOSITION LENS</p>
-            <h3>涤纶定义主量，其他材料定义复杂度</h3>
-            <p>以文稿中的 2025 年数据为口径，涤纶约占主要化学纤维产量的 83.1%。这意味着 PET 是规模化闭环的首要入口；锦纶、氨纶与多组分混纺则决定分选和工艺复杂度。</p>
+            <p className="eyebrow">MATERIAL DOMINANCE & COMPLEXITY</p>
+            <h3>PET 决定规模上限，多组分材料界定技术边界</h3>
+            <p>2025 年涤纶约占主要化学纤维产量的 83.1%，构成规模化闭环的首要物质基础；锦纶、氨纶及多组分混纺占比虽低，却显著抬升识别、分离与产品纯化的系统复杂度。</p>
           </div>
           <div className="composition-chart" aria-label="涤纶占主要化学纤维产量83.1%">
             <div className="composition-bar">
@@ -191,8 +191,8 @@ export default function Home() {
 
       <section className="pathways section-shell" id="pathways">
         <div className="pathway-title">
-          <p className="eyebrow">03 · CIRCULAR PATHWAYS</p>
-          <h2>点击材料，追踪从废纺到新纤维的路径</h2>
+          <div><p className="eyebrow">03 · MATERIAL-SPECIFIC PATHWAYS</p><span className="section-folio">ROUTE MAPPING</span></div>
+          <div><h2>材料差异，塑造不同的纤维级闭环路径</h2><p className="section-deck">从进料识别、预处理到再聚合或再纺丝，每条路线的可行性均由材料组成与杂质边界共同决定。</p></div>
         </div>
         <div className="pathway-panel">
           <div className="material-tabs" role="tablist" aria-label="选择材料类型">
@@ -211,20 +211,20 @@ export default function Home() {
           </div>
           <div className={`flow-canvas tone-${material.tone}`}>
             <div className="flow-stage">
-              <span>01</span><strong>消费后纺织品</strong><small>居民旧衣 · 产业废料</small>
+              <span>01</span><strong>废纺进料体系</strong><small>POST-CONSUMER · PRE-CONSUMER</small>
             </div>
             <div className="flow-link"><i /><i /><i /></div>
             <div className="flow-stage focus">
-              <span>02</span><strong>{material.label}</strong><small>识别 · 分选 · 标准化</small>
+              <span>02</span><strong>{material.label}</strong><small>识别 · 组分分选 · 进料标准化</small>
             </div>
             <div className="flow-link"><i /><i /><i /></div>
             <div className="flow-stage">
-              <span>03</span><strong>纤维级再生</strong><small>重返纺织供应链</small>
+              <span>03</span><strong>纤维级再生输出</strong><small>RE-ENTRY INTO TEXTILE VALUE CHAIN</small>
             </div>
           </div>
           <div className="pathway-note" aria-live="polite">
-            <div><span>主路径</span><strong>{material.route}</strong></div>
-            <div><span>证据成熟度</span><strong>{material.maturity}</strong></div>
+            <div><span>路径机制</span><strong>{material.route}</strong></div>
+            <div><span>公开证据等级</span><strong>{material.maturity}</strong></div>
             <p>{material.insight}</p>
           </div>
         </div>
@@ -234,12 +234,13 @@ export default function Home() {
         <div className="section-shell">
           <div className="technology-heading">
             <div>
-              <p className="eyebrow">04 · TECHNOLOGY LANDSCAPE</p>
-              <h2>没有一条路线解决所有原料</h2>
+              <p className="eyebrow">04 · EVIDENCE-BASED TECHNOLOGY LANDSCAPE</p>
+              <h2>技术选择的本质，是原料约束下的路径匹配</h2>
+              <p className="section-deck inverted">以成熟度、原料适应性、产品品质潜力、规模化潜力与分选依赖度构成多维证据坐标。</p>
             </div>
             <div className="view-toggle" aria-label="切换技术路线图表">
-              <button className={matrixView === "heat" ? "active" : ""} onClick={() => setMatrixView("heat")}>属性热力图</button>
-              <button className={matrixView === "bubble" ? "active" : ""} onClick={() => setMatrixView("bubble")}>成熟度气泡图</button>
+              <button className={matrixView === "heat" ? "active" : ""} onClick={() => setMatrixView("heat")}>多维属性矩阵</button>
+              <button className={matrixView === "bubble" ? "active" : ""} onClick={() => setMatrixView("bubble")}>成熟度—复杂度图谱</button>
             </div>
           </div>
 
@@ -300,14 +301,14 @@ export default function Home() {
             </div>
 
             <aside className="tech-insight" aria-live="polite">
-              <p>当前选择</p>
+              <p>SELECTED EVIDENCE PATHWAY</p>
               <h3>{technology.name}</h3>
-              <div><span>证据成熟度</span><strong>{technology.evidence}</strong></div>
+              <div><span>公开证据等级</span><strong>{technology.evidence}</strong></div>
               <p>{technology.focus}</p>
               <ul className="case-list">
                 {technology.cases.map((item) => <li key={item}>{item}</li>)}
               </ul>
-              <small>图中 1–5 为基于论文证据的定性综合表达，不代表统一量纲的实测值。</small>
+              <small>矩阵中的 1–5 为基于论文证据的定性综合指数，用于路线间相对比较，不代表统一量纲下的实测值。</small>
             </aside>
           </div>
         </div>
@@ -315,43 +316,43 @@ export default function Home() {
 
       <section className="roadmap section-shell" id="roadmap">
         <div className="roadmap-heading">
-          <p className="eyebrow">05 · ROADMAP 2026—2030</p>
-          <h2>先建立稳定闭环，再突破复杂混纺</h2>
-          <p>路线图以“原料可控—单材规模化—混纺突破”为推进逻辑，强调每一阶段都应形成可验证的数据和产品证据。</p>
+          <p className="eyebrow">05 · INDUSTRIAL TRANSITION 2026—2030</p>
+          <h2>从可控原料出发，建立可验证、可复制的闭环能力</h2>
+          <p>演进框架遵循“证据底座—单材放大—复杂原料突破”的序列，使技术扩张与原料质量、产品性能和商业运行证据保持同步。</p>
         </div>
         <div className="timeline">
           <article>
             <div className="year">2026</div>
             <span className="phase-dot" />
-            <p>近期 · 建立底座</p>
-            <h3>分选标准化与重点场景闭环</h3>
-            <ul><li>统一分类与品质分级</li><li>锁定产业废料和制服等稳定来源</li><li>建立批次追溯与验证体系</li></ul>
+            <p>阶段 I · 证据底座</p>
+            <h3>分选标准化与可控场景闭环</h3>
+            <ul><li>建立材料分类与进料品质分级</li><li>锁定产业废料、制服等稳定来源</li><li>形成批次追溯与质量验证体系</li></ul>
           </article>
           <article>
             <div className="year">2027–28</div>
             <span className="phase-dot" />
-            <p>中期 · 规模复制</p>
-            <h3>PET、PA6 与纤维素路线扩容</h3>
-            <ul><li>提升连续化与稳定进料能力</li><li>打通品牌—回收—再生产销链</li><li>以产品性能和经济性校准扩产</li></ul>
+            <p>阶段 II · 系统放大</p>
+            <h3>PET、PA6 与纤维素路径规模化</h3>
+            <ul><li>提升连续运行与稳定进料能力</li><li>耦合品牌、回收与再生制造网络</li><li>以产品性能与经济性校准扩张</li></ul>
           </article>
           <article>
             <div className="year">2029–30</div>
             <span className="phase-dot" />
-            <p>远期 · 系统突破</p>
-            <h3>复杂混纺分离与跨区域协同</h3>
-            <ul><li>推进材料设计与回收端协同</li><li>形成多路线组合的区域能力</li><li>把示范项目转化为可复制标准</li></ul>
+            <p>阶段 III · 复杂原料突破</p>
+            <h3>混纺分离与跨区域系统协同</h3>
+            <ul><li>推动材料设计与回收端前置协同</li><li>构建多技术路线耦合的区域能力</li><li>将示范证据转化为可复制标准</li></ul>
           </article>
         </div>
         <div className="priority-strip">
-          <div><span>优先级 01</span><strong>分选与标准化进料</strong><small>高紧迫度 · 高基础性</small></div>
-          <div><span>优先级 02</span><strong>PET 闭环规模化</strong><small>高成熟度 · 高潜在规模</small></div>
-          <div><span>优先级 03</span><strong>混纺定向示范</strong><small>高战略价值 · 长周期</small></div>
+          <div><span>STRATEGIC PRIORITY 01</span><strong>分选与标准化进料</strong><small>高紧迫度 · 基础能力</small></div>
+          <div><span>STRATEGIC PRIORITY 02</span><strong>PET 闭环规模化</strong><small>较高成熟度 · 高潜在规模</small></div>
+          <div><span>STRATEGIC PRIORITY 03</span><strong>复杂混纺定向示范</strong><small>高战略价值 · 长周期验证</small></div>
         </div>
       </section>
 
       <footer>
-        <div><span className="brand-mark">T2T</span><strong>中国纺织循环数据观察</strong></div>
-        <p>研究型交互原型 · 数据来自论文文稿与公开资料整理 · 更新时间 2026</p>
+        <div><span className="brand-mark">T2T</span><strong>中国纺织循环研究图谱</strong></div>
+        <p>EVIDENCE-BASED INTERACTIVE ATLAS · 论文数据与公开证据整理 · 2026</p>
         <a href="#top">返回顶部 ↑</a>
       </footer>
     </main>
