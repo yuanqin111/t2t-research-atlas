@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import DataExplorer from "./components/DataExplorer";
 
 const materials = {
   PET: {
@@ -36,6 +37,16 @@ const technologyRoutes = [
     evidence: "E3",
     values: [5, 3, 5, 5, 4],
     focus: "稳定进料、脱色除杂与连续化装置协同，是从示范走向规模复制的关键。",
+    cases: ["浙江佳人现有线 · E3", "浙江佳人扩建一期 · E2", "恒逸聚酯回收研发 · E1"],
+  },
+  {
+    id: "pet-enzyme",
+    name: "PET 酶法回收",
+    short: "PET-E",
+    evidence: "E1–E2",
+    values: [2, 3, 4, 3, 5],
+    focus: "技术潜力突出，但现有公开证据仍以百吨级运行线和万吨级在建项目为主。",
+    cases: ["源天生物现有线 · E1", "天津源天项目 · E2", "江苏佩浦万吨线 · E2"],
   },
   {
     id: "pa6-depoly",
@@ -44,6 +55,7 @@ const technologyRoutes = [
     evidence: "E2–E3",
     values: [4, 2, 5, 3, 4],
     focus: "优先切入来源稳定的单一材质场景，再逐步扩大消费后原料占比。",
+    cases: ["恒申/恒欣 7000 吨项目 · E2", "台华嘉华再生锦纶 · E3", "消费后锦氨分离 · E1"],
   },
   {
     id: "cotton-mech",
@@ -52,6 +64,7 @@ const technologyRoutes = [
     evidence: "E3–E4",
     values: [5, 3, 2, 4, 2],
     focus: "成熟度高、导入快，但需要通过混配和纺纱优化缓解纤维长度损失。",
+    cases: ["苍南再生棉产业集群 · E3", "唐山三友循环再生纤维 · E3"],
   },
   {
     id: "cellulose",
@@ -60,6 +73,7 @@ const technologyRoutes = [
     evidence: "E2–E3",
     values: [3, 3, 5, 4, 3],
     focus: "高值化潜力突出，前处理纯化与溶剂体系决定产品稳定性和经济性。",
+    cases: ["赛得利 FINEX · E3", "山东银鹰再生浆粕 · E2"],
   },
   {
     id: "blend",
@@ -68,6 +82,7 @@ const technologyRoutes = [
     evidence: "E1–E2",
     values: [2, 5, 4, 4, 5],
     focus: "长期价值最高、系统难度最大，应以可追溯原料和定向示范项目积累证据。",
+    cases: ["Amino 涤棉/涤氨 · E2", "同济棉涤示范 · E2", "源天混纺酶法 · E1"],
   },
 ] as const;
 
@@ -89,6 +104,7 @@ export default function Home() {
         </a>
         <nav aria-label="页面导航">
           <a href="#overview">供给概览</a>
+          <a href="#data-lab">论文数据</a>
           <a href="#pathways">循环路径</a>
           <a href="#technology">技术比较</a>
           <a href="#roadmap">推进路线</a>
@@ -105,7 +121,7 @@ export default function Home() {
             帮助读者从“有多少”进一步理解“流向哪里、如何再生”。
           </p>
           <div className="hero-actions">
-            <a className="primary-btn" href="#overview">进入数据概览 <span>↘</span></a>
+            <a className="primary-btn" href="#data-lab">打开论文数据 <span>↘</span></a>
             <p>数据口径：论文文稿与公开资料整理</p>
           </div>
         </div>
@@ -171,9 +187,11 @@ export default function Home() {
         </div>
       </section>
 
+      <DataExplorer />
+
       <section className="pathways section-shell" id="pathways">
         <div className="pathway-title">
-          <p className="eyebrow">02 · CIRCULAR PATHWAYS</p>
+          <p className="eyebrow">03 · CIRCULAR PATHWAYS</p>
           <h2>点击材料，追踪从废纺到新纤维的路径</h2>
         </div>
         <div className="pathway-panel">
@@ -216,7 +234,7 @@ export default function Home() {
         <div className="section-shell">
           <div className="technology-heading">
             <div>
-              <p className="eyebrow">03 · TECHNOLOGY LANDSCAPE</p>
+              <p className="eyebrow">04 · TECHNOLOGY LANDSCAPE</p>
               <h2>没有一条路线解决所有原料</h2>
             </div>
             <div className="view-toggle" aria-label="切换技术路线图表">
@@ -286,6 +304,9 @@ export default function Home() {
               <h3>{technology.name}</h3>
               <div><span>证据成熟度</span><strong>{technology.evidence}</strong></div>
               <p>{technology.focus}</p>
+              <ul className="case-list">
+                {technology.cases.map((item) => <li key={item}>{item}</li>)}
+              </ul>
               <small>图中 1–5 为基于论文证据的定性综合表达，不代表统一量纲的实测值。</small>
             </aside>
           </div>
@@ -294,7 +315,7 @@ export default function Home() {
 
       <section className="roadmap section-shell" id="roadmap">
         <div className="roadmap-heading">
-          <p className="eyebrow">04 · ROADMAP 2026—2030</p>
+          <p className="eyebrow">05 · ROADMAP 2026—2030</p>
           <h2>先建立稳定闭环，再突破复杂混纺</h2>
           <p>路线图以“原料可控—单材规模化—混纺突破”为推进逻辑，强调每一阶段都应形成可验证的数据和产品证据。</p>
         </div>
