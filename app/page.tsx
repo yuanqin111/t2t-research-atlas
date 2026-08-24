@@ -2,25 +2,27 @@
 
 import { useState } from "react";
 import DataExplorer from "./components/DataExplorer";
+import EvidenceTables from "./components/EvidenceTables";
+import PaperFigureAtlas from "./components/PaperFigureAtlas";
 
 const materials = {
   PET: {
     label: "PET / 涤纶",
-    maturity: "E3",
+    maturity: "T4",
     route: "精细分选 → 预处理 → 解聚/再聚合",
     insight: "规模基础最强，近期产业化重点在稳定进料与杂质控制。",
     tone: "teal",
   },
   PA6: {
     label: "PA6 / 锦纶",
-    maturity: "E2–E3",
+    maturity: "T3–T5",
     route: "识别分选 → 脱色除杂 → 解聚回收",
     insight: "单一材质闭环路径清晰，混纺与染整残留仍抬高工艺门槛。",
     tone: "orange",
   },
   COTTON: {
     label: "棉 / 纤维素",
-    maturity: "E2–E3",
+    maturity: "T3–T4",
     route: "机械开松 / 溶解再生 → 纺丝",
     insight: "机械法成熟但品质衰减；纤维素法更适合高值化闭环。",
     tone: "blue",
@@ -34,59 +36,59 @@ const technologyRoutes = [
     id: "pet-chem",
     name: "PET 化学解聚",
     short: "PET-C",
-    evidence: "E3",
-    values: [5, 3, 5, 5, 4],
+    evidence: "T4",
+    values: [3, 2, 1, 3, 3, 3],
     focus: "稳定进料、脱色除杂与连续化装置协同，是从示范走向规模复制的关键。",
-    cases: ["浙江佳人现有线 · E3", "浙江佳人扩建一期 · E2", "恒逸聚酯回收研发 · E1"],
+    cases: ["浙江佳人 · T4", "JEPLAN · T4", "Ambercycle · T3", "Reju · T3", "Syre · T3", "恒逸研发 · T2"],
   },
   {
     id: "pet-enzyme",
     name: "PET 酶法回收",
     short: "PET-E",
-    evidence: "E1–E2",
-    values: [2, 3, 4, 3, 5],
+    evidence: "T2–T3",
+    values: [3, 2, 2, 2, 3, 3],
     focus: "技术潜力突出，但现有公开证据仍以百吨级运行线和万吨级在建项目为主。",
-    cases: ["源天生物现有线 · E1", "天津源天项目 · E2", "江苏佩浦万吨线 · E2"],
+    cases: ["Carbios · T3", "Samsara Eco · T3", "Protein Evolution · T2", "源天生物 · T2", "江苏佩浦 · T2"],
   },
   {
     id: "pa6-depoly",
     name: "PA6 解聚回收",
     short: "PA6",
-    evidence: "E2–E3",
-    values: [4, 2, 5, 3, 4],
+    evidence: "T3–T5",
+    values: [3, 2, 1, 2, 3, 3],
     focus: "优先切入来源稳定的单一材质场景，再逐步扩大消费后原料占比。",
-    cases: ["恒申/恒欣 7000 吨项目 · E2", "台华嘉华再生锦纶 · E3", "消费后锦氨分离 · E1"],
+    cases: ["Aquafil ECONYL · T5", "BASF loopamid · T4", "台华化学回收尼龙 · T4", "Toray Nylon 6 · T4", "恒申 7000 吨项目 · T3"],
   },
   {
     id: "cotton-mech",
     name: "废棉机械再生",
     short: "C-M",
-    evidence: "E3–E4",
-    values: [5, 3, 2, 4, 2],
+    evidence: "T3–T4",
+    values: [2, 1, 1, 3, 2, 2],
     focus: "成熟度高、导入快，但需要通过混配和纺纱优化缓解纤维长度损失。",
-    cases: ["苍南再生棉产业集群 · E3", "唐山三友循环再生纤维 · E3"],
+    cases: ["苍南再生棉产业集群 · T4", "科力嘉再生棉系列 · T3"],
   },
   {
     id: "cellulose",
     name: "纤维素溶解再生",
     short: "CEL",
-    evidence: "E2–E3",
-    values: [3, 3, 5, 4, 3],
+    evidence: "T3–T4",
+    values: [3, 3, 1, 2, 2, 3],
     focus: "高值化潜力突出，前处理纯化与溶剂体系决定产品稳定性和经济性。",
-    cases: ["赛得利 FINEX · E3", "山东银鹰再生浆粕 · E2"],
+    cases: ["赛得利 FINEX · T4", "唐山三友 · T4", "Circulose · T4", "Infinited Fiber · T3"],
   },
   {
     id: "blend",
     name: "混纺分离与再生",
     short: "BLD",
-    evidence: "E1–E2",
-    values: [2, 5, 4, 4, 5],
+    evidence: "T3–T4",
+    values: [3, 3, 3, 1, 3, 3],
     focus: "长期价值最高、系统难度最大，应以可追溯原料和定向示范项目积累证据。",
-    cases: ["Amino 涤棉/涤氨 · E2", "同济棉涤示范 · E2", "源天混纺酶法 · E1"],
+    cases: ["Circ 涤棉双组分 · T4", "PurFi d’Lastane · T4", "HKRITA Green Machine · T3", "Worn Again · T3", "Amino · T3", "同济棉涤示范 · T3"],
   },
 ] as const;
 
-const matrixLabels = ["技术成熟度", "原料适应性", "产品品质潜力", "规模化潜力", "分选依赖度"];
+const matrixLabels = ["原料纯度要求", "预处理强度", "混纺适应性", "商业成熟度", "产品价值潜力", "闭环潜力"];
 
 export default function Home() {
   const [active, setActive] = useState<MaterialKey>("PET");
@@ -103,27 +105,28 @@ export default function Home() {
           <span>中国纺织循环研究图谱</span>
         </a>
         <nav aria-label="页面导航">
-          <a href="#overview">物质供给</a>
           <a href="#data-lab">数据图谱</a>
-          <a href="#pathways">材料路径</a>
-          <a href="#technology">技术证据</a>
+          <a href="#evidence-tables">证据表</a>
+          <a href="#figure-atlas">全图集</a>
+          <a href="#technology">技术图谱</a>
           <a href="#roadmap">演进框架</a>
-          <span className="status-dot">EVIDENCE ATLAS</span>
+          <span className="status-dot">V3 · AUG 2026</span>
         </nav>
       </header>
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">CHINA TEXTILE-TO-TEXTILE CIRCULARITY · RESEARCH ATLAS</p>
+          <p className="eyebrow">CHINA TEXTILE-TO-TEXTILE CIRCULARITY · COMPLETE RESEARCH ATLAS</p>
           <h1>纤维流动与<br />闭环再生图谱</h1>
           <p className="hero-intro">
             以材料供给为底图，以回收—分选—再生为主轴，汇集论文中的可核验数据与项目证据，
-            描绘中国纺织品—纺织品循环的规模基础、技术边界与产业演进路径。
+            描绘中国纺织品—纺织品循环的规模基础、技术边界与产业演进路径。当前版本完整映射投稿优化稿 V3。
           </p>
           <div className="hero-actions">
             <a className="primary-btn" href="#data-lab">进入研究图谱 <span>↘</span></a>
-            <p>EVIDENCE BASE · 2018—2025</p>
+            <p>EVIDENCE BASE · 2013—2026</p>
           </div>
+          <div className="hero-corpus"><span><strong>32</strong> FIGURES</span><span><strong>04</strong> TABLES</span><span><strong>94</strong> REFERENCES</span></div>
         </div>
         <div className="hero-visual" aria-label="7793万吨化纤产量数据图形">
           <div className="orb orb-main">
@@ -189,9 +192,13 @@ export default function Home() {
 
       <DataExplorer />
 
+      <EvidenceTables />
+
+      <PaperFigureAtlas />
+
       <section className="pathways section-shell" id="pathways">
         <div className="pathway-title">
-          <div><p className="eyebrow">03 · MATERIAL-SPECIFIC PATHWAYS</p><span className="section-folio">ROUTE MAPPING</span></div>
+          <div><p className="eyebrow">05 · MATERIAL-SPECIFIC PATHWAYS</p><span className="section-folio">ROUTE MAPPING</span></div>
           <div><h2>材料差异，塑造不同的纤维级闭环路径</h2><p className="section-deck">从进料识别、预处理到再聚合或再纺丝，每条路线的可行性均由材料组成与杂质边界共同决定。</p></div>
         </div>
         <div className="pathway-panel">
@@ -234,7 +241,7 @@ export default function Home() {
         <div className="section-shell">
           <div className="technology-heading">
             <div>
-              <p className="eyebrow">04 · EVIDENCE-BASED TECHNOLOGY LANDSCAPE</p>
+              <p className="eyebrow">06 · EVIDENCE-BASED TECHNOLOGY LANDSCAPE</p>
               <h2>技术选择的本质，是原料约束下的路径匹配</h2>
               <p className="section-deck inverted">以成熟度、原料适应性、产品品质潜力、规模化潜力与分选依赖度构成多维证据坐标。</p>
             </div>
@@ -278,7 +285,7 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                  <div className="heat-legend"><span>定性指数</span><i className="score-1" /><i className="score-2" /><i className="score-3" /><i className="score-4" /><i className="score-5" /><span>低 → 高</span></div>
+                  <div className="heat-legend"><span>相对等级</span><i className="score-1" /><i className="score-2" /><i className="score-3" /><span>低 → 高</span></div>
                 </div>
               ) : (
                 <div className="bubble-chart" role="img" aria-label="技术成熟度、原料复杂度与潜在规模气泡图">
@@ -308,7 +315,7 @@ export default function Home() {
               <ul className="case-list">
                 {technology.cases.map((item) => <li key={item}>{item}</li>)}
               </ul>
-              <small>矩阵中的 1–5 为基于论文证据的定性综合指数，用于路线间相对比较，不代表统一量纲下的实测值。</small>
+              <small>矩阵中的低—中—高为基于论文证据的定性归纳，用于路线间相对比较，不代表统一量纲下的实测值。</small>
             </aside>
           </div>
         </div>
@@ -316,37 +323,37 @@ export default function Home() {
 
       <section className="roadmap section-shell" id="roadmap">
         <div className="roadmap-heading">
-          <p className="eyebrow">05 · INDUSTRIAL TRANSITION 2026—2030</p>
+          <p className="eyebrow">07 · INDUSTRIAL TRANSITION 2026—2030</p>
           <h2>从可控原料出发，建立可验证、可复制的闭环能力</h2>
           <p>演进框架遵循“证据底座—单材放大—复杂原料突破”的序列，使技术扩张与原料质量、产品性能和商业运行证据保持同步。</p>
         </div>
         <div className="timeline">
           <article>
-            <div className="year">2026</div>
+            <div className="year">2026–27</div>
             <span className="phase-dot" />
-            <p>阶段 I · 证据底座</p>
-            <h3>分选标准化与可控场景闭环</h3>
-            <ul><li>建立材料分类与进料品质分级</li><li>锁定产业废料、制服等稳定来源</li><li>形成批次追溯与质量验证体系</li></ul>
+            <p>近期 · 基础能力</p>
+            <h3>追溯、智能分选与 PET 闭环扩产</h3>
+            <ul><li>完善回收来源与批次追溯</li><li>扩大成分识别和智能分选</li><li>同步建立数据、认证与 PET 进料规范</li></ul>
           </article>
           <article>
-            <div className="year">2027–28</div>
+            <div className="year">2028–29</div>
             <span className="phase-dot" />
-            <p>阶段 II · 系统放大</p>
-            <h3>PET、PA6 与纤维素路径规模化</h3>
-            <ul><li>提升连续运行与稳定进料能力</li><li>耦合品牌、回收与再生制造网络</li><li>以产品性能与经济性校准扩张</li></ul>
+            <p>中期 · 工程放大</p>
+            <h3>混纺、PA6 与酶法的连续运行验证</h3>
+            <ul><li>建设混纺选择性分离示范</li><li>推进 PA6 闭环规模化</li><li>验证酶法稳定性与质量平衡</li></ul>
           </article>
           <article>
-            <div className="year">2029–30</div>
+            <div className="year">2030</div>
             <span className="phase-dot" />
-            <p>阶段 III · 复杂原料突破</p>
-            <h3>混纺分离与跨区域系统协同</h3>
-            <ul><li>推动材料设计与回收端前置协同</li><li>构建多技术路线耦合的区域能力</li><li>将示范证据转化为可复制标准</li></ul>
+            <p>远期 · 系统协同</p>
+            <h3>全国网络、统一认证与长期承购</h3>
+            <ul><li>形成跨区域回收—分选—再生网络</li><li>统一再生含量与质量认证标准</li><li>提高具有真实去向的 T2T 份额</li></ul>
           </article>
         </div>
         <div className="priority-strip">
-          <div><span>STRATEGIC PRIORITY 01</span><strong>分选与标准化进料</strong><small>高紧迫度 · 基础能力</small></div>
-          <div><span>STRATEGIC PRIORITY 02</span><strong>PET 闭环规模化</strong><small>较高成熟度 · 高潜在规模</small></div>
-          <div><span>STRATEGIC PRIORITY 03</span><strong>复杂混纺定向示范</strong><small>高战略价值 · 长周期验证</small></div>
+          <div><span>STRATEGIC PRIORITY 01</span><strong>建立回收追溯体系</strong><small>高影响 · 较低实施难度</small></div>
+          <div><span>STRATEGIC PRIORITY 02</span><strong>标准化高纯 PET 进料</strong><small>高影响 · 可形成近期成果</small></div>
+          <div><span>STRATEGIC PRIORITY 03</span><strong>基础认证与信息公开</strong><small>制度底座 · 支撑长期扩张</small></div>
         </div>
       </section>
 

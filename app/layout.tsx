@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol = headerList.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const imageUrl = `${protocol}://${host}/og.png`;
   const title = "中国 T2T 纺织循环研究图谱";
-  const description = "基于论文可核验数据与项目证据，呈现材料供给、纤维级闭环路径、技术边界与产业演进框架。";
+  const description = "完整映射投稿优化稿 V3：32 张论文图件、4 张核心数据表与 T1—T5 项目成熟度证据，呈现材料供给、循环路径和产业演进。";
 
   return {
     title,
