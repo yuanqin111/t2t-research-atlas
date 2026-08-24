@@ -186,7 +186,7 @@ export default function PaperFigureAtlas() {
                         <div className={`narrative-figures count-${Math.min(groupFigures.length, 5)}`}>
                           {groupFigures.map((figure) => (
                             <button className="figure-card" key={figure.id} onClick={() => setSelected(figure)} aria-label={`查看高清图：${figure.caption}`}>
-                              <div className="figure-image"><img src={figure.src} alt={figure.caption} loading="lazy" decoding="async" /></div>
+                              <div className="figure-image"><img src={figure.src.replace(/^\//, "")} alt={figure.caption} loading="lazy" decoding="async" /></div>
                               <div className="figure-meta"><span>{figure.number}</span><strong>{figure.caption}</strong><i>↗</i></div>
                             </button>
                           ))}
@@ -209,7 +209,7 @@ export default function PaperFigureAtlas() {
           <button className="lightbox-close" onClick={() => setSelected(null)} aria-label="关闭大图">×</button>
           <div className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
             <div className="lightbox-title"><span>{selected.number}</span><h3>{selected.caption}</h3></div>
-            <img src={selected.src} alt={selected.caption} />
+            <img src={selected.src.replace(/^\//, "")} alt={selected.caption} />
           </div>
         </div>
       )}
