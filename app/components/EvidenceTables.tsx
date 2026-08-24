@@ -94,8 +94,8 @@ export default function EvidenceTables() {
     <section className="evidence-library section-shell" id="evidence-tables">
       <div className="evidence-library-head">
         <div>
-          <p className="eyebrow">03 · STRUCTURED EVIDENCE REGISTRY</p>
-          <h2>四张核心表，构成论文的数据骨架</h2>
+          <p className="eyebrow">03 · CORE EVIDENCE MATRIX</p>
+          <h2>T2T 核心证据与数据矩阵</h2>
         </div>
         <div className="corpus-counts" aria-label="文档内容统计">
           <div><strong>04</strong><span>DATA TABLES</span></div>
