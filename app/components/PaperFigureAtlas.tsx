@@ -71,7 +71,7 @@ export default function PaperFigureAtlas() {
     <section className="figure-atlas" id="figure-atlas">
       <div className="section-shell">
         <div className="figure-atlas-head">
-          <div><p className="eyebrow">04 · COMPLETE PAPER FIGURE ATLAS</p><h2>三十二张图件，一套完整的研究叙事</h2></div>
+          <div><p className="eyebrow">04 · T2T RESEARCH FIGURE ATLAS</p><h2>T2T 研究图谱：材料结构、回收流向与技术路径</h2></div>
           <p>从供给规模、企业边界到技术成熟度与产业路线，所有有效插图均按新版论文顺序归档；点击任意图件可查看高清原图。</p>
         </div>
 
