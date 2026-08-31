@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import CitationLinks from "./CitationLinks";
+import { useLanguage } from "./LanguageContext";
 
 type Point = { year: number; value: number };
 type Bar = { label: string; value: number; note?: string };
@@ -14,16 +16,19 @@ type SecondaryView = {
   profiles?: Profile[];
   unit?: string;
   kind?: "bars" | "method" | "profiles";
+  references?: number[];
 };
 
 type Dataset = {
   code: string;
   label: string;
+  trendTitle: string;
   short: string;
   color: string;
   trend: Point[];
   source: string;
   boundary: string;
+  references: number[];
   views: SecondaryView[];
 };
 
@@ -31,6 +36,7 @@ const datasets: Record<string, Dataset> = {
   chemical: {
     code: "CF",
     label: "化学纤维",
+    trendTitle: "中国化学纤维产量变化趋势",
     short: "总量",
     color: "#0f8f7a",
     trend: [
@@ -39,9 +45,11 @@ const datasets: Record<string, Dataset> = {
     ],
     source: "工业和信息化部、中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
     boundary: "2023年起化纤统计方法有调整，2022年数据亦有修订；序列适合观察规模和方向。",
+    references: [2, 3, 4, 5, 6, 7],
     views: [{
-      id: "structure", label: "品类结构", title: "2025 年主要化学纤维产量结构",
+      id: "structure", label: "品类结构", title: "2025 年中国主要化学纤维产量结构",
       intro: "主量材料与小品类共同构成规模—复杂度并存的供给格局。",
+      references: [2],
       bars: [
         { label: "涤纶", value: 6477 }, { label: "再生纤维素", value: 548 }, { label: "锦纶", value: 472 },
         { label: "氨纶", value: 110 }, { label: "腈纶", value: 62.6 }, { label: "丙纶", value: 47 }, { label: "维纶", value: 8.5 },
@@ -51,7 +59,8 @@ const datasets: Record<string, Dataset> = {
   polyester: {
     code: "PET",
     label: "涤纶",
-    short: "Polyester",
+    trendTitle: "中国涤纶产量变化趋势",
+    short: "涤纶",
     color: "#0f8f7a",
     trend: [
       { year: 2020, value: 4922.75 }, { year: 2021, value: 5363 }, { year: 2022, value: 5343 },
@@ -59,10 +68,12 @@ const datasets: Record<string, Dataset> = {
     ],
     source: "中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
     boundary: "企业年报披露的产品边界并非完全相同，企业图只做公开产量比较，不计算严格市场份额。",
+    references: [2, 3, 4, 5, 6, 7],
     views: [
       {
-        id: "enterprise", label: "企业对照", title: "2025 年代表性涤纶企业公开产量",
+        id: "enterprise", label: "代表性企业", title: "2025 年中国代表性涤纶企业公开产量",
         intro: "基于同年度公开披露，保留涤纶丝、短纤与聚酯切片的产品边界。",
+        references: [8, 9, 10, 11, 12, 84],
         bars: [
           { label: "桐昆股份 · 涤纶丝", value: 1326.68, note: "另有聚酯切片 10.87 万吨" },
           { label: "恒逸石化 · 涤纶产品", value: 867.97, note: "合并产品口径" },
@@ -72,8 +83,9 @@ const datasets: Record<string, Dataset> = {
         ],
       },
       {
-        id: "subtype", label: "长短丝结构", title: "2025 年涤纶短纤与长丝结构",
+        id: "subtype", label: "长短丝结构", title: "2025 年中国涤纶短纤与长丝结构",
         intro: "长丝占涤纶总产量的 79.2%，构成供给结构中的主体部分。",
+        references: [2],
         bars: [{ label: "涤纶长丝", value: 5129 }, { label: "涤纶短纤", value: 1348 }],
       },
     ],
@@ -81,7 +93,8 @@ const datasets: Record<string, Dataset> = {
   nylon: {
     code: "PA6",
     label: "锦纶",
-    short: "Nylon",
+    trendTitle: "中国锦纶产量变化趋势",
+    short: "锦纶",
     color: "#ff8d5c",
     trend: [
       { year: 2020, value: 384.25 }, { year: 2021, value: 415 }, { year: 2022, value: 410 },
@@ -89,9 +102,11 @@ const datasets: Record<string, Dataset> = {
     ],
     source: "中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
     boundary: "企业数据分别对应聚酰胺制品、PA6 切片、锦纶纤维或设计产能，不用于计算市场份额。",
+    references: [2, 3, 4, 5, 6, 7],
     views: [{
-      id: "enterprise", label: "企业对照", title: "2025 年代表性锦纶长丝企业公开产量",
+      id: "enterprise", label: "代表性企业", title: "2025 年中国代表性锦纶长丝企业公开产量",
       intro: "覆盖聚合、切片与纤维环节；不同产品边界并列呈现，不作严格排名。",
+      references: [13, 49, 50, 51, 64, 65, 66, 91],
       bars: [
         { label: "神马股份 · 聚酰胺产品", value: 42.36, note: "2025 年产量" },
         { label: "华鼎股份 · 锦纶长丝", value: 30.11, note: "2025 年产量" },
@@ -104,7 +119,8 @@ const datasets: Record<string, Dataset> = {
   spandex: {
     code: "PU",
     label: "氨纶",
-    short: "Spandex",
+    trendTitle: "中国氨纶产量变化趋势",
+    short: "氨纶",
     color: "#83aee8",
     trend: [
       { year: 2020, value: 83.2 }, { year: 2021, value: 86.8 }, { year: 2022, value: 86 },
@@ -112,9 +128,11 @@ const datasets: Record<string, Dataset> = {
     ],
     source: "中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
     boundary: "企业层统一采用公开产能口径；产能不等于当年实际产量，晓星中国为公开厂区产能合计。",
+    references: [2, 3, 4, 5, 6, 7],
     views: [{
-      id: "enterprise", label: "企业对照", title: "2025 年末中国主要氨纶企业公开产能",
+      id: "enterprise", label: "代表性企业", title: "2025 年末中国主要氨纶企业公开产能",
       intro: "统一采用万吨/年产能口径，观察氨纶生产体系的规模格局。",
+      references: [14, 15, 16, 52, 53],
       unit: "万吨/年",
       bars: [
         { label: "华峰化学", value: 47.5, note: "公开产能" },
@@ -128,7 +146,8 @@ const datasets: Record<string, Dataset> = {
   cotton: {
     code: "CO",
     label: "棉花",
-    short: "Cotton",
+    trendTitle: "中国棉花产量变化趋势",
+    short: "棉花",
     color: "#c38b55",
     trend: [
       { year: 2020, value: 591 }, { year: 2021, value: 573.1 }, { year: 2022, value: 597.7 },
@@ -136,15 +155,18 @@ const datasets: Record<string, Dataset> = {
     ],
     source: "国家统计局年度棉花产量公告。",
     boundary: "棉花属于农业生产，页面呈现产区集中度，不套用化纤企业产量排名逻辑。",
+    references: [17],
     views: [
       {
         id: "region", label: "产区集中度", title: "2025 年中国棉花产地集中度",
         intro: "新疆产量 616.5 万吨，占全国 92.8%；其他地区为全国量减新疆量。",
+        references: [17],
         bars: [{ label: "新疆", value: 616.5, note: "92.8%" }, { label: "其他地区", value: 47.6, note: "7.2%" }],
       },
       {
-        id: "enterprise", label: "加工企业", title: "2025 年代表性棉纺企业能力与产品边界",
+        id: "enterprise", label: "加工企业", title: "2025 年中国代表性棉纺企业能力与产品边界",
         intro: "设备规模、设计能力和实际产量属于不同指标，用于识别再生棉进入产业链的接口。",
+        references: [85, 86, 87, 88, 89],
         kind: "profiles",
         profiles: [
           { label: "魏桥纺织", metrics: ["600 万纱锭", "72 万吨/年纱线能力"], note: "企业现有能力" },
@@ -159,7 +181,8 @@ const datasets: Record<string, Dataset> = {
   wool: {
     code: "WO",
     label: "羊毛",
-    short: "Wool",
+    trendTitle: "中国羊毛产量变化趋势",
+    short: "羊毛",
     color: "#6f839d",
     trend: [
       { year: 2013, value: 40.2081 }, { year: 2014, value: 40.723 }, { year: 2015, value: 41.3134 },
@@ -169,10 +192,12 @@ const datasets: Record<string, Dataset> = {
     ],
     source: "国家统计局、《中国统计年鉴 2025》表 12-14；单位换算为万吨。",
     boundary: "细羊毛与半细羊毛属于绵羊毛总量的内部分类，不能与绵羊毛总量相加。",
+    references: [18, 19, 20, 21],
     views: [
       {
-        id: "structure", label: "品类结构", title: "2024 年主要羊毛类别产量",
+        id: "structure", label: "品类结构", title: "2024 年中国主要羊毛类别产量",
         intro: "绵羊毛总量与其内部类别并列展示；山羊粗毛属于另一品类。",
+        references: [19, 21],
         bars: [
           { label: "绵羊毛总量", value: 36.4481, note: "总量口径" },
           { label: "半细羊毛", value: 19.6293, note: "绵羊毛内部分类" },
@@ -181,8 +206,9 @@ const datasets: Record<string, Dataset> = {
         ],
       },
       {
-        id: "enterprise", label: "加工企业", title: "2025 年代表性毛纺与羊绒企业产品边界",
+        id: "enterprise", label: "加工企业", title: "2025 年中国代表性毛纺与羊绒企业产品边界",
         intro: "毛条、纱线、面料与成衣位于不同加工环节，不合并为单一规模排名。",
+        references: [90, 91, 92, 93, 94],
         kind: "profiles",
         profiles: [
           { label: "新澳股份", metrics: ["1.63 万吨毛精纺纱", "0.31 万吨羊绒纱", "0.68 万吨羊毛毛条"], note: "2025 年实际产量" },
@@ -197,7 +223,8 @@ const datasets: Record<string, Dataset> = {
   waste: {
     code: "WTR",
     label: "废纺回收",
-    short: "Recovery",
+    trendTitle: "中国废旧纺织品回收业务量变化趋势",
+    short: "回收",
     color: "#7a63c7",
     trend: [
       { year: 2018, value: 380 }, { year: 2019, value: 400 }, { year: 2020, value: 430 },
@@ -205,11 +232,100 @@ const datasets: Record<string, Dataset> = {
     ],
     source: "《中国再生资源回收行业发展报告》系列及 2024 年行业公开数据。",
     boundary: "回收业务量不等于再生纤维产量，更不等于 T2T 闭环量；2023 年约 480 万吨为按 2024 年同比 7.3% 反推。",
+    references: [22, 23, 24, 25, 26],
     views: [{
-      id: "method", label: "口径辨析", title: "回收业务量、再生纤维量与 T2T 闭环量的边界",
+      id: "method", label: "口径辨析", title: "中国废纺回收业务量、再生纤维量与 T2T 闭环量的边界",
       intro: "515 万吨表征进入回收体系的业务规模，不能直接推导纺织级闭环产出。",
+      references: [22, 23, 24, 25, 26],
       kind: "method",
     }],
+  },
+};
+
+const datasetEnglish: Record<string, {
+  label: string; trendTitle: string; short: string; source: string; boundary: string;
+  views: Array<{ label: string; title: string; intro: string; unit?: string; bars?: Array<{ label: string; note?: string }>; profiles?: Array<{ label: string; metrics: string[]; note: string }> }>;
+}> = {
+  chemical: {
+    label: "Chemical fibers", trendTitle: "Trend in China's Chemical-Fiber Output", short: "Total output",
+    source: "Annual industry reviews by the Ministry of Industry and Information Technology, China National Textile and Apparel Council, and China Chemical Fibers Association.",
+    boundary: "The statistical method changed from 2023 and 2022 was revised; the series is suitable for observing scale and direction.",
+    views: [{ label: "Composition", title: "Composition of China's Major Chemical-Fiber Output in 2025", intro: "Large-volume materials and smaller categories create a supply structure combining scale and complexity.", bars: [
+      { label: "Polyester" }, { label: "Regenerated cellulose" }, { label: "Nylon" }, { label: "Spandex" }, { label: "Acrylic" }, { label: "Polypropylene" }, { label: "Vinylon" },
+    ] }],
+  },
+  polyester: {
+    label: "Polyester", trendTitle: "Trend in China's Polyester Output", short: "Polyester",
+    source: "Annual industry reviews by China National Textile and Apparel Council and China Chemical Fibers Association.",
+    boundary: "Product boundaries in company reports are not fully consistent. Company charts compare public output and do not calculate strict market shares.",
+    views: [
+      { label: "Representative companies", title: "Public Output of Representative Polyester Companies in China, 2025", intro: "Same-year public disclosures retain the boundaries among polyester yarn, staple fiber, and chips.", bars: [
+        { label: "Tongkun · polyester yarn", note: "Plus 0.1087 Mt polyester chips" },
+        { label: "Hengyi Petrochemical · polyester products", note: "Combined product basis" },
+        { label: "Xinfengming · polyester filament", note: "Plus 1.3067 Mt staple and 0.0535 Mt chips" },
+        { label: "Sanfangxiang · bottle-grade PET chips", note: "Actual output" },
+        { label: "Eastern Shenghong · polyester yarn", note: "Actual output" },
+      ] },
+      { label: "Filament / staple", title: "China's Polyester Filament and Staple-Fiber Structure in 2025", intro: "Filament represented 79.2% of polyester output and formed the dominant supply segment.", bars: [{ label: "Polyester filament" }, { label: "Polyester staple fiber" }] },
+    ],
+  },
+  nylon: {
+    label: "Nylon", trendTitle: "Trend in China's Nylon Output", short: "Nylon",
+    source: "Annual industry reviews by China National Textile and Apparel Council and China Chemical Fibers Association.",
+    boundary: "Company data refer to polyamide products, PA6 chips, nylon fibers, or design capacity and are not used to calculate market share.",
+    views: [{ label: "Representative companies", title: "Public Output of Representative Nylon-Filament Companies in China, 2025", intro: "Polymerization, chips, and fiber stages are shown together; different product boundaries are not ranked strictly.", bars: [
+      { label: "Shenma · polyamide products", note: "2025 output" }, { label: "Huading · nylon filament", note: "2025 output" },
+      { label: "Highsun · PA6 chips + nylon yarn", note: "0.1761 + 0.0708 Mt" }, { label: "Taihua · nylon filament", note: "2025 output" },
+      { label: "Nanshan Fashion · PA6 / PA66", note: "Public design capacity" },
+    ] }],
+  },
+  spandex: {
+    label: "Spandex", trendTitle: "Trend in China's Spandex Output", short: "Spandex",
+    source: "Annual industry reviews by China National Textile and Apparel Council and China Chemical Fibers Association.",
+    boundary: "The company layer uses public capacity. Capacity is not annual output; Hyosung China is the sum of disclosed plant capacity.",
+    views: [{ label: "Representative companies", title: "Public Capacity of Major Spandex Companies in China at Year-End 2025", intro: "Capacity is standardized to million tonnes per year to show the production landscape.", unit: "Mt/y", bars: [
+      { label: "Huafon Chemical", note: "Public capacity" }, { label: "Hyosung China", note: "Sum of disclosed sites" },
+      { label: "Zhuji Huahai", note: "Public capacity" }, { label: "Xinxiang Chemical Fiber", note: "Public capacity" }, { label: "Tayho Advanced Materials", note: "Public capacity" },
+    ] }],
+  },
+  cotton: {
+    label: "Cotton", trendTitle: "Trend in China's Cotton Output", short: "Cotton",
+    source: "Annual cotton-output bulletins from the National Bureau of Statistics of China.",
+    boundary: "Cotton is agricultural production. The page shows regional concentration rather than applying a chemical-fiber company-ranking logic.",
+    views: [
+      { label: "Regional concentration", title: "Regional Concentration of China's Cotton Output in 2025", intro: "Xinjiang produced 6.165 Mt, or 92.8% of the national total; other regions are calculated by subtraction.", bars: [{ label: "Xinjiang", note: "92.8%" }, { label: "Other regions", note: "7.2%" }] },
+      { label: "Processing companies", title: "Capabilities and Product Boundaries of Representative Cotton-Spinning Companies in China, 2025", intro: "Equipment scale, design capacity, and actual output are different indicators used to locate interfaces for recycled cotton.", profiles: [
+        { label: "Weiqiao Textile", metrics: ["6 million spindles", "0.72 Mt/y yarn capacity"], note: "Existing capacity" },
+        { label: "Texhong Textile", metrics: ["4.23 million spindles"], note: "Equipment scale, June 2025" },
+        { label: "Huafu Fashion", metrics: ["2.06 million spindles", "0.29 Mt/y new yarn"], note: "Design capacity" },
+        { label: "Bros Eastern", metrics: ["0.2429 Mt yarn"], note: "Actual output in 2025" },
+        { label: "Luthai Textile", metrics: ["199 million m fabric"], note: "Actual output in 2025" },
+      ] },
+    ],
+  },
+  wool: {
+    label: "Wool", trendTitle: "Trend in China's Wool Output", short: "Wool",
+    source: "National Bureau of Statistics and China Statistical Yearbook 2025, Table 12-14; converted to million tonnes.",
+    boundary: "Fine wool and semi-fine wool are internal categories of sheep wool and cannot be added to the sheep-wool total.",
+    views: [
+      { label: "Composition", title: "Output of Major Wool Categories in China, 2024", intro: "The sheep-wool total is shown with internal categories; coarse goat hair is a separate category.", bars: [
+        { label: "Total sheep wool", note: "Total basis" }, { label: "Semi-fine wool", note: "Internal sheep-wool category" },
+        { label: "Fine wool", note: "Internal sheep-wool category" }, { label: "Coarse goat hair", note: "Separate category" },
+      ] },
+      { label: "Processing companies", title: "Product Boundaries of Representative Wool and Cashmere Companies in China, 2025", intro: "Tops, yarn, fabric, and garments occupy different processing stages and are not combined into one scale ranking.", profiles: [
+        { label: "Xinao Textiles", metrics: ["16.3 kt worsted yarn", "3.1 kt cashmere yarn", "6.8 kt wool tops"], note: "Actual output in 2025" },
+        { label: "Nanshan Fashion", metrics: ["12.1814 million m worsted fabric"], note: "Actual output in 2025" },
+        { label: "Erdos", metrics: ["3.198 million cashmere sweaters"], note: "Actual output in 2025" },
+        { label: "Consinee", metrics: ["10 kt/y high-grade yarn"], note: "Public production and sales capacity" },
+        { label: "King Deer", metrics: ["2 million cashmere items/y"], note: "Madagascar plant capacity" },
+      ] },
+    ],
+  },
+  waste: {
+    label: "Recovered textiles", trendTitle: "Trend in China's Recovered Textile Business Volume", short: "Recovery",
+    source: "China Recycled Resources Industry Development Report series and public industry data for 2024.",
+    boundary: "Recovered business volume is not recycled-fiber output or T2T closed-loop volume. The 2023 value of about 4.80 Mt is back-calculated from 7.3% growth in 2024.",
+    views: [{ label: "Scope distinction", title: "Boundaries among Recovered Textile Volume, Recycled-Fiber Output, and T2T Closed-Loop Volume", intro: "The 5.15 Mt figure describes material entering the recovery system and cannot directly indicate textile-grade closed-loop output." }],
   },
 };
 
@@ -218,6 +334,7 @@ function formatNumber(value: number) {
 }
 
 function TrendCanvas({ data, color, label }: { data: Point[]; color: string; label: string }) {
+  const { pick } = useLanguage();
   const ref = useRef<HTMLCanvasElement>(null);
   const [hovered, setHovered] = useState<number | null>(null);
   const geometry = useRef<{ x: number; y: number }[]>([]);
@@ -295,10 +412,10 @@ function TrendCanvas({ data, color, label }: { data: Point[]; color: string; lab
 
   return (
     <div className="trend-canvas-wrap">
-      <canvas ref={ref} onMouseMove={onMove} onMouseLeave={() => setHovered(null)} aria-label={`${label}产量趋势折线图`} />
+      <canvas ref={ref} onMouseMove={onMove} onMouseLeave={() => setHovered(null)} aria-label={pick(`${label}产量趋势折线图`, `${label} output trend line chart`)} />
       {hovered !== null && geometry.current[hovered] && (
         <div className="chart-tooltip" style={{ left: geometry.current[hovered].x, top: geometry.current[hovered].y }}>
-          <span>{data[hovered].year}</span><strong>{formatNumber(data[hovered].value)} 万吨</strong>
+          <span>{data[hovered].year}</span><strong>{formatNumber(data[hovered].value)} {pick("万吨", "10,000 t")}</strong>
         </div>
       )}
     </div>
@@ -306,15 +423,16 @@ function TrendCanvas({ data, color, label }: { data: Point[]; color: string; lab
 }
 
 function BarPanel({ view, color }: { view: SecondaryView; color: string }) {
+  const { language, pick } = useLanguage();
   const max = Math.max(...(view.bars ?? []).map((item) => item.value), 1);
   if (view.kind === "method") {
     return (
       <div className="method-grid">
-        <article><span>01 · COLLECTION</span><strong>回收业务量</strong><p>进入回收体系的废旧纺织品规模。</p></article>
+        <article><span>{pick("01 · 回收", "01 · COLLECTION")}</span><strong>{pick("回收业务量", "Recovered volume")}</strong><p>{pick("进入回收体系的废旧纺织品规模。", "Textile waste entering the recovery system.")}</p></article>
         <div className="method-arrow">≠</div>
-        <article><span>02 · REGENERATION</span><strong>再生纤维产量</strong><p>经处理后形成的再生纤维产品规模。</p></article>
+        <article><span>{pick("02 · 再生", "02 · REGENERATION")}</span><strong>{pick("再生纤维产量", "Recycled-fiber output")}</strong><p>{pick("经处理后形成的再生纤维产品规模。", "Recycled-fiber products formed after treatment.")}</p></article>
         <div className="method-arrow">≠</div>
-        <article><span>03 · CLOSED LOOP</span><strong>T2T 闭环量</strong><p>重新进入纺织级产品体系的闭环规模。</p></article>
+        <article><span>{pick("03 · 闭环", "03 · CLOSED LOOP")}</span><strong>{pick("T2T 闭环量", "T2T closed-loop volume")}</strong><p>{pick("重新进入纺织级产品体系的闭环规模。", "Material that re-enters textile-grade products.")}</p></article>
       </div>
     );
   }
@@ -336,9 +454,9 @@ function BarPanel({ view, color }: { view: SecondaryView; color: string }) {
     <div className="data-bars">
       {(view.bars ?? []).map((item, index) => (
         <div className="data-bar-row" key={item.label}>
-          <div className="data-bar-label"><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.label}</strong><small>{item.note ?? "公开产量"}</small></div>
+          <div className="data-bar-label"><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.label}</strong><small>{item.note ?? pick("公开产量", "Public output")}</small></div>
           <div className="data-bar-track"><i style={{ width: `${Math.max(2, (item.value / max) * 100)}%`, background: color }} /></div>
-          <div className="data-bar-value"><strong>{formatNumber(item.value)}</strong><span>{view.unit ?? "万吨"}</span></div>
+          <div className="data-bar-value"><strong>{formatNumber(item.value)}</strong><span>{view.unit ?? pick("万吨", "10,000 t")}</span></div>
         </div>
       ))}
     </div>
@@ -346,18 +464,34 @@ function BarPanel({ view, color }: { view: SecondaryView; color: string }) {
 }
 
 export default function DataExplorer() {
+  const { language, pick } = useLanguage();
   const [key, setKey] = useState("polyester");
   const [viewId, setViewId] = useState("trend");
   const [rangeId, setRangeId] = useState("all");
   const dataset = datasets[key];
+  const englishCopy = datasetEnglish[key];
+  const displayViews: SecondaryView[] = dataset.views.map((view, viewIndex) => {
+    const copy = englishCopy.views[viewIndex];
+    if (language === "zh") return view;
+    return {
+      ...view,
+      label: copy.label,
+      title: copy.title,
+      intro: copy.intro,
+      unit: copy.unit ?? view.unit,
+      bars: view.bars?.map((bar, index) => ({ ...bar, ...copy.bars?.[index] })),
+      profiles: view.profiles?.map((profile, index) => ({ ...profile, ...copy.profiles?.[index] })),
+    };
+  });
+  const displayDataset = language === "zh" ? dataset : { ...dataset, ...englishCopy, views: displayViews };
   const ranges = dataset.trend[0].year === 2013
-    ? [{ id: "early", label: "2013–2017", from: 2013, to: 2017 }, { id: "recent", label: "2018–2024", from: 2018, to: 2024 }, { id: "all", label: "完整序列", from: 2013, to: 2024 }]
+    ? [{ id: "early", label: "2013–2017", from: 2013, to: 2017 }, { id: "recent", label: "2018–2024", from: 2018, to: 2024 }, { id: "all", label: pick("完整序列", "Full series"), from: 2013, to: 2024 }]
     : dataset.trend[0].year === 2018
-      ? [{ id: "early", label: "2018–2022", from: 2018, to: 2022 }, { id: "recent", label: "2023–2024", from: 2023, to: 2024 }, { id: "all", label: "完整序列", from: 2018, to: 2024 }]
-      : [{ id: "early", label: "2020–2022", from: 2020, to: 2022 }, { id: "recent", label: "2023–2025", from: 2023, to: 2025 }, { id: "all", label: "完整序列", from: 2020, to: 2025 }];
+      ? [{ id: "early", label: "2018–2022", from: 2018, to: 2022 }, { id: "recent", label: "2023–2024", from: 2023, to: 2024 }, { id: "all", label: pick("完整序列", "Full series"), from: 2018, to: 2024 }]
+      : [{ id: "early", label: "2020–2022", from: 2020, to: 2022 }, { id: "recent", label: "2023–2025", from: 2023, to: 2025 }, { id: "all", label: pick("完整序列", "Full series"), from: 2020, to: 2025 }];
   const activeRange = ranges.find((item) => item.id === rangeId) ?? ranges.at(-1)!;
   const visibleTrend = dataset.trend.filter((item) => item.year >= activeRange.from && item.year <= activeRange.to);
-  const secondary = dataset.views.find((item) => item.id === viewId);
+  const secondary = displayDataset.views.find((item) => item.id === viewId);
   const change = useMemo(() => {
     if (visibleTrend.length < 2) return 0;
     return ((visibleTrend.at(-1)!.value / visibleTrend[0].value) - 1) * 100;
@@ -366,18 +500,19 @@ export default function DataExplorer() {
   const selectDataset = (next: string) => {
     setKey(next); setViewId("trend"); setRangeId("all");
   };
+  const activeReferences = secondary?.references ?? dataset.references;
 
   return (
     <section className="data-lab section-shell" id="data-lab">
       <div className="data-lab-heading">
-        <div><p className="eyebrow">02 · MULTI-SCALE EVIDENCE EXPLORER</p><h2>跨尺度审视：从宏观供给到企业证据</h2></div>
-        <p>以材料为索引，将年度时序、品类结构、产区集中度与企业公开披露纳入同一分析界面；数值与口径均沿用论文证据链。</p>
+        <div><p className="eyebrow">{pick("02 · 多层次数据分析", "02 · MULTI-SCALE EVIDENCE EXPLORER")}</p><h2>{pick("中国纺织材料产量、结构与企业数据", "China Textile-Material Output, Structure, and Company Data")}</h2></div>
+        <p>{pick("以材料为索引，将年度变化、品类结构、产区集中度与企业公开数据放在同一分析界面中；数值和统计口径均沿用论文证据。", "The interface indexes annual trends, category structures, regional concentration, and public company disclosures by material; values and statistical boundaries follow the paper's evidence chain.")}</p>
       </div>
 
-      <div className="dataset-tabs" role="tablist" aria-label="选择论文数据主题">
+      <div className="dataset-tabs" role="tablist" aria-label={pick("选择论文数据主题", "Select a data topic")}>
         {Object.entries(datasets).map(([id, item]) => (
           <button key={id} className={key === id ? "active" : ""} onClick={() => selectDataset(id)} aria-selected={key === id} role="tab">
-            <span>{item.code}</span><strong>{item.label}</strong><small>{item.short}</small>
+            <span>{item.code}</span><strong>{language === "zh" ? item.label : datasetEnglish[id].label}</strong><small>{language === "zh" ? item.short : datasetEnglish[id].short}</small>
           </button>
         ))}
       </div>
@@ -385,45 +520,46 @@ export default function DataExplorer() {
       <div className="data-stage">
         <aside className="data-controls">
           <div className="control-group">
-            <span className="control-label">ANALYTICAL VIEW · 分析视图</span>
-            <button className={viewId === "trend" ? "active" : ""} onClick={() => setViewId("trend")}><i>01</i><strong>产量时序</strong><small>TREND SERIES</small></button>
-            {dataset.views.map((view, index) => (
-              <button key={view.id} className={viewId === view.id ? "active" : ""} onClick={() => setViewId(view.id)}><i>0{index + 2}</i><strong>{view.label}</strong><small>{view.id === "enterprise" ? "ENTERPRISE EVIDENCE" : "STRUCTURAL VIEW"}</small></button>
+            <span className="control-label">{pick("分析视图", "ANALYTICAL VIEW")}</span>
+            <button className={viewId === "trend" ? "active" : ""} onClick={() => setViewId("trend")}><i>01</i><strong>{pick("变化趋势", "Trend")}</strong><small>{pick("年度序列", "TREND SERIES")}</small></button>
+            {displayDataset.views.map((view, index) => (
+              <button key={view.id} className={viewId === view.id ? "active" : ""} onClick={() => setViewId(view.id)}><i>0{index + 2}</i><strong>{view.label}</strong><small>{view.id === "enterprise" ? pick("企业数据", "COMPANY EVIDENCE") : pick("结构分析", "STRUCTURAL VIEW")}</small></button>
             ))}
           </div>
           {viewId === "trend" && <div className="control-group range-control">
-            <span className="control-label">OBSERVATION WINDOW · 观测区间</span>
+            <span className="control-label">{pick("观测区间", "OBSERVATION WINDOW")}</span>
             {ranges.map((range) => <button key={range.id} className={rangeId === range.id ? "active" : ""} onClick={() => setRangeId(range.id)}><strong>{range.label}</strong></button>)}
           </div>}
         </aside>
 
         <div className="data-visual">
           <div className="data-visual-head">
-            <div><span>{dataset.code} · {viewId === "trend" ? `${activeRange.from}—${activeRange.to}` : "2025"}</span><h3>{secondary?.title ?? `${dataset.label}产量时序`}</h3><p>{secondary?.intro ?? `年度公开统计构成连续观测序列；节点对应${dataset.label}的原文记录值。`}</p></div>
-            <div className="unit-badge">UNIT<br /><strong>{secondary?.unit ?? "万吨"}</strong></div>
+            <div><span>{dataset.code} · {viewId === "trend" ? `${activeRange.from}—${activeRange.to}` : "2025"}</span><h3>{secondary?.title ?? displayDataset.trendTitle}</h3><p>{secondary?.intro ?? pick(`中国年度公开统计构成连续观测序列；节点对应${dataset.label}的原文记录值。`, `Annual public statistics form a continuous series; each point is the reported value for ${displayDataset.label}.`)}</p></div>
+            <div className="unit-badge">{pick("单位", "UNIT")}<br /><strong>{secondary?.unit ?? pick("万吨", "10,000 t")}</strong></div>
           </div>
           {viewId === "trend" ? (
             <>
-              <TrendCanvas data={visibleTrend} color={dataset.color} label={dataset.label} />
+              <TrendCanvas data={visibleTrend} color={dataset.color} label={displayDataset.label} />
               <div className="trend-summary">
-                <div><span>BASE YEAR</span><strong>{formatNumber(visibleTrend[0].value)}</strong><small>{visibleTrend[0].year}</small></div>
-                <div><span>END YEAR</span><strong>{formatNumber(visibleTrend.at(-1)!.value)}</strong><small>{visibleTrend.at(-1)!.year}</small></div>
-                <div><span>INTERVAL CHANGE</span><strong>{change >= 0 ? "+" : ""}{change.toFixed(1)}%</strong><small>本文计算</small></div>
+                <div><span>{pick("起始年份", "BASE YEAR")}</span><strong>{formatNumber(visibleTrend[0].value)}</strong><small>{visibleTrend[0].year}</small></div>
+                <div><span>{pick("结束年份", "END YEAR")}</span><strong>{formatNumber(visibleTrend.at(-1)!.value)}</strong><small>{visibleTrend.at(-1)!.year}</small></div>
+                <div><span>{pick("区间变化", "INTERVAL CHANGE")}</span><strong>{change >= 0 ? "+" : ""}{change.toFixed(1)}%</strong><small>{pick("本文计算", "Calculated in this study")}</small></div>
               </div>
             </>
           ) : secondary ? <BarPanel view={secondary} color={dataset.color} /> : null}
         </div>
 
         <aside className="data-evidence">
-          <p>EVIDENCE NOTE</p>
-          <h3>来源与证据边界</h3>
-          <div><span>来源</span><p>{dataset.source}</p></div>
-          <div><span>边界提示</span><p>{dataset.boundary}</p></div>
-          <div className="evidence-chip"><i /><strong>TRACEABLE TO SOURCE EVIDENCE</strong></div>
+          <p>{pick("证据说明", "EVIDENCE NOTE")}</p>
+          <h3>{pick("来源与证据边界", "Sources and Evidence Boundaries")}</h3>
+          <div><span>{pick("来源", "Source")}</span><p>{displayDataset.source}</p></div>
+          <CitationLinks ids={activeReferences} />
+          <div><span>{pick("边界提示", "Boundary note")}</span><p>{displayDataset.boundary}</p></div>
+          <div className="evidence-chip"><i /><strong>{pick("可追溯至原始证据", "TRACEABLE TO SOURCE EVIDENCE")}</strong></div>
         </aside>
       </div>
 
-      <div className="data-footnote"><span>EVIDENCE SCOPE · 证据范围</span><p>羊毛序列覆盖 2013—2024 年，废旧纺织品回收业务量覆盖 2018—2024 年，其余材料连续序列覆盖 2020—2025 年。缺失年份不插值，未公开数据不外推。</p></div>
+      <div className="data-footnote"><span>{pick("证据范围", "EVIDENCE SCOPE")}</span><p>{pick("羊毛序列覆盖 2013—2024 年，废旧纺织品回收业务量覆盖 2018—2024 年，其余材料连续序列覆盖 2020—2025 年。缺失年份不插值，未公开数据不外推。", "The wool series covers 2013–2024, recovered textile business volume covers 2018–2024, and all other material series cover 2020–2025. Missing years are not interpolated and undisclosed data are not extrapolated.")}</p></div>
     </section>
   );
 }
