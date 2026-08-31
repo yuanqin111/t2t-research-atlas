@@ -174,7 +174,7 @@ export default function EvidenceTables() {
         </div>
         <div className="corpus-counts" aria-label={pick("文档内容统计", "Document content summary")}>
           <div><strong>04</strong><span>{pick("数据表", "DATA TABLES")}</span></div>
-          <div><strong>30</strong><span>{pick("静态图", "STATIC FIGURES")}</span></div>
+          <div><strong>15</strong><span>{pick("静态图", "STATIC FIGURES")}</span></div>
           <div><strong>94</strong><span>{pick("参考文献", "REFERENCES")}</span></div>
         </div>
       </div>

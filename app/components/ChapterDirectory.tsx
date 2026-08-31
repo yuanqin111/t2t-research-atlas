@@ -7,7 +7,7 @@ const chapters = [
   { id: "overview", number: "01", zh: "中国材料产量与回收规模", shortZh: "材料规模", en: "Material Output & Recovery", shortEn: "Materials" },
   { id: "data-lab", number: "02", zh: "各材料变化趋势与代表性企业", shortZh: "趋势与企业", en: "Material Trends & Companies", shortEn: "Trends" },
   { id: "evidence-tables", number: "03", zh: "核心数据与技术证据表", shortZh: "核心数据表", en: "Core Data & Evidence Tables", shortEn: "Tables" },
-  { id: "figure-atlas", number: "04", zh: "论文图表（第 1—4 章）", shortZh: "论文图表", en: "Paper Figures, Chapters 1–4", shortEn: "Figures" },
+  { id: "figure-atlas", number: "04", zh: "回收技术与项目图解", shortZh: "技术图解", en: "Recycling Technologies & Projects", shortEn: "Technology" },
   { id: "technology", number: "4.5", zh: "主要技术路线对比", shortZh: "技术对比", en: "Recycling Route Comparison", shortEn: "Routes" },
   { id: "roadmap", number: "05", zh: "产业发展路线与重点任务", shortZh: "发展路线", en: "Industry Roadmap & Priorities", shortEn: "Roadmap" },
   { id: "references", number: "06", zh: "数据来源与参考文献", shortZh: "参考文献", en: "Data Sources & References", shortEn: "Sources" },

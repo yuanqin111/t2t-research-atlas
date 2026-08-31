@@ -112,7 +112,11 @@ const chapters: NarrativeChapter[] = [
     groups: [
       { code: "4.1", title: "主要材料的回收技术路线", text: "集中展示 PET 化学法与酶法、PA6 解聚—再聚合、废棉机械再生与纤维素再生，以及混纺分离与定向回收等主要技术路线。", figureIds: ["4-1", "4-4", "4-7", "4-8", "4-10"] },
       { code: "4.2", title: "废旧纺织品产业链与技术流向", text: "从居民旧衣、品牌回收和工业边角料等来源出发，展示回收与收运、分选与预处理、材料分类、再生技术及终端去向之间的完整关系。", figureIds: ["3-2"] },
-      { code: "4.4", title: "代表性企业与项目的技术成熟度", text: "集中比较 PET 化学法、PET 酶法、PA6 解聚、含氨混纺、废棉再生和混纺分离项目的公开证据等级，避免将实验验证、工程示范和商业运行混为一谈。", figureIds: ["4-2", "4-3", "4-5", "4-6", "4-9", "4-11"] },
+      { code: "4.4.1", title: "PET 化学法与酶法代表性企业", text: "分别比较 PET 化学解聚和酶促解聚项目的工程放大、连续运行与商业化证据。", figureIds: ["4-2", "4-3"] },
+      { code: "4.4.2", title: "PA6 解聚—再聚合代表性企业", text: "聚焦 PA6 从解聚、单体纯化到再聚合闭环的代表项目及其公开运行证据。", figureIds: ["4-5"] },
+      { code: "4.4.3", title: "氨纶及含氨混纺回收代表性企业", text: "比较氨纶去除、选择性分离与含氨混纺回收项目的技术成熟度。", figureIds: ["4-6"] },
+      { code: "4.4.4", title: "废棉机械法与纤维素法代表性企业", text: "区分保留纤维形态的机械再生与重构纤维素分子链的溶解再生路线。", figureIds: ["4-9"] },
+      { code: "4.4.5", title: "混纺分离与闭环回收代表性项目", text: "展示不同混纺结构下选择性分离、组分回收与闭环利用项目的证据等级。", figureIds: ["4-11"] },
     ],
   },
 ];
@@ -186,12 +190,17 @@ const chapterEnglish: Record<string, {
     groups: [
       { title: "Recycling Routes for Major Materials", text: "The section covers chemical and enzymatic PET recycling, PA6 depolymerization–repolymerization, mechanical and cellulosic cotton recycling, and separation and targeted recycling of blended textiles." },
       { title: "Textile-Waste Industry Chain and Technology Flows", text: "The map connects household clothing, brand collection, and industrial scraps with collection, sorting and pretreatment, material categories, recycling technologies, and final outputs." },
-      { title: "Technology Maturity of Representative Companies and Projects", text: "Public evidence is compared across PET chemical and enzymatic routes, PA6 depolymerization, spandex-containing blends, cotton recycling, and blend separation so that laboratory, demonstration, and commercial stages are not conflated." },
+      { title: "Representative Companies in Chemical and Enzymatic PET Recycling", text: "Engineering scale-up, continuous operation, and commercial evidence are compared separately for chemical and enzymatic PET depolymerization projects." },
+      { title: "Representative Companies in PA6 Depolymerization–Repolymerization", text: "The section focuses on public operating evidence for representative PA6 projects spanning depolymerization, monomer purification, and closed-loop repolymerization." },
+      { title: "Representative Companies Recycling Spandex and Spandex-Containing Blends", text: "Technology maturity is compared across spandex removal, selective separation, and recycling of spandex-containing blends." },
+      { title: "Representative Companies in Mechanical Cotton and Cellulosic Recycling", text: "Mechanical routes that retain fiber form are distinguished from dissolution-based routes that reconstruct cellulose molecular chains." },
+      { title: "Representative Blend-Separation and Closed-Loop Projects", text: "The evidence levels of selective separation, component recovery, and closed-loop projects are shown for different blend structures." },
     ],
   },
 };
 
 const figureById = new Map(figures.map((figure) => [figure.id, figure]));
+const guideChapters = chapters.filter((chapter) => chapter.id === "method" || chapter.id === "technology");
 
 export default function PaperFigureAtlas() {
   const { language, pick } = useLanguage();
@@ -211,12 +220,12 @@ export default function PaperFigureAtlas() {
     <section className="figure-atlas" id="figure-atlas">
       <div className="section-shell">
         <div className="figure-atlas-head">
-          <div><p className="eyebrow">{pick("04 · 论文图表（第 1—4 章）", "04 · PAPER FIGURES · CHAPTERS 1–4")}</p><h2>{pick("中国 T2T 论文图表（第 1—4 章）", "China T2T Paper Figures, Chapters 1–4")}</h2></div>
-          <p>{pick("本区域按照论文第 1—4 章的论证顺序展示图件；第五章的产业发展路线与重点任务已合并至页面最后一章。点击图件可查看高清原图。", "This section follows the argument sequence of Chapters 1–4. Chapter 5 figures on the industry roadmap and priority actions are integrated into the final section of the page. Select a figure to view the high-resolution original.")}</p>
+          <div><p className="eyebrow">{pick("04 · 回收技术与项目图解", "04 · RECYCLING TECHNOLOGIES & PROJECTS")}</p><h2>{pick("中国 T2T 回收技术路线与代表项目", "T2T Recycling Routes and Representative Projects in China")}</h2></div>
+          <p>{pick("材料产量、企业数据和回收规模已在前面的数据分析与核心数据表中展示，本区域不再重复。这里集中介绍技术成熟度评价、主要回收路线、产业链流向以及代表性企业与项目；点击图件可查看高清原图。", "Material output, company data, and recovery volume are already covered in the preceding data analysis and core evidence tables and are not repeated here. This section focuses on maturity assessment, major recycling routes, industry-chain flows, and representative companies and projects. Select a figure to view the high-resolution original.")}</p>
         </div>
 
-        <nav className="narrative-index" aria-label={pick("论文图表章节索引", "Paper-figure chapter index")}>
-          {chapters.map((chapter) => (
+        <nav className="narrative-index compact" aria-label={pick("回收技术图解目录", "Recycling technology guide index")}>
+          {guideChapters.map((chapter) => (
             <a key={chapter.id} href={`#paper-chapter-${chapter.id}`}>
               <span>{chapter.code}</span>
               <strong>{language === "zh" ? chapter.title : chapterEnglish[chapter.id].title}</strong>
@@ -226,7 +235,7 @@ export default function PaperFigureAtlas() {
         </nav>
 
         <div className="narrative-flow">
-          {chapters.map((chapter) => {
+          {guideChapters.map((chapter) => {
             const chapterCopy = chapterEnglish[chapter.id];
             return <article className="narrative-chapter" id={`paper-chapter-${chapter.id}`} key={chapter.id}>
               <div className="chapter-rail" aria-hidden="true"><span>{chapter.code}</span><i /></div>
@@ -270,7 +279,7 @@ export default function PaperFigureAtlas() {
             </article>
           })}
         </div>
-        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("论文图表区收录第 1—4 章的 28 张静态图；第 5 章的 2 张图已合并至页面最后的产业发展路线，全站共保留 30 张静态图。第三章仅保留中国废旧纺织品回收量变化图；第四章 4.1 完整展示主要回收技术，4.2 单独展示产业链与技术流向，4.4 集中展示代表性企业与项目的技术成熟度。技术比较热力图与气泡图统一在 4.5 交互模块中展示。", "The paper-figure section contains 28 static figures from Chapters 1–4. The two Chapter 5 figures are integrated into the final industry-roadmap section, preserving all 30 static figures across the site. Chapter 3 contains only the change in China's recovered textile volume. In Chapter 4, Section 4.1 presents the full set of major recycling routes, Section 4.2 presents the industry chain and technology flows, and Section 4.4 consolidates maturity evidence for representative companies and projects. The heatmap and bubble chart remain in the interactive Section 4.5.")}</p></div>
+        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("为避免重复，本区域已删除材料产量和回收量两组静态图，只保留 1 张成熟度评价图和 12 张技术与项目图。第 5 章的 2 张产业路线图合并在页面最后一章，全站共展示 15 张静态图。主要回收技术在 4.1 展示，产业链流向在 4.2 展示，4.4 再按 PET、PA6、氨纶、废棉和混纺分为五个企业与项目板块。", "To avoid duplication, static figures on material output and recovery volume have been removed from this section. It now retains one maturity-assessment figure and twelve technology and project figures. Two Chapter 5 roadmap figures appear in the final section, bringing the site total to 15 static figures. Major recycling technologies are presented in Section 4.1, the industry-chain flow in Section 4.2, and Section 4.4 divides companies and projects into PET, PA6, spandex, cotton waste, and blend blocks.")}</p></div>
       </div>
 
       {selected && (
