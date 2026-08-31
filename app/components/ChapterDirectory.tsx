@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 
 const chapters = [
-  { id: "overview", number: "01", zh: "材料供给", en: "Material supply" },
-  { id: "data-lab", number: "02", zh: "数据分析", en: "Data analysis" },
-  { id: "evidence-tables", number: "03", zh: "证据表", en: "Evidence tables" },
-  { id: "figure-atlas", number: "04", zh: "论文图表", en: "Paper figures" },
-  { id: "technology", number: "4.5", zh: "技术综合比较", en: "Technology comparison" },
-  { id: "roadmap", number: "05", zh: "发展路线", en: "Roadmap" },
-  { id: "references", number: "06", zh: "参考文献", en: "References" },
+  { id: "overview", number: "01", zh: "中国材料产量与回收规模", shortZh: "材料规模", en: "Material Output & Recovery", shortEn: "Materials" },
+  { id: "data-lab", number: "02", zh: "各材料变化趋势与代表性企业", shortZh: "趋势与企业", en: "Material Trends & Companies", shortEn: "Trends" },
+  { id: "evidence-tables", number: "03", zh: "核心数据与技术证据表", shortZh: "核心数据表", en: "Core Data & Evidence Tables", shortEn: "Tables" },
+  { id: "figure-atlas", number: "04", zh: "论文图表（第 1—4 章）", shortZh: "论文图表", en: "Paper Figures, Chapters 1–4", shortEn: "Figures" },
+  { id: "technology", number: "4.5", zh: "主要技术路线对比", shortZh: "技术对比", en: "Recycling Route Comparison", shortEn: "Routes" },
+  { id: "roadmap", number: "05", zh: "产业发展路线与重点任务", shortZh: "发展路线", en: "Industry Roadmap & Priorities", shortEn: "Roadmap" },
+  { id: "references", number: "06", zh: "数据来源与参考文献", shortZh: "参考文献", en: "Data Sources & References", shortEn: "Sources" },
 ] as const;
 
 export default function ChapterDirectory() {
@@ -41,7 +41,7 @@ export default function ChapterDirectory() {
     <aside className="chapter-directory" aria-label={pick("核心章节目录", "Core chapter directory")}>
       <div className="chapter-directory-head">
         <span>{pick("目", "§")}</span>
-        <div><strong>{pick("研究目录", "Contents")}</strong>{language === "en" && <small>CONTENTS</small>}</div>
+        <div><strong>{pick("网站内容目录", "Site Contents")}</strong>{language === "en" && <small>CONTENTS</small>}</div>
       </div>
       <nav>
         {chapters.map((chapter) => (
@@ -54,7 +54,10 @@ export default function ChapterDirectory() {
             onClick={() => setActiveId(chapter.id)}
           >
             <span>{chapter.number}</span>
-            <strong>{language === "zh" ? chapter.zh : chapter.en}</strong>
+            <strong>
+              <b>{language === "zh" ? chapter.zh : chapter.en}</b>
+              <small>{language === "zh" ? chapter.shortZh : chapter.shortEn}</small>
+            </strong>
           </a>
         ))}
       </nav>

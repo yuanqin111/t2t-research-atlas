@@ -6,7 +6,7 @@ import { useLanguage } from "./LanguageContext";
 
 type FigureRecord = {
   id: string;
-  chapter: "method" | "supply" | "recovery" | "technology" | "strategy";
+  chapter: "method" | "supply" | "recovery" | "technology";
   number: string;
   caption: string;
   src: string;
@@ -33,10 +33,10 @@ const figures: FigureRecord[] = [
   { id: "4-1", chapter: "technology", number: "FIG. 4-1", caption: "PET 闭环再生的主要技术路径", src: "/paper-figures/fig-4-1.png" },
   { id: "4-2", chapter: "technology", number: "FIG. 4-2", caption: "PET 化学解聚代表企业与项目的技术成熟度", src: "/paper-figures/fig-4-2.png" },
   { id: "4-3", chapter: "technology", number: "FIG. 4-3", caption: "PET 酶促解聚代表企业与项目的技术成熟度", src: "/paper-figures/fig-4-3.png" },
-  { id: "4-10", chapter: "technology", number: "FIG. 4-10", caption: "混纺废纺分离的技术决策图", src: "/paper-figures/fig-4-10.png" },
+  { id: "4-5", chapter: "technology", number: "FIG. 4-5", caption: "PA6 解聚—再聚合代表企业与项目的技术成熟度", src: "/paper-figures/fig-4-5.png" },
+  { id: "4-6", chapter: "technology", number: "FIG. 4-6", caption: "氨纶及含氨混纺回收技术的代表性企业成熟度", src: "/paper-figures/fig-4-6.png" },
+  { id: "4-9", chapter: "technology", number: "FIG. 4-9", caption: "废棉机械与纤维素再生技术的代表性企业成熟度", src: "/paper-figures/fig-4-9.png" },
   { id: "4-11", chapter: "technology", number: "FIG. 4-11", caption: "混纺选择性分离与闭环项目的技术成熟度", src: "/paper-figures/fig-4-11.png" },
-  { id: "5-1", chapter: "strategy", number: "FIG. 5-1", caption: "本文建议的 2026—2030 年中国 T2T 产业推进路径", src: "/paper-figures/fig-5-1.png" },
-  { id: "5-2", chapter: "strategy", number: "FIG. 5-2", caption: "中国 T2T 行动重点：产业影响与实施难度", src: "/paper-figures/fig-5-2.png" },
 ];
 
 type NarrativeGroup = {
@@ -102,26 +102,13 @@ const chapters: NarrativeChapter[] = [
     code: "04",
     title: "T2T 主要回收技术与项目进展",
     question: "不同材料应进入哪条闭环路线，商业证据又处于什么阶段？",
-    lead: "第四章先展示废旧纺织品从来源、回收和分选进入不同再生路线的完整流程，再比较主要技术及代表项目。",
+    lead: "第四章先说明 PET 闭环再生路径，再以产业链流向图连接来源、回收、分选、材料和再生技术，最后集中比较代表性企业与项目的技术成熟度。",
     finding: "不存在适用于所有原料的单一路线。纯度、混纺结构、预处理强度与产品价值共同决定技术选择。",
     references: [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83],
     groups: [
-      { code: "4.1", title: "PET 化学法和酶法回收", text: "先展示 PET 闭环路线，再分别比较化学解聚与酶促解聚项目的工程化和商业化证据。", figureIds: ["4-1", "4-2", "4-3"] },
-      { code: "4.2", title: "废旧纺织品从来源到再生技术的流向", text: "沿“来源—回收—分选—标准化进料—再生利用”展示产业链关系，说明不同材料进入后端技术前需要经过的环节。", figureIds: ["3-2"] },
-      { code: "4.4", title: "混纺分离与定向回收", text: "通过混纺分离决策和代表项目，说明不同混纺结构应如何选择分离方法与后续回收路线。技术路线的综合比较统一放在后续 4.5 交互模块中，不在本节重复展示。", figureIds: ["4-10", "4-11"] },
-    ],
-  },
-  {
-    id: "strategy",
-    code: "05",
-    title: "中国 T2T 产业发展路线与重点任务",
-    question: "如何将技术判断转化为 2026—2030 年的产业行动顺序？",
-    lead: "第五章承接 4.5 的技术比较结果，将路线判断转化为产业发展阶段和重点任务。",
-    finding: "近期重点是可追溯进料与成熟路线示范，中期推进复杂原料技术放大，远期形成标准统一、长期采购支撑的全国闭环网络。",
-    references: [1, 61, 62],
-    groups: [
-      { code: "5.1", title: "中国 T2T 产业发展路线（2026—2030）", text: "按近期、中期和远期拆分基础设施、技术示范与制度建设任务，避免将所有行动压缩到同一时间窗口。", figureIds: ["5-1"] },
-      { code: "5.2", title: "重点任务的影响和实施难度", text: "用优先级矩阵校准行动顺序：先推进高影响、低阻力事项，再为高难度系统工程建立长期协同机制。", figureIds: ["5-2"] },
+      { code: "4.1", title: "PET 化学法和酶法回收", text: "展示 PET 闭环再生的主要工艺路径，为后续企业与项目成熟度比较提供技术基础。", figureIds: ["4-1"] },
+      { code: "4.2", title: "废旧纺织品产业链与技术流向", text: "从居民旧衣、品牌回收和工业边角料等来源出发，展示回收与收运、分选与预处理、材料分类、再生技术及终端去向之间的完整关系。", figureIds: ["3-2"] },
+      { code: "4.4", title: "代表性企业与项目的技术成熟度", text: "集中比较 PET 化学法、PET 酶法、PA6 解聚、含氨混纺、废棉再生和混纺分离项目的公开证据等级，避免将实验验证、工程示范和商业运行混为一谈。", figureIds: ["4-2", "4-3", "4-5", "4-6", "4-9", "4-11"] },
     ],
   },
 ];
@@ -143,14 +130,14 @@ const figureCaptionEn: Record<string, string> = {
   "2-13": "Output of Major Wool Categories in China, 2013–2024",
   "2-14": "Production Scale and Product Boundaries of Representative Wool and Cashmere Companies, 2025",
   "3-1": "China's Recovered Textile Business Volume, 2018–2024",
-  "3-2": "Value-Chain Flows from Textile-Waste Sources to Recycling Outputs",
+  "3-2": "Industry-Chain Flows from Textile-Waste Sources to Recycling Outcomes",
   "4-1": "Major Technology Routes for Closed-Loop PET Recycling",
   "4-2": "Technology Maturity of Representative PET Chemical-Depolymerization Companies and Projects",
   "4-3": "Technology Maturity of Representative Enzymatic PET Depolymerization Companies and Projects",
-  "4-10": "Technology Decision Map for Separating Blended Textile Waste",
+  "4-5": "Technology Maturity of Representative PA6 Depolymerization–Repolymerization Companies and Projects",
+  "4-6": "Technology Maturity of Representative Companies Recycling Spandex and Spandex-Containing Blends",
+  "4-9": "Technology Maturity of Representative Mechanical Cotton and Cellulosic-Regeneration Companies",
   "4-11": "Technology Maturity of Selective Blend-Separation and Closed-Loop Projects",
-  "5-1": "Recommended Roadmap for China's T2T Industry, 2026–2030",
-  "5-2": "Priority T2T Actions in China: Industry Impact and Implementation Difficulty",
 };
 
 const chapterEnglish: Record<string, {
@@ -186,22 +173,12 @@ const chapterEnglish: Record<string, {
   technology: {
     title: "Major T2T Recycling Technologies and Project Progress",
     question: "Which closed-loop route fits each material, and how strong is the commercial evidence?",
-    lead: "Chapter 4 first maps the full chain from sources through collection and sorting to recycling routes, then compares major technologies and representative projects.",
+    lead: "Chapter 4 introduces the PET closed-loop pathway, uses an industry-flow map to connect sources, collection, sorting, materials, and recycling technologies, and then compares the public maturity evidence of representative companies and projects.",
     finding: "No single route fits every feedstock. Purity, blend structure, pretreatment intensity, and product value jointly determine technology choice.",
     groups: [
-      { title: "Chemical and Enzymatic PET Recycling", text: "The PET closed-loop pathway is followed by separate assessments of engineering and commercial evidence for chemical and enzymatic depolymerization." },
-      { title: "Flows from Textile-Waste Sources to Recycling Technologies", text: "Source–collection–sorting–standardized feedstock–recycling relationships show the steps materials require before entering downstream technologies." },
-      { title: "Blend Separation and Targeted Recycling", text: "Blend-separation decisions and representative projects show how different blend structures map to separation methods and downstream routes. Comparative route analysis is shown only in the interactive Section 4.5." },
-    ],
-  },
-  strategy: {
-    title: "China T2T Industry Roadmap and Priority Actions",
-    question: "How can technology assessments become an ordered industry agenda for 2026–2030?",
-    lead: "Chapter 5 translates the comparison in Section 4.5 into development stages and priority actions.",
-    finding: "Near-term priorities are traceable feedstock and mature-route demonstrations; the mid term scales complex-feedstock technologies; the long term builds harmonized standards and national closed-loop networks supported by long-term offtake.",
-    groups: [
-      { title: "China T2T Industry Roadmap, 2026–2030", text: "Near-, mid-, and long-term phases separate infrastructure, demonstration, and institutional tasks rather than compressing every action into one window." },
-      { title: "Impact and Implementation Difficulty of Priority Actions", text: "The priority matrix advances high-impact, lower-friction actions first while establishing long-term coordination for difficult system projects." },
+      { title: "Chemical and Enzymatic PET Recycling", text: "The PET closed-loop pathway provides the technical basis for later comparisons of company and project maturity." },
+      { title: "Textile-Waste Industry Chain and Technology Flows", text: "The map connects household clothing, brand collection, and industrial scraps with collection, sorting and pretreatment, material categories, recycling technologies, and final outputs." },
+      { title: "Technology Maturity of Representative Companies and Projects", text: "Public evidence is compared across PET chemical and enzymatic routes, PA6 depolymerization, spandex-containing blends, cotton recycling, and blend separation so that laboratory, demonstration, and commercial stages are not conflated." },
     ],
   },
 };
@@ -226,8 +203,8 @@ export default function PaperFigureAtlas() {
     <section className="figure-atlas" id="figure-atlas">
       <div className="section-shell">
         <div className="figure-atlas-head">
-          <div><p className="eyebrow">{pick("04 · 论文图表与研究内容", "04 · VISUAL RESEARCH NARRATIVE")}</p><h2>{pick("中国 T2T 论文图表与研究内容", "Paper Figures and Research Narrative for T2T in China")}</h2></div>
-          <p>{pick("图件按照论文第 1—5 章的论证顺序展开。每组先提出研究问题，再呈现证据与阶段判断；点击图件可查看高清原图。", "Figures follow the argument sequence of Chapters 1–5. Each group states a research question before presenting evidence and stage assessments; select a figure to view the high-resolution original.")}</p>
+          <div><p className="eyebrow">{pick("04 · 论文图表（第 1—4 章）", "04 · PAPER FIGURES · CHAPTERS 1–4")}</p><h2>{pick("中国 T2T 论文图表（第 1—4 章）", "China T2T Paper Figures, Chapters 1–4")}</h2></div>
+          <p>{pick("本区域按照论文第 1—4 章的论证顺序展示图件；第五章的产业发展路线与重点任务已合并至页面最后一章。点击图件可查看高清原图。", "This section follows the argument sequence of Chapters 1–4. Chapter 5 figures on the industry roadmap and priority actions are integrated into the final section of the page. Select a figure to view the high-resolution original.")}</p>
         </div>
 
         <nav className="narrative-index" aria-label={pick("论文图表章节索引", "Paper-figure chapter index")}>
@@ -267,7 +244,7 @@ export default function PaperFigureAtlas() {
                           <h4>{language === "zh" ? group.title : groupCopy.title}</h4>
                           <p>{language === "zh" ? group.text : groupCopy.text}</p>
                         </div>
-                        <div className={`narrative-figures count-${Math.min(groupFigures.length, 5)}`}>
+                        <div className={`narrative-figures count-${Math.min(groupFigures.length, 6)}`}>
                           {groupFigures.map((figure) => (
                             <button className="figure-card" key={figure.id} onClick={() => setSelected(figure)} aria-label={pick(`查看高清图：${figure.caption}`, `View high-resolution figure: ${figureCaption(figure)}`)}>
                               <div className="figure-image"><img src={figure.src.replace(/^\//, "")} alt={figureCaption(figure)} loading="lazy" decoding="async" /></div>
@@ -285,7 +262,7 @@ export default function PaperFigureAtlas() {
             </article>
           })}
         </div>
-        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("正文现有 24 张静态图件均已按调整后的章节顺序纳入上述五章；技术比较热力图与气泡图统一在 4.5 交互模块中展示，不在 4.4 重复出现。", "All 24 static figures are arranged across the five chapters. The technology-comparison heatmap and bubble chart appear only in the interactive Section 4.5 and are not duplicated in Section 4.4.")}</p></div>
+        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("论文图表区收录第 1—4 章的 24 张静态图；第 5 章的 2 张图已合并至页面最后的产业发展路线，全站共保留 26 张静态图。4.2 单独展示废旧纺织品产业链与技术流向，4.4 集中展示代表性企业与项目的技术成熟度；技术比较热力图与气泡图统一在 4.5 交互模块中展示。", "The paper-figure section contains 24 static figures from Chapters 1–4. The two Chapter 5 figures are integrated into the final industry-roadmap section, preserving all 26 static figures across the site. Section 4.2 presents the textile-waste industry chain and technology flows, Section 4.4 consolidates maturity evidence for representative companies and projects, and the heatmap and bubble chart remain in the interactive Section 4.5.")}</p></div>
       </div>
 
       {selected && (

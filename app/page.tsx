@@ -110,12 +110,12 @@ function HomeContent() {
           <span>{pick("中国纺织品循环利用（T2T）研究图谱", "China Textile-to-Textile Circularity Research Atlas")}</span>
         </a>
         <nav aria-label={pick("页面导航", "Page navigation")}>
-          <a href="#data-lab">{pick("数据分析", "Data analysis")}</a>
-          <a href="#evidence-tables">{pick("证据表", "Evidence tables")}</a>
+          <a href="#data-lab">{pick("趋势与企业", "Trends & companies")}</a>
+          <a href="#evidence-tables">{pick("核心数据表", "Core tables")}</a>
           <a href="#figure-atlas">{pick("论文图表", "Paper figures")}</a>
-          <a href="#technology">{pick("技术比较", "Technology comparison")}</a>
-          <a href="#roadmap">{pick("发展路线", "Roadmap")}</a>
-          <a href="#references">{pick("参考文献", "References")}</a>
+          <a href="#technology">{pick("技术路线对比", "Route comparison")}</a>
+          <a href="#roadmap">{pick("产业发展路线", "Industry roadmap")}</a>
+          <a href="#references">{pick("数据来源", "Sources")}</a>
           <span className="status-dot">{pick("V3 · 2026年8月", "V3 · AUG 2026")}</span>
           <LanguageSwitch />
         </nav>
@@ -131,7 +131,7 @@ function HomeContent() {
             <a className="primary-btn" href="#data-lab">{pick("进入研究图谱", "Explore the atlas")} <span>↘</span></a>
             <p>{pick("证据范围 · 2013—2026", "EVIDENCE BASE · 2013—2026")}</p>
           </div>
-          <div className="hero-corpus"><span><strong>24</strong> {pick("张图", "FIGURES")}</span><span><strong>04</strong> {pick("张表", "TABLES")}</span><span><strong>94</strong> {pick("条参考文献", "REFERENCES")}</span></div>
+          <div className="hero-corpus"><span><strong>26</strong> {pick("张图", "FIGURES")}</span><span><strong>04</strong> {pick("张表", "TABLES")}</span><span><strong>94</strong> {pick("条参考文献", "REFERENCES")}</span></div>
         </div>
         <div className="hero-visual" aria-label={pick("2025年中国化学纤维产量7793万吨数据图形", "China chemical-fiber output in 2025: 77.93 million tonnes")}>
           <div className="orb orb-main">
@@ -290,6 +290,25 @@ function HomeContent() {
           <p className="eyebrow">{pick("05 · 产业发展路线 2026—2030", "05 · INDUSTRIAL TRANSITION 2026—2030")}</p>
           <h2>{pick("中国 T2T 产业发展路线（2026—2030）", "China T2T Industry Roadmap, 2026–2030")}</h2>
           <p>{pick("发展路线遵循“证据基础—单一材料放大—复杂原料突破”的顺序，使技术扩张与原料质量、产品性能和商业运行证据保持同步。", "The roadmap follows a sequence of evidence foundations, mono-material scaling, and complex-feedstock breakthroughs, aligning technology expansion with feedstock quality, product performance, and commercial evidence.")}</p>
+        </div>
+        <div className="roadmap-paper-figures">
+          <div className="roadmap-paper-figures-head">
+            <div>
+              <span>{pick("第五章论文图件", "CHAPTER 5 PAPER FIGURES")}</span>
+              <h3>{pick("产业发展路线与重点任务", "Industry Roadmap and Priority Actions")}</h3>
+            </div>
+            <p>{pick("论文第五章的两张原图在此与时间轴和重点任务合并展示。点击图件可查看高清原图。", "The two original figures from Chapter 5 are presented here together with the timeline and priority actions. Select a figure to view the high-resolution original.")}</p>
+          </div>
+          <div className="roadmap-paper-figure-grid">
+            <a className="roadmap-paper-figure" href="paper-figures/fig-5-1.png" target="_blank" rel="noreferrer">
+              <img src="paper-figures/fig-5-1.png" alt={pick("本文建议的 2026—2030 年中国 T2T 产业推进路径", "Recommended roadmap for China's T2T industry, 2026–2030")} loading="lazy" decoding="async" />
+              <div><span>{pick("图 5-1", "FIG. 5-1")}</span><strong>{pick("本文建议的 2026—2030 年中国 T2T 产业推进路径", "Recommended Roadmap for China's T2T Industry, 2026–2030")}</strong><i>↗</i></div>
+            </a>
+            <a className="roadmap-paper-figure" href="paper-figures/fig-5-2.png" target="_blank" rel="noreferrer">
+              <img src="paper-figures/fig-5-2.png" alt={pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T actions in China: industry impact and implementation difficulty")} loading="lazy" decoding="async" />
+              <div><span>{pick("图 5-2", "FIG. 5-2")}</span><strong>{pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T Actions in China: Industry Impact and Implementation Difficulty")}</strong><i>↗</i></div>
+            </a>
+          </div>
         </div>
         <div className="timeline">
           <article>
