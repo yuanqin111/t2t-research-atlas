@@ -106,17 +106,16 @@ const chapters: NarrativeChapter[] = [
     code: "04",
     title: "T2T 主要回收技术与项目进展",
     question: "不同材料应进入哪条闭环路线，商业证据又处于什么阶段？",
-    lead: "第四章先系统展示 PET、PA6、废棉与混纺废旧纺织品的主要回收技术，再以产业链流向图连接来源、回收、分选、材料和再生技术，最后集中比较代表性企业与项目的技术成熟度。",
+    lead: "第四章按照“总流程—材料技术—代表性企业”的顺序展开：先用产业链流向图建立整体框架，再把 PET、PA6、氨纶、废棉和混纺废旧纺织品分别拆解为技术路线与企业项目证据。",
     finding: "不存在适用于所有原料的单一路线。纯度、混纺结构、预处理强度与产品价值共同决定技术选择。",
     references: [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83],
     groups: [
-      { code: "4.1", title: "主要材料的回收技术路线", text: "集中展示 PET 化学法与酶法、PA6 解聚—再聚合、废棉机械再生与纤维素再生，以及混纺分离与定向回收等主要技术路线。", figureIds: ["4-1", "4-4", "4-7", "4-8", "4-10"] },
-      { code: "4.2", title: "废旧纺织品产业链与技术流向", text: "从居民旧衣、品牌回收和工业边角料等来源出发，展示回收与收运、分选与预处理、材料分类、再生技术及终端去向之间的完整关系。", figureIds: ["3-2"] },
-      { code: "4.4.1", title: "PET 化学法与酶法代表性企业", text: "分别比较 PET 化学解聚和酶促解聚项目的工程放大、连续运行与商业化证据。", figureIds: ["4-2", "4-3"] },
-      { code: "4.4.2", title: "PA6 解聚—再聚合代表性企业", text: "聚焦 PA6 从解聚、单体纯化到再聚合闭环的代表项目及其公开运行证据。", figureIds: ["4-5"] },
-      { code: "4.4.3", title: "氨纶及含氨混纺回收代表性企业", text: "比较氨纶去除、选择性分离与含氨混纺回收项目的技术成熟度。", figureIds: ["4-6"] },
-      { code: "4.4.4", title: "废棉机械法与纤维素法代表性企业", text: "区分保留纤维形态的机械再生与重构纤维素分子链的溶解再生路线。", figureIds: ["4-9"] },
-      { code: "4.4.5", title: "混纺分离与闭环回收代表性项目", text: "展示不同混纺结构下选择性分离、组分回收与闭环利用项目的证据等级。", figureIds: ["4-11"] },
+      { code: "4.4.1", title: "中国废旧纺织品回收与再生总流程", text: "从居民旧衣、品牌回收和工业边角料等来源出发，依次连接回收与收运、分选与预处理、材料分类、再生技术及终端去向，为后续分材料技术分析建立总框架。", figureIds: ["3-2"] },
+      { code: "4.4.2", title: "PET 回收技术与代表性企业", text: "先展示 PET 闭环再生的机械法、化学法与酶法技术路线，再比较化学解聚和酶促解聚代表性企业及项目的成熟度证据。", figureIds: ["4-1", "4-2", "4-3"] },
+      { code: "4.4.3", title: "PA6 回收技术与代表性企业", text: "先说明 PA6 解聚、单体纯化和再聚合的闭环流程，再展示代表性企业与项目的工程放大和商业运行证据。", figureIds: ["4-4", "4-5"] },
+      { code: "4.4.4", title: "氨纶及含氨混纺回收技术与代表性企业", text: "围绕氨纶去除、选择性分离和含氨混纺定向回收，比较代表性企业与项目的技术成熟度。", figureIds: ["4-6"] },
+      { code: "4.4.5", title: "废棉回收技术与代表性企业", text: "先区分保留纤维形态的机械再生与重构纤维素分子链的溶解再生路线，再比较两类技术的代表性企业成熟度。", figureIds: ["4-7", "4-8", "4-9"] },
+      { code: "4.4.6", title: "混纺分离技术与代表性项目", text: "先依据混纺组成选择分离与定向回收路线，再展示选择性分离、组分回收和闭环利用代表性项目的证据等级。", figureIds: ["4-10", "4-11"] },
     ],
   },
 ];
@@ -185,16 +184,15 @@ const chapterEnglish: Record<string, {
   technology: {
     title: "Major T2T Recycling Technologies and Project Progress",
     question: "Which closed-loop route fits each material, and how strong is the commercial evidence?",
-    lead: "Chapter 4 first presents the major recycling routes for PET, PA6, cotton waste, and blended textiles, then connects sources, collection, sorting, materials, and recycling technologies through an industry-flow map before comparing public maturity evidence for representative companies and projects.",
+    lead: "Chapter 4 follows an overall-flow-to-material-detail structure. It begins with the industry-chain map, then pairs the technology routes for PET, PA6, spandex, cotton waste, and blended textiles with evidence from representative companies and projects.",
     finding: "No single route fits every feedstock. Purity, blend structure, pretreatment intensity, and product value jointly determine technology choice.",
     groups: [
-      { title: "Recycling Routes for Major Materials", text: "The section covers chemical and enzymatic PET recycling, PA6 depolymerization–repolymerization, mechanical and cellulosic cotton recycling, and separation and targeted recycling of blended textiles." },
-      { title: "Textile-Waste Industry Chain and Technology Flows", text: "The map connects household clothing, brand collection, and industrial scraps with collection, sorting and pretreatment, material categories, recycling technologies, and final outputs." },
-      { title: "Representative Companies in Chemical and Enzymatic PET Recycling", text: "Engineering scale-up, continuous operation, and commercial evidence are compared separately for chemical and enzymatic PET depolymerization projects." },
-      { title: "Representative Companies in PA6 Depolymerization–Repolymerization", text: "The section focuses on public operating evidence for representative PA6 projects spanning depolymerization, monomer purification, and closed-loop repolymerization." },
-      { title: "Representative Companies Recycling Spandex and Spandex-Containing Blends", text: "Technology maturity is compared across spandex removal, selective separation, and recycling of spandex-containing blends." },
-      { title: "Representative Companies in Mechanical Cotton and Cellulosic Recycling", text: "Mechanical routes that retain fiber form are distinguished from dissolution-based routes that reconstruct cellulose molecular chains." },
-      { title: "Representative Blend-Separation and Closed-Loop Projects", text: "The evidence levels of selective separation, component recovery, and closed-loop projects are shown for different blend structures." },
+      { title: "Overall Flow of Textile-Waste Recovery and Recycling in China", text: "The map connects household clothing, brand collection, and industrial scraps with collection, sorting and pretreatment, material categories, recycling technologies, and final outputs, establishing the framework for the material-specific sections that follow." },
+      { title: "PET Recycling Technologies and Representative Companies", text: "Major mechanical, chemical, and enzymatic PET routes are presented before comparing maturity evidence for representative chemical- and enzyme-based depolymerization companies and projects." },
+      { title: "PA6 Recycling Technologies and Representative Companies", text: "The closed-loop sequence from depolymerization and monomer purification to repolymerization is paired with public scale-up and commercial-operation evidence from representative PA6 projects." },
+      { title: "Spandex and Spandex-Blend Recycling Technologies and Representative Companies", text: "Representative companies and projects are compared across spandex removal, selective separation, and targeted recycling of spandex-containing blends." },
+      { title: "Cotton-Waste Recycling Technologies and Representative Companies", text: "Mechanical routes that retain fiber form and dissolution-based routes that reconstruct cellulose chains are presented together with representative-company maturity evidence." },
+      { title: "Blend-Separation Technologies and Representative Projects", text: "Technology selection by blend composition is paired with evidence from representative selective-separation, component-recovery, and closed-loop projects." },
     ],
   },
 };
@@ -220,8 +218,8 @@ export default function PaperFigureAtlas() {
     <section className="figure-atlas" id="figure-atlas">
       <div className="section-shell">
         <div className="figure-atlas-head">
-          <div><p className="eyebrow">{pick("04 · 回收技术与项目图解", "04 · RECYCLING TECHNOLOGIES & PROJECTS")}</p><h2>{pick("中国 T2T 回收技术路线与代表项目", "T2T Recycling Routes and Representative Projects in China")}</h2></div>
-          <p>{pick("材料产量、企业数据和回收规模已在前面的数据分析与核心数据表中展示，本区域不再重复。这里集中介绍技术成熟度评价、主要回收路线、产业链流向以及代表性企业与项目；点击图件可查看高清原图。", "Material output, company data, and recovery volume are already covered in the preceding data analysis and core evidence tables and are not repeated here. This section focuses on maturity assessment, major recycling routes, industry-chain flows, and representative companies and projects. Select a figure to view the high-resolution original.")}</p>
+          <div><p className="eyebrow">{pick("04 · 中国 T2T 总流程与技术细分", "04 · OVERALL FLOW & TECHNOLOGY BREAKDOWN")}</p><h2>{pick("中国 T2T 回收总流程、技术路线与代表性企业", "China T2T Recycling Flow, Technology Routes, and Representative Companies")}</h2></div>
+          <p>{pick("本章先用总流程图说明废旧纺织品如何从来源进入分选、材料分类和再生利用，再按 PET、PA6、氨纶、废棉和混纺材料依次展示技术路线与代表性企业。点击图件可查看高清原图。", "This chapter begins with the overall textile-waste flow from sources through sorting, material classification, and recycling, then presents the technology routes and representative companies for PET, PA6, spandex, cotton waste, and blended textiles. Select a figure to view the high-resolution original.")}</p>
         </div>
 
         <nav className="narrative-index compact" aria-label={pick("回收技术图解目录", "Recycling technology guide index")}>
@@ -279,7 +277,7 @@ export default function PaperFigureAtlas() {
             </article>
           })}
         </div>
-        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("为避免重复，本区域已删除材料产量和回收量两组静态图，只保留 1 张成熟度评价图和 12 张技术与项目图。第 5 章的 2 张产业路线图合并在页面最后一章，全站共展示 15 张静态图。主要回收技术在 4.1 展示，产业链流向在 4.2 展示，4.4 再按 PET、PA6、氨纶、废棉和混纺分为五个企业与项目板块。", "To avoid duplication, static figures on material output and recovery volume have been removed from this section. It now retains one maturity-assessment figure and twelve technology and project figures. Two Chapter 5 roadmap figures appear in the final section, bringing the site total to 15 static figures. Major recycling technologies are presented in Section 4.1, the industry-chain flow in Section 4.2, and Section 4.4 divides companies and projects into PET, PA6, spandex, cotton waste, and blend blocks.")}</p></div>
+        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("为避免与前文重复，本区域不再展示材料产量和回收量图。第四章统一采用“4.4.1 总流程—4.4.2 至 4.4.6 分材料技术与代表性企业”的结构：每个材料板块先说明技术路线，再衔接企业或项目成熟度证据。", "To avoid duplication with earlier sections, material-output and recovered-volume figures are not repeated here. Chapter 4 now follows a consistent structure: Section 4.4.1 presents the overall flow, while Sections 4.4.2–4.4.6 pair each material-specific technology route with evidence from representative companies or projects.")}</p></div>
       </div>
 
       {selected && (
