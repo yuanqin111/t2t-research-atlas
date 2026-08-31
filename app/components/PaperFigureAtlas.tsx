@@ -205,6 +205,10 @@ export default function PaperFigureAtlas() {
   const [selected, setSelected] = useState<FigureRecord | null>(null);
   const figureCaption = (figure: FigureRecord) => language === "zh" ? figure.caption : figureCaptionEn[figure.id];
   const figureNumber = (figure: FigureRecord) => language === "zh" ? figure.number.replace("FIG.", "图") : figure.number;
+  const figureSrc = (figure: FigureRecord) => {
+    const src = figure.src.replace(/^\//, "");
+    return language === "en" ? src.replace(/\.png$/, "-en.png") : src;
+  };
 
   useEffect(() => {
     if (!selected) return;
@@ -262,7 +266,7 @@ export default function PaperFigureAtlas() {
                         <div className={`narrative-figures count-${Math.min(groupFigures.length, 6)}`}>
                           {groupFigures.map((figure) => (
                             <button className="figure-card" key={figure.id} onClick={() => setSelected(figure)} aria-label={pick(`查看高清图：${figure.caption}`, `View high-resolution figure: ${figureCaption(figure)}`)}>
-                              <div className="figure-image"><img src={figure.src.replace(/^\//, "")} alt={figureCaption(figure)} loading="lazy" decoding="async" /></div>
+                              <div className="figure-image"><img src={figureSrc(figure)} alt={figureCaption(figure)} loading="lazy" decoding="async" /></div>
                               <div className="figure-meta"><span>{figureNumber(figure)}</span><strong>{figureCaption(figure)}</strong><i>↗</i></div>
                             </button>
                           ))}
@@ -285,7 +289,7 @@ export default function PaperFigureAtlas() {
           <button className="lightbox-close" onClick={() => setSelected(null)} aria-label={pick("关闭大图", "Close figure")}>×</button>
           <div className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
             <div className="lightbox-title"><span>{figureNumber(selected)}</span><h3>{figureCaption(selected)}</h3></div>
-            <img src={selected.src.replace(/^\//, "")} alt={figureCaption(selected)} />
+            <img src={figureSrc(selected)} alt={figureCaption(selected)} />
           </div>
         </div>
       )}

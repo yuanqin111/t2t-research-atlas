@@ -300,8 +300,8 @@ function HomeContent() {
               </div>
               <p>{pick("图 5-1 给出 2026—2030 年的总体推进顺序，下方按近期、中期和远期拆解各阶段的主要任务。", "Figure 5-1 sets out the overall sequence for 2026–2030. The three phases below translate it into a practical task agenda.")}</p>
             </header>
-            <a className="roadmap-paper-figure" href="paper-figures/fig-5-1.png" target="_blank" rel="noreferrer">
-              <img src="paper-figures/fig-5-1.png" alt={pick("本文建议的 2026—2030 年中国 T2T 产业推进路径", "Recommended roadmap for China's T2T industry, 2026–2030")} loading="lazy" decoding="async" />
+            <a className="roadmap-paper-figure" href={language === "en" ? "paper-figures/fig-5-1-en.png" : "paper-figures/fig-5-1.png"} target="_blank" rel="noreferrer">
+              <img src={language === "en" ? "paper-figures/fig-5-1-en.png" : "paper-figures/fig-5-1.png"} alt={pick("本文建议的 2026—2030 年中国 T2T 产业推进路径", "Recommended roadmap for China's T2T industry, 2026–2030")} loading="lazy" decoding="async" />
               <div><span>{pick("图 5-1", "FIG. 5-1")}</span><strong>{pick("本文建议的 2026—2030 年中国 T2T 产业推进路径", "Recommended Roadmap for China's T2T Industry, 2026–2030")}</strong><i>↗</i></div>
             </a>
             <div className="timeline">
@@ -336,8 +336,8 @@ function HomeContent() {
               </div>
               <p>{pick("图 5-2 综合比较产业影响和实施难度，下方提炼最适合率先启动的三项重点任务。", "Figure 5-2 compares industry impact with implementation difficulty. The three actions below are the strongest starting points.")}</p>
             </header>
-            <a className="roadmap-paper-figure" href="paper-figures/fig-5-2.png" target="_blank" rel="noreferrer">
-              <img src="paper-figures/fig-5-2.png" alt={pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T actions in China: industry impact and implementation difficulty")} loading="lazy" decoding="async" />
+            <a className="roadmap-paper-figure" href={language === "en" ? "paper-figures/fig-5-2-en.png" : "paper-figures/fig-5-2.png"} target="_blank" rel="noreferrer">
+              <img src={language === "en" ? "paper-figures/fig-5-2-en.png" : "paper-figures/fig-5-2.png"} alt={pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T actions in China: industry impact and implementation difficulty")} loading="lazy" decoding="async" />
               <div><span>{pick("图 5-2", "FIG. 5-2")}</span><strong>{pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T Actions in China: Industry Impact and Implementation Difficulty")}</strong><i>↗</i></div>
             </a>
             <div className="priority-strip">
