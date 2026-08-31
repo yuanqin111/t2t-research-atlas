@@ -33,9 +33,13 @@ const figures: FigureRecord[] = [
   { id: "4-1", chapter: "technology", number: "FIG. 4-1", caption: "PET 闭环再生的主要技术路径", src: "/paper-figures/fig-4-1.png" },
   { id: "4-2", chapter: "technology", number: "FIG. 4-2", caption: "PET 化学解聚代表企业与项目的技术成熟度", src: "/paper-figures/fig-4-2.png" },
   { id: "4-3", chapter: "technology", number: "FIG. 4-3", caption: "PET 酶促解聚代表企业与项目的技术成熟度", src: "/paper-figures/fig-4-3.png" },
+  { id: "4-4", chapter: "technology", number: "FIG. 4-4", caption: "PA6 闭环解聚与再聚合流程", src: "/paper-figures/fig-4-4.png" },
   { id: "4-5", chapter: "technology", number: "FIG. 4-5", caption: "PA6 解聚—再聚合代表企业与项目的技术成熟度", src: "/paper-figures/fig-4-5.png" },
   { id: "4-6", chapter: "technology", number: "FIG. 4-6", caption: "氨纶及含氨混纺回收技术的代表性企业成熟度", src: "/paper-figures/fig-4-6.png" },
+  { id: "4-7", chapter: "technology", number: "FIG. 4-7", caption: "废棉机械再生 T2T 工艺流程", src: "/paper-figures/fig-4-7.png" },
+  { id: "4-8", chapter: "technology", number: "FIG. 4-8", caption: "废棉再生的两类主要技术路径对比", src: "/paper-figures/fig-4-8.png" },
   { id: "4-9", chapter: "technology", number: "FIG. 4-9", caption: "废棉机械与纤维素再生技术的代表性企业成熟度", src: "/paper-figures/fig-4-9.png" },
+  { id: "4-10", chapter: "technology", number: "FIG. 4-10", caption: "混纺废旧纺织品分离的技术决策图", src: "/paper-figures/fig-4-10.png" },
   { id: "4-11", chapter: "technology", number: "FIG. 4-11", caption: "混纺选择性分离与闭环项目的技术成熟度", src: "/paper-figures/fig-4-11.png" },
 ];
 
@@ -102,11 +106,11 @@ const chapters: NarrativeChapter[] = [
     code: "04",
     title: "T2T 主要回收技术与项目进展",
     question: "不同材料应进入哪条闭环路线，商业证据又处于什么阶段？",
-    lead: "第四章先说明 PET 闭环再生路径，再以产业链流向图连接来源、回收、分选、材料和再生技术，最后集中比较代表性企业与项目的技术成熟度。",
+    lead: "第四章先系统展示 PET、PA6、废棉与混纺废旧纺织品的主要回收技术，再以产业链流向图连接来源、回收、分选、材料和再生技术，最后集中比较代表性企业与项目的技术成熟度。",
     finding: "不存在适用于所有原料的单一路线。纯度、混纺结构、预处理强度与产品价值共同决定技术选择。",
     references: [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83],
     groups: [
-      { code: "4.1", title: "PET 化学法和酶法回收", text: "展示 PET 闭环再生的主要工艺路径，为后续企业与项目成熟度比较提供技术基础。", figureIds: ["4-1"] },
+      { code: "4.1", title: "主要材料的回收技术路线", text: "集中展示 PET 化学法与酶法、PA6 解聚—再聚合、废棉机械再生与纤维素再生，以及混纺分离与定向回收等主要技术路线。", figureIds: ["4-1", "4-4", "4-7", "4-8", "4-10"] },
       { code: "4.2", title: "废旧纺织品产业链与技术流向", text: "从居民旧衣、品牌回收和工业边角料等来源出发，展示回收与收运、分选与预处理、材料分类、再生技术及终端去向之间的完整关系。", figureIds: ["3-2"] },
       { code: "4.4", title: "代表性企业与项目的技术成熟度", text: "集中比较 PET 化学法、PET 酶法、PA6 解聚、含氨混纺、废棉再生和混纺分离项目的公开证据等级，避免将实验验证、工程示范和商业运行混为一谈。", figureIds: ["4-2", "4-3", "4-5", "4-6", "4-9", "4-11"] },
     ],
@@ -134,9 +138,13 @@ const figureCaptionEn: Record<string, string> = {
   "4-1": "Major Technology Routes for Closed-Loop PET Recycling",
   "4-2": "Technology Maturity of Representative PET Chemical-Depolymerization Companies and Projects",
   "4-3": "Technology Maturity of Representative Enzymatic PET Depolymerization Companies and Projects",
+  "4-4": "Closed-Loop PA6 Depolymerization and Repolymerization Process",
   "4-5": "Technology Maturity of Representative PA6 Depolymerization–Repolymerization Companies and Projects",
   "4-6": "Technology Maturity of Representative Companies Recycling Spandex and Spandex-Containing Blends",
+  "4-7": "Mechanical T2T Recycling Process for Cotton Waste",
+  "4-8": "Comparison of Two Major Technology Routes for Cotton-Waste Recycling",
   "4-9": "Technology Maturity of Representative Mechanical Cotton and Cellulosic-Regeneration Companies",
+  "4-10": "Technology-Selection Map for Separating Blended Textile Waste",
   "4-11": "Technology Maturity of Selective Blend-Separation and Closed-Loop Projects",
 };
 
@@ -173,10 +181,10 @@ const chapterEnglish: Record<string, {
   technology: {
     title: "Major T2T Recycling Technologies and Project Progress",
     question: "Which closed-loop route fits each material, and how strong is the commercial evidence?",
-    lead: "Chapter 4 introduces the PET closed-loop pathway, uses an industry-flow map to connect sources, collection, sorting, materials, and recycling technologies, and then compares the public maturity evidence of representative companies and projects.",
+    lead: "Chapter 4 first presents the major recycling routes for PET, PA6, cotton waste, and blended textiles, then connects sources, collection, sorting, materials, and recycling technologies through an industry-flow map before comparing public maturity evidence for representative companies and projects.",
     finding: "No single route fits every feedstock. Purity, blend structure, pretreatment intensity, and product value jointly determine technology choice.",
     groups: [
-      { title: "Chemical and Enzymatic PET Recycling", text: "The PET closed-loop pathway provides the technical basis for later comparisons of company and project maturity." },
+      { title: "Recycling Routes for Major Materials", text: "The section covers chemical and enzymatic PET recycling, PA6 depolymerization–repolymerization, mechanical and cellulosic cotton recycling, and separation and targeted recycling of blended textiles." },
       { title: "Textile-Waste Industry Chain and Technology Flows", text: "The map connects household clothing, brand collection, and industrial scraps with collection, sorting and pretreatment, material categories, recycling technologies, and final outputs." },
       { title: "Technology Maturity of Representative Companies and Projects", text: "Public evidence is compared across PET chemical and enzymatic routes, PA6 depolymerization, spandex-containing blends, cotton recycling, and blend separation so that laboratory, demonstration, and commercial stages are not conflated." },
     ],
@@ -262,7 +270,7 @@ export default function PaperFigureAtlas() {
             </article>
           })}
         </div>
-        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("论文图表区收录第 1—4 章的 24 张静态图；第 5 章的 2 张图已合并至页面最后的产业发展路线，全站共保留 26 张静态图。4.2 单独展示废旧纺织品产业链与技术流向，4.4 集中展示代表性企业与项目的技术成熟度；技术比较热力图与气泡图统一在 4.5 交互模块中展示。", "The paper-figure section contains 24 static figures from Chapters 1–4. The two Chapter 5 figures are integrated into the final industry-roadmap section, preserving all 26 static figures across the site. Section 4.2 presents the textile-waste industry chain and technology flows, Section 4.4 consolidates maturity evidence for representative companies and projects, and the heatmap and bubble chart remain in the interactive Section 4.5.")}</p></div>
+        <div className="figure-audit"><span>{pick("图件说明", "FIGURE INTEGRITY")}</span><p>{pick("论文图表区收录第 1—4 章的 28 张静态图；第 5 章的 2 张图已合并至页面最后的产业发展路线，全站共保留 30 张静态图。第三章仅保留中国废旧纺织品回收量变化图；第四章 4.1 完整展示主要回收技术，4.2 单独展示产业链与技术流向，4.4 集中展示代表性企业与项目的技术成熟度。技术比较热力图与气泡图统一在 4.5 交互模块中展示。", "The paper-figure section contains 28 static figures from Chapters 1–4. The two Chapter 5 figures are integrated into the final industry-roadmap section, preserving all 30 static figures across the site. Chapter 3 contains only the change in China's recovered textile volume. In Chapter 4, Section 4.1 presents the full set of major recycling routes, Section 4.2 presents the industry chain and technology flows, and Section 4.4 consolidates maturity evidence for representative companies and projects. The heatmap and bubble chart remain in the interactive Section 4.5.")}</p></div>
       </div>
 
       {selected && (

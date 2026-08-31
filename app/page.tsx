@@ -131,7 +131,7 @@ function HomeContent() {
             <a className="primary-btn" href="#data-lab">{pick("进入研究图谱", "Explore the atlas")} <span>↘</span></a>
             <p>{pick("证据范围 · 2013—2026", "EVIDENCE BASE · 2013—2026")}</p>
           </div>
-          <div className="hero-corpus"><span><strong>26</strong> {pick("张图", "FIGURES")}</span><span><strong>04</strong> {pick("张表", "TABLES")}</span><span><strong>94</strong> {pick("条参考文献", "REFERENCES")}</span></div>
+          <div className="hero-corpus"><span><strong>30</strong> {pick("张图", "FIGURES")}</span><span><strong>04</strong> {pick("张表", "TABLES")}</span><span><strong>94</strong> {pick("条参考文献", "REFERENCES")}</span></div>
         </div>
         <div className="hero-visual" aria-label={pick("2025年中国化学纤维产量7793万吨数据图形", "China chemical-fiber output in 2025: 77.93 million tonnes")}>
           <div className="orb orb-main">
