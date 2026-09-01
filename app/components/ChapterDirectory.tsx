@@ -7,8 +7,8 @@ const chapters = [
   { id: "overview", number: "01", zh: "中国纺织品产量与回收规模", shortZh: "产量与回收", en: "China Textile Output & Recovery Scale", shortEn: "Output & Recovery" },
   { id: "data-lab", number: "02", zh: "不同类型纺织品产量变化趋势与代表性生产企业", shortZh: "趋势与生产企业", en: "Output Trends by Textile Type & Representative Producers", shortEn: "Trends & Producers" },
   { id: "evidence-tables", number: "03", zh: "中国废旧纺织品回收分选代表性企业", shortZh: "回收分选企业", en: "Representative Waste-Textile Collection & Sorting Companies in China", shortEn: "Collection & Sorting" },
-  { id: "figure-atlas", number: "04", zh: "技术成熟度、总体流程与分材料路线", shortZh: "技术全景", en: "Technology Maturity, Flow & Material Routes", shortEn: "Technology" },
-  { id: "technology", number: "4.5", zh: "主要技术路线对比", shortZh: "技术对比", en: "Recycling Route Comparison", shortEn: "Routes" },
+  { id: "figure-atlas", number: "04", zh: "主要回收技术与代表性企业", shortZh: "技术与企业", en: "Major Recycling Technologies & Representative Companies", shortEn: "Technologies & Companies" },
+  { id: "technology", number: "4.5", zh: "技术路线综合比较", shortZh: "路线比较", en: "Comparative Assessment of Recycling Routes", shortEn: "Route Comparison" },
   { id: "roadmap", number: "05", zh: "产业发展路线与重点任务", shortZh: "发展路线", en: "Industry Roadmap & Priorities", shortEn: "Roadmap" },
   { id: "references", number: "06", zh: "数据来源与参考文献", shortZh: "参考文献", en: "Data Sources & References", shortEn: "Sources" },
 ] as const;
