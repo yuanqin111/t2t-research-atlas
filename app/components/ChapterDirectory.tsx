@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "./LanguageContext";
 
 const chapters = [
-  { id: "overview", number: "01", zh: "中国材料产量与回收规模", shortZh: "材料规模", en: "Material Output & Recovery", shortEn: "Materials" },
-  { id: "data-lab", number: "02", zh: "各材料变化趋势与代表性企业", shortZh: "趋势与企业", en: "Material Trends & Companies", shortEn: "Trends" },
+  { id: "overview", number: "01", zh: "中国纺织品产量与回收规模", shortZh: "产量与回收", en: "China Textile Output & Recovery Scale", shortEn: "Output & Recovery" },
+  { id: "data-lab", number: "02", zh: "不同类型纺织品产量变化趋势与代表性生产企业", shortZh: "趋势与生产企业", en: "Output Trends by Textile Type & Representative Producers", shortEn: "Trends & Producers" },
   { id: "evidence-tables", number: "03", zh: "核心数据与技术证据表", shortZh: "核心数据表", en: "Core Data & Evidence Tables", shortEn: "Tables" },
   { id: "figure-atlas", number: "04", zh: "技术成熟度、总体流程与分材料路线", shortZh: "技术全景", en: "Technology Maturity, Flow & Material Routes", shortEn: "Technology" },
   { id: "technology", number: "4.5", zh: "主要技术路线对比", shortZh: "技术对比", en: "Recycling Route Comparison", shortEn: "Routes" },
