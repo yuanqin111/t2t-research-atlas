@@ -5,6 +5,7 @@ import ChapterDirectory from "./components/ChapterDirectory";
 import DataExplorer from "./components/DataExplorer";
 import EvidenceTables from "./components/EvidenceTables";
 import PaperFigureAtlas from "./components/PaperFigureAtlas";
+import PriorityMatrix from "./components/PriorityMatrix";
 import ReferencesSection from "./components/ReferencesSection";
 import TechnologyRouteSummary from "./components/TechnologyRouteSummary";
 import { LanguageProvider, LanguageSwitch, useLanguage } from "./components/LanguageContext";
@@ -339,10 +340,7 @@ function HomeContent() {
               </div>
               <p>{pick("图 5-2 综合比较产业影响和实施难度，下方列出实施优先级最高的三项重点任务。", "Figure 5-2 compares industry impact with implementation difficulty. The three actions below have the highest implementation priority.")}</p>
             </header>
-            <a className="roadmap-paper-figure" href={language === "en" ? "paper-figures/fig-5-2-en.png" : "paper-figures/fig-5-2.png"} target="_blank" rel="noreferrer">
-              <img src={language === "en" ? "paper-figures/fig-5-2-en.png" : "paper-figures/fig-5-2.png"} alt={pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T actions in China: industry impact and implementation difficulty")} loading="lazy" decoding="async" />
-              <div><span>{pick("图 5-2", "FIG. 5-2")}</span><strong>{pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T Actions in China: Industry Impact and Implementation Difficulty")}</strong><i>↗</i></div>
-            </a>
+            <PriorityMatrix />
             <div className="priority-strip">
               <div><span>{pick("重点任务 01", "STRATEGIC PRIORITY 01")}</span><strong>{pick("建立回收追溯体系", "Build a recovery traceability system")}</strong><small>{pick("高影响 · 较低实施难度", "High impact · Lower implementation difficulty")}</small></div>
               <div><span>{pick("重点任务 02", "STRATEGIC PRIORITY 02")}</span><strong>{pick("标准化高纯 PET 进料", "Standardize high-purity PET feedstock")}</strong><small>{pick("高影响 · 可形成近期成果", "High impact · Near-term results")}</small></div>
