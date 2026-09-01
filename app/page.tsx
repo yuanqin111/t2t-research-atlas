@@ -353,7 +353,7 @@ function HomeContent() {
 
       <footer>
         <div><span className="brand-mark">T2T</span><strong>{pick("中国纺织品循环利用（T2T）研究图谱", "China Textile-to-Textile Circularity Research Atlas")}</strong></div>
-        <p>{pick("论文数据与公开证据整理 · 2026", "EVIDENCE-BASED INTERACTIVE ATLAS · 2026")}</p>
+        <p>{pick("论文数据与公开证据整理 · 秦源 · 2026", "EVIDENCE-BASED INTERACTIVE ATLAS · YUAN.QIN · 2026")}</p>
         <a href="#top">{pick("返回顶部 ↑", "Back to top ↑")}</a>
       </footer>
     </main>
