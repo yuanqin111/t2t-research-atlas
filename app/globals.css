@@ -406,6 +406,8 @@ button { font: inherit; }
 .technology .eyebrow { color: var(--teal); }
 .technology-heading { display: flex; justify-content: space-between; align-items: end; gap: 40px; }
 .technology-heading h2 { margin: 0; max-width: 840px; font: 500 clamp(40px, 4.5vw, 68px)/1.07 var(--serif); letter-spacing: -.04em; }
+.technology-route-summary { margin-top: 55px; color: var(--ink); }
+.technology-route-summary .evidence-table-scroll { max-height: none; }
 .view-toggle { display: flex; padding: 4px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 3px; }
 .view-toggle button { padding: 11px 16px; color: #a9b8b3; background: transparent; border: 0; border-radius: 2px; font-size: 12px; cursor: pointer; }
 .view-toggle button.active { color: var(--ink); background: var(--teal); }

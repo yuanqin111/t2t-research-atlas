@@ -6,6 +6,7 @@ import DataExplorer from "./components/DataExplorer";
 import EvidenceTables from "./components/EvidenceTables";
 import PaperFigureAtlas from "./components/PaperFigureAtlas";
 import ReferencesSection from "./components/ReferencesSection";
+import TechnologyRouteSummary from "./components/TechnologyRouteSummary";
 import { LanguageProvider, LanguageSwitch, useLanguage } from "./components/LanguageContext";
 
 const technologyRoutes = [
@@ -214,6 +215,8 @@ function HomeContent() {
               <button className={matrixView === "bubble" ? "active" : ""} onClick={() => setMatrixView("bubble")}>{pick("成熟度—复杂度图", "Maturity–complexity map")}</button>
             </div>
           </div>
+
+          <TechnologyRouteSummary />
 
           <div className="technology-board">
             <div className="tech-selector" role="tablist" aria-label={pick("选择技术路线", "Select a technology route")}>
