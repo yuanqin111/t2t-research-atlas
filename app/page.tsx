@@ -40,8 +40,8 @@ const technologyRoutes = [
     short: "PA6",
     evidence: "T3–T5",
     values: [3, 2, 1, 2, 3, 3],
-    focus: "优先切入来源稳定的单一材质场景，再逐步扩大消费后原料占比。",
-    focusEn: "Deployment should begin with stable mono-material streams before gradually increasing the share of post-consumer feedstock.",
+    focus: "来源稳定的单一材质场景具备近期规模化条件；消费后原料占比的提升取决于分选精度和进料稳定性。",
+    focusEn: "Stable mono-material streams offer near-term scaling conditions; higher post-consumer content depends on sorting accuracy and feedstock consistency.",
     cases: ["Aquafil ECONYL · T5", "BASF loopamid · T4", "台华化学回收尼龙 · T4", "Toray Nylon 6 · T4", "恒申 7000 吨项目 · T3"],
     casesEn: ["Aquafil ECONYL · T5", "BASF loopamid · T4", "Taihua chemically recycled nylon · T4", "Toray Nylon 6 · T4", "Highsun 7,000 t project · T3"],
   },
@@ -112,7 +112,7 @@ function HomeContent() {
         <nav aria-label={pick("页面导航", "Page navigation")}>
           <a href="#data-lab">{pick("趋势与企业", "Trends & companies")}</a>
           <a href="#evidence-tables">{pick("核心数据表", "Core tables")}</a>
-          <a href="#figure-atlas">{pick("总流程与技术细分", "Flow & technology breakdown")}</a>
+          <a href="#figure-atlas">{pick("技术成熟度与路线", "Technology maturity & routes")}</a>
           <a href="#technology">{pick("技术路线对比", "Route comparison")}</a>
           <a href="#roadmap">{pick("产业发展路线", "Industry roadmap")}</a>
           <a href="#references">{pick("数据来源", "Sources")}</a>
@@ -301,8 +301,8 @@ function HomeContent() {
               <p>{pick("图 5-1 给出 2026—2030 年的总体推进顺序，下方按近期、中期和远期拆解各阶段的主要任务。", "Figure 5-1 sets out the overall sequence for 2026–2030. The three phases below translate it into a practical task agenda.")}</p>
             </header>
             <a className="roadmap-paper-figure" href={language === "en" ? "paper-figures/fig-5-1-en.png" : "paper-figures/fig-5-1.png"} target="_blank" rel="noreferrer">
-              <img src={language === "en" ? "paper-figures/fig-5-1-en.png" : "paper-figures/fig-5-1.png"} alt={pick("本文建议的 2026—2030 年中国 T2T 产业推进路径", "Recommended roadmap for China's T2T industry, 2026–2030")} loading="lazy" decoding="async" />
-              <div><span>{pick("图 5-1", "FIG. 5-1")}</span><strong>{pick("本文建议的 2026—2030 年中国 T2T 产业推进路径", "Recommended Roadmap for China's T2T Industry, 2026–2030")}</strong><i>↗</i></div>
+              <img src={language === "en" ? "paper-figures/fig-5-1-en.png" : "paper-figures/fig-5-1.png"} alt={pick("2026—2030 年中国 T2T 产业推进建议", "Recommended roadmap for China's T2T industry, 2026–2030")} loading="lazy" decoding="async" />
+              <div><span>{pick("图 5-1", "FIG. 5-1")}</span><strong>{pick("2026—2030 年中国 T2T 产业推进建议", "Recommended Roadmap for China's T2T Industry, 2026–2030")}</strong><i>↗</i></div>
             </a>
             <div className="timeline">
               <article>
@@ -334,7 +334,7 @@ function HomeContent() {
                 <span>{pick("行动排序", "ACTION PRIORITIES")}</span>
                 <h3>{pick("优先推进高影响、可落地的基础任务", "Prioritize High-Impact, Actionable Foundations")}</h3>
               </div>
-              <p>{pick("图 5-2 综合比较产业影响和实施难度，下方提炼最适合率先启动的三项重点任务。", "Figure 5-2 compares industry impact with implementation difficulty. The three actions below are the strongest starting points.")}</p>
+              <p>{pick("图 5-2 综合比较产业影响和实施难度，下方列出实施优先级最高的三项重点任务。", "Figure 5-2 compares industry impact with implementation difficulty. The three actions below have the highest implementation priority.")}</p>
             </header>
             <a className="roadmap-paper-figure" href={language === "en" ? "paper-figures/fig-5-2-en.png" : "paper-figures/fig-5-2.png"} target="_blank" rel="noreferrer">
               <img src={language === "en" ? "paper-figures/fig-5-2-en.png" : "paper-figures/fig-5-2.png"} alt={pick("中国 T2T 行动重点：产业影响与实施难度", "Priority T2T actions in China: industry impact and implementation difficulty")} loading="lazy" decoding="async" />
