@@ -47,6 +47,7 @@ type NarrativeGroup = {
   code: string;
   title: string;
   text: string;
+  references: number[];
   figureIds: string[];
 };
 
@@ -57,7 +58,6 @@ type NarrativeChapter = {
   question: string;
   lead: string;
   finding: string;
-  references: number[];
   groups: NarrativeGroup[];
 };
 
@@ -69,9 +69,8 @@ const chapters: NarrativeChapter[] = [
     question: "不同技术项目如何在同一尺度上比较？",
     lead: "论证从统一评价语言开始。成熟度分级先界定实验验证、工程放大与商业运行之间的证据差异，再进入产业数据比较。",
     finding: "T1—T5 不是企业排名，而是对项目证据强度、运行连续性与闭环可验证性的共同标尺。",
-    references: [1, 61, 62],
     groups: [
-      { code: "1.1", title: "T1—T5 技术成熟度等级", text: "先建立证据尺度，避免把实验室可行、示范线运行与稳定商业闭环混为同一成熟阶段。", figureIds: ["1-1"] },
+      { code: "1.1", title: "T1—T5 技术成熟度等级", text: "先建立证据尺度，避免把实验室可行、示范线运行与稳定商业闭环混为同一成熟阶段。", references: [1, 61, 62], figureIds: ["1-1"] },
     ],
   },
   {
@@ -81,12 +80,11 @@ const chapters: NarrativeChapter[] = [
     question: "哪些材料与企业构成 T2T 的优先原料基础？",
     lead: "第二章由宏观供给进入材料结构，再下沉至企业与产品边界。图件顺序对应“总量—品类—企业”的逐层收敛。",
     finding: "涤纶决定潜在闭环规模；锦纶、氨纶和天然纤维则决定分选精度、混纺复杂度与差异化技术需求。",
-    references: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 63, 64, 65, 66, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94],
     groups: [
-      { code: "2.1", title: "中国主要纺织材料产量", text: "先用总量与结构确定中国纺织原料底盘，识别化学纤维在 T2T 原料体系中的规模权重。", figureIds: ["2-1", "2-2"] },
-      { code: "2.2", title: "中国涤纶产量与企业数据", text: "从涤纶内部结构、年度演变进一步延伸到代表性企业，连接材料规模与可组织的产业供给。", figureIds: ["2-3", "2-4", "2-5"] },
-      { code: "2.3", title: "中国锦纶和氨纶产量与企业数据", text: "锦纶关注解聚价值与企业集中度；氨纶关注弹性组分对混纺回收过程的干扰及预处理要求。", figureIds: ["2-6", "2-7", "2-8", "2-9"] },
-      { code: "2.4", title: "中国棉花和羊毛产量与企业数据", text: "产量、区域集中度与企业产品口径共同说明天然纤维不能仅按吨位比较，还需区分纱线、面料与制品边界。", figureIds: ["2-10", "2-11", "2-12", "2-13", "2-14"] },
+      { code: "2.1", title: "中国主要纺织材料产量", text: "先用总量与结构确定中国纺织原料底盘，识别化学纤维在 T2T 原料体系中的规模权重。", references: [2, 7], figureIds: ["2-1", "2-2"] },
+      { code: "2.2", title: "中国涤纶产量与企业数据", text: "从涤纶内部结构、年度演变进一步延伸到代表性企业，连接材料规模与可组织的产业供给。", references: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 63, 84], figureIds: ["2-3", "2-4", "2-5"] },
+      { code: "2.3", title: "中国锦纶和氨纶产量与企业数据", text: "锦纶关注解聚价值与企业集中度；氨纶关注弹性组分对混纺回收过程的干扰及预处理要求。", references: [2, 3, 4, 5, 6, 7, 12, 13, 14, 15, 16, 64, 65, 66], figureIds: ["2-6", "2-7", "2-8", "2-9"] },
+      { code: "2.4", title: "中国棉花和羊毛产量与企业数据", text: "产量、区域集中度与企业产品口径共同说明天然纤维不能仅按吨位比较，还需区分纱线、面料与制品边界。", references: [17, 18, 19, 20, 21, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94], figureIds: ["2-10", "2-11", "2-12", "2-13", "2-14"] },
     ],
   },
   {
@@ -96,9 +94,8 @@ const chapters: NarrativeChapter[] = [
     question: "生产端规模如何转化为稳定、可追溯的再生进料？",
     lead: "第三章把视角从生产供给转向废旧纺织品，通过回收量变化观察前端原料供给的规模与波动。",
     finding: "回收规模增长为 T2T 提供原料基础，但稳定供给仍取决于持续回收与规范化管理。",
-    references: [22, 23, 24, 25, 26],
     groups: [
-      { code: "3.1", title: "中国废旧纺织品回收量变化", text: "通过 2018—2024 年回收量变化观察前端供给的波动性，并为后续路线规模判断提供边界。", figureIds: ["3-1"] },
+      { code: "3.1", title: "中国废旧纺织品回收量变化", text: "通过 2018—2024 年回收量变化观察前端供给的波动性，并为后续路线规模判断提供边界。", references: [22, 23, 24, 25, 26], figureIds: ["3-1"] },
     ],
   },
   {
@@ -108,14 +105,13 @@ const chapters: NarrativeChapter[] = [
     question: "不同材料应进入哪条闭环路线，商业证据又处于什么阶段？",
     lead: "第四章按照“总流程—材料技术—代表性企业”的顺序展开：先用产业链流向图建立整体框架，再把 PET、PA6、氨纶、废棉和混纺废旧纺织品分别拆解为技术路线与企业项目证据。",
     finding: "不存在适用于所有原料的单一路线。纯度、混纺结构、预处理强度与产品价值共同决定技术选择。",
-    references: [27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83],
     groups: [
-      { code: "4.4.1", title: "中国废旧纺织品回收与再生总流程", text: "从居民旧衣、品牌回收和工业边角料等来源出发，依次连接回收与收运、分选与预处理、材料分类、再生技术及终端去向，为后续分材料技术分析建立总框架。", figureIds: ["3-2"] },
-      { code: "4.4.2", title: "PET 回收技术与代表性企业", text: "先展示 PET 闭环再生的机械法、化学法与酶法技术路线，再比较化学解聚和酶促解聚代表性企业及项目的成熟度证据。", figureIds: ["4-1", "4-2", "4-3"] },
-      { code: "4.4.3", title: "PA6 回收技术与代表性企业", text: "先说明 PA6 解聚、单体纯化和再聚合的闭环流程，再展示代表性企业与项目的工程放大和商业运行证据。", figureIds: ["4-4", "4-5"] },
-      { code: "4.4.4", title: "氨纶及含氨混纺回收技术与代表性企业", text: "围绕氨纶去除、选择性分离和含氨混纺定向回收，比较代表性企业与项目的技术成熟度。", figureIds: ["4-6"] },
-      { code: "4.4.5", title: "废棉回收技术与代表性企业", text: "先区分保留纤维形态的机械再生与重构纤维素分子链的溶解再生路线，再比较两类技术的代表性企业成熟度。", figureIds: ["4-7", "4-8", "4-9"] },
-      { code: "4.4.6", title: "混纺分离技术与代表性项目", text: "先依据混纺组成选择分离与定向回收路线，再展示选择性分离、组分回收和闭环利用代表性项目的证据等级。", figureIds: ["4-10", "4-11"] },
+      { code: "4.4.1", title: "中国废旧纺织品回收与再生总流程", text: "从居民旧衣、品牌回收和工业边角料等来源出发，依次连接回收与收运、分选与预处理、材料分类、再生技术及终端去向，为后续分材料技术分析建立总框架。", references: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43], figureIds: ["3-2"] },
+      { code: "4.4.2", title: "PET 回收技术与代表性企业", text: "先展示 PET 闭环再生的机械法、化学法与酶法技术路线，再比较化学解聚和酶促解聚代表性企业及项目的成熟度证据。", references: [9, 44, 45, 46, 47, 48, 70, 71, 72, 73, 74, 75, 76], figureIds: ["4-1", "4-2", "4-3"] },
+      { code: "4.4.3", title: "PA6 回收技术与代表性企业", text: "先说明 PA6 解聚、单体纯化和再聚合的闭环流程，再比较代表性项目的工程放大与商业运行证据；其中 BASF loopamid 上海装置作为中国境内已投产商业案例，按同一证据尺度与其他代表性项目对照。", references: [49, 50, 51, 67, 68, 69], figureIds: ["4-4", "4-5"] },
+      { code: "4.4.4", title: "氨纶及含氨混纺回收技术与代表性企业", text: "围绕氨纶去除、选择性分离和含氨混纺定向回收，比较代表性企业与项目的技术成熟度。", references: [27, 28, 29, 52, 53, 67, 82, 83], figureIds: ["4-6"] },
+      { code: "4.4.5", title: "废棉回收技术与代表性企业", text: "先区分保留纤维形态的机械再生与重构纤维素分子链的溶解再生路线，再比较两类技术的代表性企业成熟度。", references: [54, 55, 56, 57, 58, 59, 60, 79, 80], figureIds: ["4-7", "4-8", "4-9"] },
+      { code: "4.4.6", title: "混纺分离技术与代表性项目", text: "先依据混纺组成选择分离与定向回收路线，再展示选择性分离、组分回收和闭环利用代表性项目的证据等级。", references: [27, 28, 29, 77, 78, 81, 82], figureIds: ["4-10", "4-11"] },
     ],
   },
 ];
@@ -189,7 +185,7 @@ const chapterEnglish: Record<string, {
     groups: [
       { title: "Overall Flow of Textile-Waste Recovery and Recycling in China", text: "The map connects household clothing, brand collection, and industrial scraps with collection, sorting and pretreatment, material categories, recycling technologies, and final outputs, establishing the framework for the material-specific sections that follow." },
       { title: "PET Recycling Technologies and Representative Companies", text: "Major mechanical, chemical, and enzymatic PET routes are presented before comparing maturity evidence for representative chemical- and enzyme-based depolymerization companies and projects." },
-      { title: "PA6 Recycling Technologies and Representative Companies", text: "The closed-loop sequence from depolymerization and monomer purification to repolymerization is paired with public scale-up and commercial-operation evidence from representative PA6 projects." },
+      { title: "PA6 Recycling Technologies and Representative Companies", text: "The closed-loop sequence from depolymerization and monomer purification to repolymerization is paired with public scale-up and commercial-operation evidence. BASF's loopamid plant in Shanghai is shown as an operating commercial case in China and compared with other representative projects on the same evidence scale." },
       { title: "Spandex and Spandex-Blend Recycling Technologies and Representative Companies", text: "Representative companies and projects are compared across spandex removal, selective separation, and targeted recycling of spandex-containing blends." },
       { title: "Cotton-Waste Recycling Technologies and Representative Companies", text: "Mechanical routes that retain fiber form and dissolution-based routes that reconstruct cellulose chains are presented together with representative-company maturity evidence." },
       { title: "Blend-Separation Technologies and Representative Projects", text: "Technology selection by blend composition is paired with evidence from representative selective-separation, component-recovery, and closed-loop projects." },
@@ -246,7 +242,6 @@ export default function PaperFigureAtlas() {
                   <div>
                     <p>{pick(`第 ${Number(chapter.code)} 章`, `CHAPTER ${chapter.code}`)}</p>
                     <h3>{language === "zh" ? chapter.title : chapterCopy.title}</h3>
-                    <CitationLinks ids={chapter.references} />
                   </div>
                   <div className="chapter-question"><span>{pick("研究问题", "RESEARCH QUESTION")}</span><strong>{language === "zh" ? chapter.question : chapterCopy.question}</strong></div>
                   <p>{language === "zh" ? chapter.lead : chapterCopy.lead}</p>
@@ -262,6 +257,7 @@ export default function PaperFigureAtlas() {
                           <span>{group.code}</span>
                           <h4>{language === "zh" ? group.title : groupCopy.title}</h4>
                           <p>{language === "zh" ? group.text : groupCopy.text}</p>
+                          <CitationLinks ids={group.references} label={pick("本节引用", "Section sources")} />
                         </div>
                         <div className={`narrative-figures count-${Math.min(groupFigures.length, 6)}`}>
                           {groupFigures.map((figure) => (
