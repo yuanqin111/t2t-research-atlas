@@ -1,6 +1,7 @@
 "use client";
 
 import referencesData from "../data/references.json";
+import englishReferencesData from "../data/references.en.json";
 import { useLanguage } from "./LanguageContext";
 
 type ReferenceRecord = {
@@ -10,6 +11,7 @@ type ReferenceRecord = {
 };
 
 const references = referencesData as ReferenceRecord[];
+const englishReferences = englishReferencesData as Record<string, string>;
 
 const groups = [
   { id: "statistics", zh: "政策、材料产量与回收统计", en: "Policy, material output, and recovery statistics", zhDescription: "支撑研究口径、中国材料供给规模及废旧纺织品回收量。", enDescription: "Sources for the research scope, China's material-supply base, and recovered-textile volume.", range: "1—26", from: 1, to: 26 },
@@ -27,7 +29,7 @@ export default function ReferencesSection() {
           <p className="eyebrow">{pick("06 · 参考文献", "06 · REFERENCES")}</p>
           <h2>{pick("参考文献", "References")}</h2>
         </div>
-        <p>{pick("以下 94 条文献来自论文投稿优化稿 V3。引用已细化到对应研究小节，点击编号可直接跳转到完整条目。", "The 94 references are drawn from manuscript revision V3. Citations are assigned to the relevant research subsection and link directly to the full entry; titles retain their original publication language.")}</p>
+        <p>{pick("以下 94 条文献来自论文投稿优化稿 V3。引用已细化到对应研究小节，点击编号可直接跳转到完整条目。", "The 94 references are drawn from manuscript revision V3. Citations are assigned to the relevant research subsection and link directly to the complete English entry; translated Chinese sources are identified accordingly.")}</p>
       </div>
 
       <nav className="reference-index" aria-label={pick("参考文献分类", "Reference categories")}>
@@ -57,7 +59,7 @@ export default function ReferencesSection() {
                   <li id={`ref-${reference.id}`} key={reference.id}>
                     <span>[{reference.id}]</span>
                     <p>
-                      {reference.text}
+                      {language === "zh" ? reference.text : (englishReferences[String(reference.id)] ?? reference.text)}
                       {reference.url && <a href={reference.url} target="_blank" rel="noreferrer">{pick("访问原文 ↗", "Open source ↗")}</a>}
                     </p>
                   </li>
