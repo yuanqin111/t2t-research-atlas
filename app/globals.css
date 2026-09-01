@@ -308,6 +308,8 @@ button { font: inherit; }
 .evidence-library { padding-top: 128px; padding-bottom: 140px; }
 .evidence-library-head { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 50px; }
 .evidence-library-head h2 { margin: 0; max-width: 780px; font: 500 clamp(40px,4.7vw,68px)/1.07 var(--serif); letter-spacing: -.04em; }
+.evidence-library-summary { max-width: 390px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.85; }
+.evidence-table-single { margin-top: 55px; }
 .corpus-counts { display: grid; grid-template-columns: repeat(3,110px); border: 1px solid var(--line); }
 .corpus-counts div { min-height: 106px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--line); }
 .corpus-counts div:last-child { border-right: 0; }

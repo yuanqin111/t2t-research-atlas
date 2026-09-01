@@ -111,7 +111,7 @@ function HomeContent() {
         </a>
         <nav aria-label={pick("页面导航", "Page navigation")}>
           <a href="#data-lab">{pick("趋势与企业", "Trends & companies")}</a>
-          <a href="#evidence-tables">{pick("核心数据表", "Core tables")}</a>
+          <a href="#evidence-tables">{pick("回收分选企业", "Collection & sorting")}</a>
           <a href="#figure-atlas">{pick("技术成熟度与路线", "Technology maturity & routes")}</a>
           <a href="#technology">{pick("技术路线对比", "Route comparison")}</a>
           <a href="#roadmap">{pick("产业发展路线", "Industry roadmap")}</a>
