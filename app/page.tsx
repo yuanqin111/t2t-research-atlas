@@ -117,7 +117,7 @@ function HomeContent() {
           <a href="#figure-atlas">{pick("主要回收技术与企业", "Technologies & companies")}</a>
           <a href="#technology">{pick("技术路线综合比较", "Route comparison")}</a>
           <a href="#roadmap">{pick("产业发展路线", "Industry roadmap")}</a>
-          <span className="status-dot">{pick("V3 · 2026年8月", "V3 · AUG 2026")}</span>
+          <span className="status-dot">{pick("2026年8月", "AUG 2026")}</span>
           <LanguageSwitch />
         </nav>
       </header>
