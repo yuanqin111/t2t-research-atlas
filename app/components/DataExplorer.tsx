@@ -484,11 +484,9 @@ export default function DataExplorer() {
     };
   });
   const displayDataset = language === "zh" ? dataset : { ...dataset, ...englishCopy, views: displayViews };
-  const ranges = dataset.trend[0].year === 2013
-    ? [{ id: "early", label: "2013–2017", from: 2013, to: 2017 }, { id: "recent", label: "2018–2024", from: 2018, to: 2024 }, { id: "all", label: pick("完整序列", "Full series"), from: 2013, to: 2024 }]
-    : dataset.trend[0].year === 2018
-      ? [{ id: "early", label: "2018–2022", from: 2018, to: 2022 }, { id: "recent", label: "2023–2024", from: 2023, to: 2024 }, { id: "all", label: pick("完整序列", "Full series"), from: 2018, to: 2024 }]
-      : [{ id: "early", label: "2020–2022", from: 2020, to: 2022 }, { id: "recent", label: "2023–2025", from: 2023, to: 2025 }, { id: "all", label: pick("完整序列", "Full series"), from: 2020, to: 2025 }];
+  const firstYear = dataset.trend[0].year;
+  const lastYear = dataset.trend.at(-1)!.year;
+  const ranges = [{ id: "all", label: `${firstYear}—${lastYear}`, from: firstYear, to: lastYear }];
   const activeRange = ranges.find((item) => item.id === rangeId) ?? ranges.at(-1)!;
   const visibleTrend = dataset.trend.filter((item) => item.year >= activeRange.from && item.year <= activeRange.to);
   const secondary = displayDataset.views.find((item) => item.id === viewId);
