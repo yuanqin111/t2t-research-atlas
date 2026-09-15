@@ -127,13 +127,13 @@ const datasets: Record<string, Dataset> = {
       { year: 2023, value: 96 }, { year: 2024, value: 105.5 }, { year: 2025, value: 110 },
     ],
     source: "中国纺织工业联合会、中国化学纤维工业协会年度运行分析。",
-    boundary: "企业层统一采用公开产能口径；产能不等于当年实际产量，晓星中国为公开厂区产能合计。",
+    boundary: "数据为截至 2025 年末公开披露的产能，不代表 2025 年实际产量。不同企业的披露范围可能为单一基地或多基地合计，因此仅用于展示代表性企业规模，不用于计算市场份额或进行严格排名；晓星中国为中国境内公开厂区产能合计。",
     references: [2, 3, 4, 5, 6, 7],
     views: [{
       id: "enterprise", label: "代表性企业", title: "2025 年末中国主要氨纶企业公开产能",
-      intro: "统一采用万吨/年产能口径，观察氨纶生产体系的规模格局。",
+      intro: "统一采用万吨口径，展示截至 2025 年末中国主要氨纶企业的公开产能规模。",
       references: [14, 15, 16, 52, 53],
-      unit: "万吨/年",
+      unit: "万吨",
       bars: [
         { label: "华峰化学", value: 47.5, note: "公开产能" },
         { label: "晓星中国", value: 24.6, note: "公开厂区合计" },
@@ -282,8 +282,8 @@ const datasetEnglish: Record<string, {
   spandex: {
     label: "Spandex", trendTitle: "Trend in China's Spandex Output", short: "Spandex",
     source: "Annual industry reviews by China National Textile and Apparel Council and China Chemical Fibers Association.",
-    boundary: "The company layer uses public capacity. Capacity is not annual output; Hyosung China is the sum of disclosed plant capacity.",
-    views: [{ label: "Representative companies", title: "Public Capacity of Major Spandex Companies in China at Year-End 2025", intro: "Capacity is standardized to million tonnes per year to show the production landscape.", unit: "Mt/y", bars: [
+    boundary: "The figures are publicly disclosed capacity as of year-end 2025, not actual output in 2025. Disclosure may cover one site or several sites, so the figures indicate the scale of representative companies and are not used to calculate market share or create a strict ranking. Hyosung China is the combined capacity of its publicly disclosed sites in China.",
+    views: [{ label: "Representative companies", title: "Public Capacity of Major Spandex Companies in China at Year-End 2025", intro: "Figures are presented in units of 10,000 tonnes to show the disclosed capacity of major Chinese spandex companies at year-end 2025.", unit: "10,000 tonnes", bars: [
       { label: "Huafon Chemical", note: "Public capacity" }, { label: "Hyosung China", note: "Sum of disclosed sites" },
       { label: "Zhuji Huahai", note: "Public capacity" }, { label: "Xinxiang Chemical Fiber", note: "Public capacity" }, { label: "Tayho Advanced Materials", note: "Public capacity" },
     ] }],
