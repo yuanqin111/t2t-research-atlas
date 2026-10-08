@@ -207,8 +207,13 @@ export default function PaperFigureAtlas() {
   const figureNumber = (figure: FigureRecord) => language === "zh" ? figure.number.replace("FIG.", "图") : figure.number;
   const figureSrc = (figure: FigureRecord) => {
     const src = figure.src.replace(/^\//, "");
-    // Use the supplied paper's clearer English original; keep the prior asset intact.
-    if (language === "en" && figure.id === "4-1") return "paper-figures/fig-4-1-paper-en.png";
+    // Larger in-image type, with the original research asset retained for comparison.
+    if (figure.id === "4-1") return `paper-figures/fig-4-1${language === "en" ? "-en" : ""}-large.svg`;
+    if (figure.id === "4-4") return `paper-figures/fig-4-4${language === "en" ? "-en-large.svg" : "-large.png"}`;
+    if (language === "en" && figure.id === "4-5") return "paper-figures/fig-4-5-en-large.svg";
+    if (["1-1", "3-2", "4-2", "4-3", "4-5", "4-6", "4-7", "4-8", "4-9", "4-10", "4-11"].includes(figure.id)) {
+      return `paper-figures/fig-${figure.id}${language === "en" ? "-en" : ""}-large.png`;
+    }
     return language === "en" ? src.replace(/\.png$/, "-en.png") : src;
   };
 

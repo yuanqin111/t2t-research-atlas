@@ -303,8 +303,8 @@ function HomeContent() {
               </div>
               <p>{pick("图 5-1 给出 2026—2030 年的总体推进顺序，下方按近期、中期和远期拆解各阶段的主要任务。", "Figure 5-1 sets out the overall sequence for 2026–2030. The three phases below translate it into a practical task agenda.")}</p>
             </header>
-            <a className="roadmap-paper-figure" href={language === "en" ? "paper-figures/fig-5-1-en.png" : "paper-figures/fig-5-1.png"} target="_blank" rel="noreferrer">
-              <img src={language === "en" ? "paper-figures/fig-5-1-en.png" : "paper-figures/fig-5-1.png"} alt={pick("2026—2030 年中国 T2T 产业推进建议", "Recommended roadmap for China's T2T industry, 2026–2030")} loading="lazy" decoding="async" />
+            <a className="roadmap-paper-figure" href={language === "en" ? "paper-figures/fig-5-1-en-large.svg" : "paper-figures/fig-5-1-large.png"} target="_blank" rel="noreferrer">
+              <img src={language === "en" ? "paper-figures/fig-5-1-en-large.svg" : "paper-figures/fig-5-1-large.png"} alt={pick("2026—2030 年中国 T2T 产业推进建议", "Recommended roadmap for China's T2T industry, 2026–2030")} loading="lazy" decoding="async" />
               <div><span>{pick("图 5-1", "FIG. 5-1")}</span><strong>{pick("2026—2030 年中国 T2T 产业推进建议", "Recommended Roadmap for China's T2T Industry, 2026–2030")}</strong><i>↗</i></div>
             </a>
             <div className="timeline">

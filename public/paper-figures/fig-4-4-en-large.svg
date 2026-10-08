@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280" role="img" aria-labelledby="title description">
+<title id="title">Closed-Loop Pathway from PA6 Textile Waste to New Fibers</title>
+<desc id="description">Seven successive steps: PA6 textile waste, sorting and pretreatment, depolymerization, caprolactam, purification, ring-opening polymerization, and new PA6 fibers.</desc>
+<defs><style>text { font-family: Arial, Helvetica, sans-serif; }</style><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L7 3L0 6Z" fill="#24598e"/></marker></defs>
+<rect width="1600" height="1280" fill="#fff"/>
+<text x="64" y="78" font-size="48" fill="#193b63" font-weight="700">Closed-Loop PA6 Recycling</text>
+<text x="64" y="135" font-size="38" fill="#496077">From Textile Waste to New Fibers</text>
+<g data-step="1">
+<rect x="48" y="190" width="344" height="340" rx="12" fill="#f2f7fc" stroke="#2b6193" stroke-width="2"/>
+<path d="M60 190H380Q392 190 392 202V316H48V202Q48 190 60 190Z" fill="#24598e"/>
+<text x="68" y="226" font-size="27" fill="#fff" font-weight="700">1</text>
+<text x="220" y="257" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">PA6 Textile</text>
+<text x="220" y="303" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Waste</text>
+<text x="220" y="397" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">Waste PA6 textiles</text>
+<text x="220" y="443" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">(nylon 6 fabrics /</text>
+<text x="220" y="489" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">yarns)</text>
+</g>
+<g data-step="2">
+<rect x="432" y="190" width="344" height="340" rx="12" fill="#f2f7fc" stroke="#2b6193" stroke-width="2"/>
+<path d="M444 190H764Q776 190 776 202V316H432V202Q432 190 444 190Z" fill="#24598e"/>
+<text x="452" y="226" font-size="27" fill="#fff" font-weight="700">2</text>
+<text x="604" y="257" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Sorting &amp;</text>
+<text x="604" y="303" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Pretreatment</text>
+<text x="604" y="413" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">Separate PA6 / PA66 /</text>
+<text x="604" y="459" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">PET / elastane</text>
+</g>
+<g data-step="3">
+<rect x="816" y="190" width="344" height="340" rx="12" fill="#f2f7fc" stroke="#2b6193" stroke-width="2"/>
+<path d="M828 190H1148Q1160 190 1160 202V316H816V202Q816 190 828 190Z" fill="#24598e"/>
+<text x="836" y="226" font-size="27" fill="#fff" font-weight="700">3</text>
+<text x="988" y="277" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Depolymerization</text>
+<text x="988" y="413" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">Thermal / catalytic</text>
+<text x="988" y="459" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">depolymerization</text>
+</g>
+<g data-step="4">
+<rect x="1200" y="190" width="344" height="340" rx="12" fill="#f2f7fc" stroke="#2b6193" stroke-width="2"/>
+<path d="M1212 190H1532Q1544 190 1544 202V316H1200V202Q1200 190 1212 190Z" fill="#24598e"/>
+<text x="1220" y="226" font-size="27" fill="#fff" font-weight="700">4</text>
+<text x="1372" y="277" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Caprolactam</text>
+<text x="1372" y="435" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">Key monomer</text>
+</g>
+<g data-step="5">
+<rect x="240" y="660" width="344" height="340" rx="12" fill="#f2f7fc" stroke="#2b6193" stroke-width="2"/>
+<path d="M252 660H572Q584 660 584 672V786H240V672Q240 660 252 660Z" fill="#24598e"/>
+<text x="260" y="696" font-size="27" fill="#fff" font-weight="700">5</text>
+<text x="412" y="747" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Purification</text>
+<text x="412" y="867" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">Remove dyes,</text>
+<text x="412" y="913" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">additives, and</text>
+<text x="412" y="959" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">impurities</text>
+</g>
+<g data-step="6">
+<rect x="624" y="660" width="344" height="340" rx="12" fill="#f2f7fc" stroke="#2b6193" stroke-width="2"/>
+<path d="M636 660H956Q968 660 968 672V786H624V672Q624 660 636 660Z" fill="#24598e"/>
+<text x="644" y="696" font-size="27" fill="#fff" font-weight="700">6</text>
+<text x="796" y="727" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Ring-Opening</text>
+<text x="796" y="773" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Polymerization</text>
+<text x="796" y="883" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">Restore polymer</text>
+<text x="796" y="929" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">quality</text>
+</g>
+<g data-step="7">
+<rect x="1008" y="660" width="344" height="340" rx="12" fill="#f2f7fc" stroke="#2b6193" stroke-width="2"/>
+<path d="M1020 660H1340Q1352 660 1352 672V786H1008V672Q1008 660 1020 660Z" fill="#24598e"/>
+<text x="1028" y="696" font-size="27" fill="#fff" font-weight="700">7</text>
+<text x="1180" y="727" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">New PA6</text>
+<text x="1180" y="773" font-size="34" fill="#fff" font-weight="700" text-anchor="middle">Fibers</text>
+<text x="1180" y="883" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">High-quality PA6</text>
+<text x="1180" y="929" font-size="30" fill="#193b63" font-weight="400" text-anchor="middle">fiber / yarn</text>
+</g>
+<g fill="none" stroke="#24598e" stroke-width="5" marker-end="url(#arrow)">
+<path data-from="1" data-to="2" d="M392 360H426"/>
+<path data-from="2" data-to="3" d="M776 360H810"/>
+<path data-from="3" data-to="4" d="M1160 360H1194"/>
+<path data-from="4" data-to="5" d="M1544 360H1570V590H412V652"/>
+<path data-from="5" data-to="6" d="M584 830H618"/>
+<path data-from="6" data-to="7" d="M968 830H1002"/>
+</g>
+<rect x="64" y="1058" width="1472" height="132" rx="12" fill="#edf5fb" stroke="#adc8df" stroke-width="2"/>
+<text x="94" y="1107" font-size="34" fill="#193b63" font-weight="700">Industry priority</text>
+<text x="94" y="1156" font-size="32" fill="#193b63">High-purity front-end sorting is essential for a closed PA6 loop.</text>
+<text x="64" y="1245" font-size="27" fill="#496077">Redrawn from literature and publicly available information.</text>
+</svg>

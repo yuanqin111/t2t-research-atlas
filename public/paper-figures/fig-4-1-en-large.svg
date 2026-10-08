@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1340" viewBox="0 0 1600 1340" role="img" aria-labelledby="title description">
+<title id="title">Major Routes from Waste PET Textiles to New Fibers</title><desc id="description">Four routes lead through purification and repolymerization to new PET fibers.</desc>
+<defs><style>text { font-family: Arial, 'Microsoft YaHei', sans-serif; }</style><marker id="arrow-0" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L7 3L0 6Z" fill="#24598e"/></marker><marker id="arrow-1" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L7 3L0 6Z" fill="#287dbe"/></marker><marker id="arrow-2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L7 3L0 6Z" fill="#12868e"/></marker><marker id="arrow-3" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L7 3L0 6Z" fill="#7963ad"/></marker></defs>
+<rect width="1600" height="1340" fill="#fff"/>
+<text x="64" y="83" font-size="48" fill="#193b63" font-weight="700">Major Routes from Waste PET Textiles to New Fibers</text>
+<path d="M64 126H1536" stroke="#adc8df" stroke-width="2"/>
+<g><rect x="48" y="170" width="1504" height="218" rx="14" fill="#edf5fb"/>
+<text x="80" y="210" font-size="36" font-weight="700" fill="#24598e">1. Methanolysis</text>
+<text x="1520" y="210" font-size="31" text-anchor="end" fill="#24598e">High monomer purity · Mature process</text>
+<rect x="80" y="235" width="230" height="126" rx="10" fill="#fff" stroke="#24598e" stroke-width="2"/><g fill="#193b63"><text x="195" y="289" font-size="36" font-weight="600" text-anchor="middle">Waste PET</text>
+<text x="195" y="334" font-size="36" font-weight="600" text-anchor="middle">textiles</text></g><path d="M320 298 H350" stroke="#24598e" stroke-width="4" marker-end="url(#arrow-0)"/>
+<rect x="366" y="235" width="250" height="126" rx="10" fill="#fff" stroke="#24598e" stroke-width="2"/><g fill="#193b63"><text x="491" y="311" font-size="36" font-weight="600" text-anchor="middle">DMT + MEG</text></g><path d="M626 298 H656" stroke="#24598e" stroke-width="4" marker-end="url(#arrow-0)"/>
+<rect x="672" y="235" width="214" height="126" rx="10" fill="#fff" stroke="#24598e" stroke-width="2"/><g fill="#193b63"><text x="779" y="311" font-size="36" font-weight="600" text-anchor="middle">Purify</text></g><path d="M896 298 H926" stroke="#24598e" stroke-width="4" marker-end="url(#arrow-0)"/>
+<rect x="942" y="235" width="244" height="126" rx="10" fill="#fff" stroke="#24598e" stroke-width="2"/><g fill="#193b63"><text x="1064" y="311" font-size="32" font-weight="600" text-anchor="middle">Repolymerize</text></g><path d="M1196 298 H1226" stroke="#24598e" stroke-width="4" marker-end="url(#arrow-0)"/>
+<rect x="1242" y="235" width="280" height="126" rx="10" fill="#24598e" stroke="#24598e" stroke-width="2"/><g fill="#fff"><text x="1382" y="289" font-size="36" font-weight="600" text-anchor="middle">New PET</text>
+<text x="1382" y="334" font-size="36" font-weight="600" text-anchor="middle">fiber</text></g>
+</g>
+<g><rect x="48" y="418" width="1504" height="218" rx="14" fill="#f4f8fc"/>
+<text x="80" y="458" font-size="36" font-weight="700" fill="#287dbe">2. Glycolysis</text>
+<text x="1520" y="458" font-size="31" text-anchor="end" fill="#287dbe">BHET intermediate · Broad applicability</text>
+<rect x="80" y="483" width="230" height="126" rx="10" fill="#fff" stroke="#287dbe" stroke-width="2"/><g fill="#193b63"><text x="195" y="537" font-size="36" font-weight="600" text-anchor="middle">Waste PET</text>
+<text x="195" y="582" font-size="36" font-weight="600" text-anchor="middle">textiles</text></g><path d="M320 546 H350" stroke="#287dbe" stroke-width="4" marker-end="url(#arrow-1)"/>
+<rect x="366" y="483" width="250" height="126" rx="10" fill="#fff" stroke="#287dbe" stroke-width="2"/><g fill="#193b63"><text x="491" y="559" font-size="36" font-weight="600" text-anchor="middle">BHET</text></g><path d="M626 546 H656" stroke="#287dbe" stroke-width="4" marker-end="url(#arrow-1)"/>
+<rect x="672" y="483" width="214" height="126" rx="10" fill="#fff" stroke="#287dbe" stroke-width="2"/><g fill="#193b63"><text x="779" y="559" font-size="36" font-weight="600" text-anchor="middle">Purify</text></g><path d="M896 546 H926" stroke="#287dbe" stroke-width="4" marker-end="url(#arrow-1)"/>
+<rect x="942" y="483" width="244" height="126" rx="10" fill="#fff" stroke="#287dbe" stroke-width="2"/><g fill="#193b63"><text x="1064" y="559" font-size="32" font-weight="600" text-anchor="middle">Repolymerize</text></g><path d="M1196 546 H1226" stroke="#287dbe" stroke-width="4" marker-end="url(#arrow-1)"/>
+<rect x="1242" y="483" width="280" height="126" rx="10" fill="#287dbe" stroke="#287dbe" stroke-width="2"/><g fill="#fff"><text x="1382" y="537" font-size="36" font-weight="600" text-anchor="middle">New PET</text>
+<text x="1382" y="582" font-size="36" font-weight="600" text-anchor="middle">fiber</text></g>
+</g>
+<g><rect x="48" y="666" width="1504" height="218" rx="14" fill="#edf5fb"/>
+<text x="80" y="706" font-size="36" font-weight="700" fill="#12868e">3. Hydrolysis</text>
+<text x="1520" y="706" font-size="31" text-anchor="end" fill="#12868e">Recoverable PTA · Harsh conditions</text>
+<rect x="80" y="731" width="230" height="126" rx="10" fill="#fff" stroke="#12868e" stroke-width="2"/><g fill="#193b63"><text x="195" y="785" font-size="36" font-weight="600" text-anchor="middle">Waste PET</text>
+<text x="195" y="830" font-size="36" font-weight="600" text-anchor="middle">textiles</text></g><path d="M320 794 H350" stroke="#12868e" stroke-width="4" marker-end="url(#arrow-2)"/>
+<rect x="366" y="731" width="250" height="126" rx="10" fill="#fff" stroke="#12868e" stroke-width="2"/><g fill="#193b63"><text x="491" y="807" font-size="36" font-weight="600" text-anchor="middle">PTA + MEG</text></g><path d="M626 794 H656" stroke="#12868e" stroke-width="4" marker-end="url(#arrow-2)"/>
+<rect x="672" y="731" width="214" height="126" rx="10" fill="#fff" stroke="#12868e" stroke-width="2"/><g fill="#193b63"><text x="779" y="807" font-size="36" font-weight="600" text-anchor="middle">Purify</text></g><path d="M896 794 H926" stroke="#12868e" stroke-width="4" marker-end="url(#arrow-2)"/>
+<rect x="942" y="731" width="244" height="126" rx="10" fill="#fff" stroke="#12868e" stroke-width="2"/><g fill="#193b63"><text x="1064" y="807" font-size="32" font-weight="600" text-anchor="middle">Repolymerize</text></g><path d="M1196 794 H1226" stroke="#12868e" stroke-width="4" marker-end="url(#arrow-2)"/>
+<rect x="1242" y="731" width="280" height="126" rx="10" fill="#12868e" stroke="#12868e" stroke-width="2"/><g fill="#fff"><text x="1382" y="785" font-size="36" font-weight="600" text-anchor="middle">New PET</text>
+<text x="1382" y="830" font-size="36" font-weight="600" text-anchor="middle">fiber</text></g>
+</g>
+<g><rect x="48" y="914" width="1504" height="218" rx="14" fill="#f4f8fc"/>
+<text x="80" y="954" font-size="36" font-weight="700" fill="#7963ad">4. Enzymatic hydrolysis</text>
+<text x="1520" y="954" font-size="31" text-anchor="end" fill="#7963ad">Mild conditions · Scaling up</text>
+<rect x="80" y="979" width="230" height="126" rx="10" fill="#fff" stroke="#7963ad" stroke-width="2"/><g fill="#193b63"><text x="195" y="1033" font-size="36" font-weight="600" text-anchor="middle">Waste PET</text>
+<text x="195" y="1078" font-size="36" font-weight="600" text-anchor="middle">textiles</text></g><path d="M320 1042 H350" stroke="#7963ad" stroke-width="4" marker-end="url(#arrow-3)"/>
+<rect x="366" y="979" width="250" height="126" rx="10" fill="#fff" stroke="#7963ad" stroke-width="2"/><g fill="#193b63"><text x="491" y="1055" font-size="36" font-weight="600" text-anchor="middle">TPA + EG</text></g><path d="M626 1042 H656" stroke="#7963ad" stroke-width="4" marker-end="url(#arrow-3)"/>
+<rect x="672" y="979" width="214" height="126" rx="10" fill="#fff" stroke="#7963ad" stroke-width="2"/><g fill="#193b63"><text x="779" y="1055" font-size="36" font-weight="600" text-anchor="middle">Purify</text></g><path d="M896 1042 H926" stroke="#7963ad" stroke-width="4" marker-end="url(#arrow-3)"/>
+<rect x="942" y="979" width="244" height="126" rx="10" fill="#fff" stroke="#7963ad" stroke-width="2"/><g fill="#193b63"><text x="1064" y="1055" font-size="32" font-weight="600" text-anchor="middle">Repolymerize</text></g><path d="M1196 1042 H1226" stroke="#7963ad" stroke-width="4" marker-end="url(#arrow-3)"/>
+<rect x="1242" y="979" width="280" height="126" rx="10" fill="#7963ad" stroke="#7963ad" stroke-width="2"/><g fill="#fff"><text x="1382" y="1033" font-size="36" font-weight="600" text-anchor="middle">New PET</text>
+<text x="1382" y="1078" font-size="36" font-weight="600" text-anchor="middle">fiber</text></g>
+</g>
+<path d="M64 1190H1536" stroke="#adc8df" stroke-width="2"/>
+<g fill="#3d5874"><text x="64" y="1230" font-size="28">Note: This diagram summarizes typical routes; specific operating conditions differ</text>
+<text x="64" y="1268" font-size="28">by company and process.</text>
+<text x="64" y="1320" font-size="26">Redrawn from the literature and public information</text></g>
+</svg>

@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2460" viewBox="0 0 1600 2460" role="img" aria-labelledby="title description">
+<title id="title">Proposed Roadmap for Advancing China's T2T Industry, 2026–2030</title>
+<desc id="description">Twelve proposed actions across the near term, medium term, and long term, improving industrial maturity and closed-loop capability.</desc>
+<defs><style>text { font-family: Arial, Helvetica, sans-serif; }</style><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L7 3L0 6Z" fill="#24598e"/></marker></defs>
+<rect width="1600" height="2460" fill="#fff"/>
+<text x="64" y="76" font-size="48" fill="#193b63" font-weight="700">Proposed Roadmap for Advancing</text>
+<text x="64" y="134" font-size="48" fill="#193b63" font-weight="700">China’s T2T Industry, 2026–2030</text>
+<text x="64" y="199" font-size="32" fill="#496077">Improving Industrial Maturity and Closed-Loop Capability</text>
+<path d="M970 187H1530" fill="none" stroke="#24598e" stroke-width="3" marker-end="url(#arrow)"/>
+<g data-phase="1"><rect x="64" y="240" width="460" height="110" rx="12" fill="#24598e"/>
+<text x="88" y="283" font-size="32" fill="#fff" font-weight="700">Stage 1 · Near Term</text>
+<text x="88" y="330" font-size="40" fill="#fff" font-weight="700">2026–2027</text>
+<g data-action="1-1"><rect x="64" y="380" width="460" height="418" rx="12" fill="#fff" stroke="#adc8df" stroke-width="2"/>
+<rect x="64" y="404" width="5" height="46" fill="#16968c"/>
+<text x="88" y="432" font-size="36" fill="#193b63" font-weight="700">Improve Collection</text>
+<text x="88" y="476" font-size="36" fill="#193b63" font-weight="700">Traceability</text>
+<text x="88" y="541" font-size="32" fill="#3d5874" font-weight="400">Cover collection sources,</text>
+<text x="88" y="584" font-size="32" fill="#3d5874" font-weight="400">sorting, transport, and</text>
+<text x="88" y="627" font-size="32" fill="#3d5874" font-weight="400">recycling; enable</text>
+<text x="88" y="670" font-size="32" fill="#3d5874" font-weight="400">traceability and compliance</text>
+<text x="88" y="713" font-size="32" fill="#3d5874" font-weight="400">management</text>
+</g>
+<g data-action="1-2"><rect x="64" y="824" width="460" height="418" rx="12" fill="#f2f7fc" stroke="#adc8df" stroke-width="2"/>
+<rect x="64" y="848" width="5" height="46" fill="#16968c"/>
+<text x="88" y="876" font-size="36" fill="#193b63" font-weight="700">Scale Up Intelligent</text>
+<text x="88" y="920" font-size="36" fill="#193b63" font-weight="700">Sorting</text>
+<text x="88" y="985" font-size="32" fill="#3d5874" font-weight="400">Deploy multimodal</text>
+<text x="88" y="1028" font-size="32" fill="#3d5874" font-weight="400">recognition and NIR/AI</text>
+<text x="88" y="1071" font-size="32" fill="#3d5874" font-weight="400">sorting equipment at</text>
+<text x="88" y="1114" font-size="32" fill="#3d5874" font-weight="400">regional sorting centers</text>
+</g>
+<g data-action="1-3"><rect x="64" y="1268" width="460" height="418" rx="12" fill="#fff" stroke="#adc8df" stroke-width="2"/>
+<rect x="64" y="1292" width="5" height="46" fill="#16968c"/>
+<text x="88" y="1320" font-size="36" fill="#193b63" font-weight="700">Expand PET</text>
+<text x="88" y="1364" font-size="36" fill="#193b63" font-weight="700">Closed-Loop Capacity</text>
+<text x="88" y="1429" font-size="32" fill="#3d5874" font-weight="400">Increase rPET capacity and</text>
+<text x="88" y="1472" font-size="32" fill="#3d5874" font-weight="400">quality stability; deploy in</text>
+<text x="88" y="1515" font-size="32" fill="#3d5874" font-weight="400">food-grade and high-value</text>
+<text x="88" y="1558" font-size="32" fill="#3d5874" font-weight="400">applications</text>
+</g>
+<g data-action="1-4"><rect x="64" y="1712" width="460" height="418" rx="12" fill="#f2f7fc" stroke="#adc8df" stroke-width="2"/>
+<rect x="64" y="1736" width="5" height="46" fill="#16968c"/>
+<text x="88" y="1764" font-size="36" fill="#193b63" font-weight="700">Build Data and</text>
+<text x="88" y="1808" font-size="36" fill="#193b63" font-weight="700">Verification</text>
+<text x="88" y="1852" font-size="36" fill="#193b63" font-weight="700">Foundations</text>
+<text x="88" y="1917" font-size="32" fill="#3d5874" font-weight="400">Develop an industry data</text>
+<text x="88" y="1960" font-size="32" fill="#3d5874" font-weight="400">platform, conduct</text>
+<text x="88" y="2003" font-size="32" fill="#3d5874" font-weight="400">methodology research, and</text>
+<text x="88" y="2046" font-size="32" fill="#3d5874" font-weight="400">advance baseline</text>
+<text x="88" y="2089" font-size="32" fill="#3d5874" font-weight="400">verification and disclosure</text>
+</g></g>
+<g data-phase="2"><rect x="570" y="240" width="460" height="110" rx="12" fill="#24598e"/>
+<text x="594" y="283" font-size="32" fill="#fff" font-weight="700">Stage 2 · Medium Term</text>
+<text x="594" y="330" font-size="40" fill="#fff" font-weight="700">2028–2029</text>
+<g data-action="2-1"><rect x="570" y="380" width="460" height="418" rx="12" fill="#fff" stroke="#adc8df" stroke-width="2"/>
+<rect x="570" y="404" width="5" height="46" fill="#16968c"/>
+<text x="594" y="432" font-size="36" fill="#193b63" font-weight="700">Demonstrate Selective</text>
+<text x="594" y="476" font-size="36" fill="#193b63" font-weight="700">Separation of Blends</text>
+<text x="594" y="541" font-size="32" fill="#3d5874" font-weight="400">Establish multi-route</text>
+<text x="594" y="584" font-size="32" fill="#3d5874" font-weight="400">demonstration lines to</text>
+<text x="594" y="627" font-size="32" fill="#3d5874" font-weight="400">improve separation</text>
+<text x="594" y="670" font-size="32" fill="#3d5874" font-weight="400">efficiency and economics</text>
+</g>
+<g data-action="2-2"><rect x="570" y="824" width="460" height="418" rx="12" fill="#f2f7fc" stroke="#adc8df" stroke-width="2"/>
+<rect x="570" y="848" width="5" height="46" fill="#16968c"/>
+<text x="594" y="876" font-size="36" fill="#193b63" font-weight="700">Scale PA6 Closed-Loop</text>
+<text x="594" y="920" font-size="36" fill="#193b63" font-weight="700">Recycling</text>
+<text x="594" y="985" font-size="32" fill="#3d5874" font-weight="400">Expand PA6 recycling</text>
+<text x="594" y="1028" font-size="32" fill="#3d5874" font-weight="400">capacity and strengthen</text>
+<text x="594" y="1071" font-size="32" fill="#3d5874" font-weight="400">downstream application</text>
+<text x="594" y="1114" font-size="32" fill="#3d5874" font-weight="400">validation and adoption</text>
+</g>
+<g data-action="2-3"><rect x="570" y="1268" width="460" height="418" rx="12" fill="#fff" stroke="#adc8df" stroke-width="2"/>
+<rect x="570" y="1292" width="5" height="46" fill="#16968c"/>
+<text x="594" y="1320" font-size="36" fill="#193b63" font-weight="700">Validate Enzymatic</text>
+<text x="594" y="1364" font-size="36" fill="#193b63" font-weight="700">Routes at Engineering</text>
+<text x="594" y="1408" font-size="36" fill="#193b63" font-weight="700">Scale</text>
+<text x="594" y="1473" font-size="32" fill="#3d5874" font-weight="400">Complete pilot scale-up of</text>
+<text x="594" y="1516" font-size="32" fill="#3d5874" font-weight="400">enzymatic depolymerization</text>
+<text x="594" y="1559" font-size="32" fill="#3d5874" font-weight="400">and verify stability and</text>
+<text x="594" y="1602" font-size="32" fill="#3d5874" font-weight="400">cost competitiveness</text>
+</g>
+<g data-action="2-4"><rect x="570" y="1712" width="460" height="418" rx="12" fill="#f2f7fc" stroke="#adc8df" stroke-width="2"/>
+<rect x="570" y="1736" width="5" height="46" fill="#16968c"/>
+<text x="594" y="1764" font-size="36" fill="#193b63" font-weight="700">Establish Stable</text>
+<text x="594" y="1808" font-size="36" fill="#193b63" font-weight="700">Mass-Balance</text>
+<text x="594" y="1852" font-size="36" fill="#193b63" font-weight="700">Management</text>
+<text x="594" y="1917" font-size="32" fill="#3d5874" font-weight="400">Build material-flow and</text>
+<text x="594" y="1960" font-size="32" fill="#3d5874" font-weight="400">mass-balance systems to</text>
+<text x="594" y="2003" font-size="32" fill="#3d5874" font-weight="400">support compliance and</text>
+<text x="594" y="2046" font-size="32" fill="#3d5874" font-weight="400">market confidence</text>
+</g></g>
+<g data-phase="3"><rect x="1076" y="240" width="460" height="110" rx="12" fill="#24598e"/>
+<text x="1100" y="283" font-size="32" fill="#fff" font-weight="700">Stage 3 · Long Term</text>
+<text x="1100" y="330" font-size="40" fill="#fff" font-weight="700">2030</text>
+<g data-action="3-1"><rect x="1076" y="380" width="460" height="418" rx="12" fill="#fff" stroke="#adc8df" stroke-width="2"/>
+<rect x="1076" y="404" width="5" height="46" fill="#16968c"/>
+<text x="1100" y="432" font-size="36" fill="#193b63" font-weight="700">Build a Nationwide T2T</text>
+<text x="1100" y="476" font-size="36" fill="#193b63" font-weight="700">Network</text>
+<text x="1100" y="541" font-size="32" fill="#3d5874" font-weight="400">Create a national</text>
+<text x="1100" y="584" font-size="32" fill="#3d5874" font-weight="400">collaborative network</text>
+<text x="1100" y="627" font-size="32" fill="#3d5874" font-weight="400">covering collection,</text>
+<text x="1100" y="670" font-size="32" fill="#3d5874" font-weight="400">sorting, recycling, and</text>
+<text x="1100" y="713" font-size="32" fill="#3d5874" font-weight="400">applications</text>
+</g>
+<g data-action="3-2"><rect x="1076" y="824" width="460" height="418" rx="12" fill="#f2f7fc" stroke="#adc8df" stroke-width="2"/>
+<rect x="1076" y="848" width="5" height="46" fill="#16968c"/>
+<text x="1100" y="876" font-size="36" fill="#193b63" font-weight="700">Improve Product</text>
+<text x="1100" y="920" font-size="36" fill="#193b63" font-weight="700">Certification and</text>
+<text x="1100" y="964" font-size="36" fill="#193b63" font-weight="700">Standards</text>
+<text x="1100" y="1029" font-size="32" fill="#3d5874" font-weight="400">Establish unified</text>
+<text x="1100" y="1072" font-size="32" fill="#3d5874" font-weight="400">certification and grading</text>
+<text x="1100" y="1115" font-size="32" fill="#3d5874" font-weight="400">standards to improve</text>
+<text x="1100" y="1158" font-size="32" fill="#3d5874" font-weight="400">international recognition</text>
+<text x="1100" y="1201" font-size="32" fill="#3d5874" font-weight="400">and market acceptance</text>
+</g>
+<g data-action="3-3"><rect x="1076" y="1268" width="460" height="418" rx="12" fill="#fff" stroke="#adc8df" stroke-width="2"/>
+<rect x="1076" y="1292" width="5" height="46" fill="#16968c"/>
+<text x="1100" y="1320" font-size="36" fill="#193b63" font-weight="700">Establish Long-Term</text>
+<text x="1100" y="1364" font-size="36" fill="#193b63" font-weight="700">Offtake and Brand</text>
+<text x="1100" y="1408" font-size="36" fill="#193b63" font-weight="700">Collaboration</text>
+<text x="1100" y="1473" font-size="32" fill="#3d5874" font-weight="400">Create long-term procurement</text>
+<text x="1100" y="1516" font-size="32" fill="#3d5874" font-weight="400">mechanisms and brand</text>
+<text x="1100" y="1559" font-size="32" fill="#3d5874" font-weight="400">partnerships to stabilize</text>
+<text x="1100" y="1602" font-size="32" fill="#3d5874" font-weight="400">demand and enhance value</text>
+</g>
+<g data-action="3-4"><rect x="1076" y="1712" width="460" height="418" rx="12" fill="#f2f7fc" stroke="#adc8df" stroke-width="2"/>
+<rect x="1076" y="1736" width="5" height="46" fill="#16968c"/>
+<text x="1100" y="1764" font-size="36" fill="#193b63" font-weight="700">Achieve a Higher</text>
+<text x="1100" y="1808" font-size="36" fill="#193b63" font-weight="700">Textile-to-Textile Loop</text>
+<text x="1100" y="1852" font-size="36" fill="#193b63" font-weight="700">Rate</text>
+<text x="1100" y="1917" font-size="32" fill="#3d5874" font-weight="400">Substantially increase the</text>
+<text x="1100" y="1960" font-size="32" fill="#3d5874" font-weight="400">T2T closed-loop share and</text>
+<text x="1100" y="2003" font-size="32" fill="#3d5874" font-weight="400">advance high-quality</text>
+<text x="1100" y="2046" font-size="32" fill="#3d5874" font-weight="400">circular development</text>
+</g></g>
+<g fill="none" stroke="#24598e" stroke-width="4" marker-end="url(#arrow)"><path d="M529 295H560"/><path d="M1035 295H1066"/></g>
+<path d="M64 2180H1536" stroke="#adc8df" stroke-width="2"/>
+<g><circle cx="76" cy="2230" r="8" fill="#16968c"/><text x="100" y="2240" font-size="28" fill="#193b63" font-weight="400">Policy &amp; Governance</text></g>
+<g><circle cx="582" cy="2230" r="8" fill="#16968c"/><text x="606" y="2240" font-size="28" fill="#193b63" font-weight="400">Sorting &amp; Technology</text></g>
+<g><circle cx="1088" cy="2230" r="8" fill="#16968c"/><text x="1112" y="2240" font-size="28" fill="#193b63" font-weight="400">Chemical / Biological</text>
+<text x="1112" y="2276" font-size="28" fill="#193b63" font-weight="400">Reactions</text></g>
+<g><circle cx="76" cy="2342" r="8" fill="#16968c"/><text x="100" y="2352" font-size="28" fill="#193b63" font-weight="400">Fibers &amp; Materials</text></g>
+<g><circle cx="582" cy="2342" r="8" fill="#16968c"/><text x="606" y="2352" font-size="28" fill="#193b63" font-weight="400">Certification &amp; Standards</text></g>
+<g><circle cx="1088" cy="2342" r="8" fill="#16968c"/><text x="1112" y="2352" font-size="28" fill="#193b63" font-weight="400">Circularity &amp;</text>
+<text x="1112" y="2388" font-size="28" fill="#193b63" font-weight="400">Collaboration</text></g>
+</svg>
