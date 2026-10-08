@@ -16,8 +16,6 @@ const chapters = [
 export default function ChapterDirectory() {
   const { language, pick } = useLanguage();
   const [activeId, setActiveId] = useState<string>(chapters[0].id);
-  const [expanded, setExpanded] = useState(false);
-  const activeChapter = chapters.find((chapter) => chapter.id === activeId) ?? chapters[0];
 
   useEffect(() => {
     const sections = chapters
@@ -43,17 +41,12 @@ export default function ChapterDirectory() {
   }, []);
 
   return (
-    <aside className="chapter-directory" aria-label={pick("核心章节目录", "Core chapter directory")} onKeyDown={(event) => { if (event.key === "Escape") setExpanded(false); }}>
-      <button className="directory-toggle" aria-expanded={expanded} aria-controls="chapter-navigation" onClick={() => setExpanded(!expanded)}>
-        <span>{pick("目录", "Contents")}</span>
-        <strong>{activeChapter.number} · {language === "zh" ? activeChapter.shortZh : activeChapter.shortEn}</strong>
-        <i aria-hidden="true">{expanded ? "−" : "+"}</i>
-      </button>
+    <aside className="chapter-directory" aria-label={pick("核心章节目录", "Core chapter directory")}>
       <div className="chapter-directory-head">
         <span>{pick("目", "§")}</span>
         <div><strong>{pick("网站内容目录", "Site Contents")}</strong>{language === "en" && <small>CONTENTS</small>}</div>
       </div>
-      <nav id="chapter-navigation" className={expanded ? "is-expanded" : ""}>
+      <nav id="chapter-navigation">
         {chapters.map((chapter) => (
           <a
             key={chapter.id}
@@ -61,7 +54,9 @@ export default function ChapterDirectory() {
             className={activeId === chapter.id ? "active" : ""}
             aria-current={activeId === chapter.id ? "location" : undefined}
             data-label={language === "zh" ? chapter.zh : chapter.en}
-            onClick={() => { setActiveId(chapter.id); setExpanded(false); }}
+            title={`${chapter.number} · ${language === "zh" ? chapter.zh : chapter.en}`}
+            aria-label={`${chapter.number} · ${language === "zh" ? chapter.zh : chapter.en}`}
+            onClick={() => setActiveId(chapter.id)}
           >
             <span>{chapter.number}</span>
             <strong>

@@ -17,39 +17,35 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 .topbar nav a { font-size: 14px; letter-spacing: 0; white-space: nowrap; }
 .status-dot { font-size: 12px; letter-spacing: .04em; white-space: nowrap; }
 .language-switch button { min-width: 44px; min-height: 36px; font-size: 14px; }
-.chapter-directory { top: 24px; bottom: auto; left: 16px; width: 228px; max-height: calc(100dvh - 48px); padding: 14px; translate: none; overflow-y: auto; box-shadow: none; border-radius: 4px; }
-.chapter-directory-head { padding: 6px 2px 16px; }
+.chapter-directory { position: fixed; top: 50%; bottom: auto; left: 18px; right: auto; width: 196px; max-height: calc(100dvh - 48px); padding: 13px; translate: 0 -50%; overflow-y: auto; box-shadow: 0 18px 54px rgba(16,36,31,.10); border-radius: 0; }
+.chapter-directory-head { display: flex; justify-content: flex-start; padding: 6px 2px 16px; }
+.chapter-directory-head div { display: flex; }
 .chapter-directory-head strong { font-family: inherit; font-size: 16px; font-weight: 700; line-height: 1.4; letter-spacing: 0; }
 .chapter-directory-head small { font-size: 12px; letter-spacing: .04em; }
-.chapter-directory nav { gap: 4px; }
-.chapter-directory a { grid-template-columns: 30px minmax(0,1fr); min-height: 62px; padding: 12px 6px; text-align: left; }
+.chapter-directory nav { display: grid; gap: 4px; overflow: visible; padding-top: 7px; }
+.chapter-directory a { display: grid; grid-template-columns: 26px minmax(0,1fr); grid-template-rows: auto; align-items: center; place-items: initial; min-height: 62px; padding: 10px 4px; border-right: 0; border-bottom: 1px solid var(--line); text-align: left; }
 .chapter-directory a span { font-size: 13px; }
-.chapter-directory a strong { font-size: 14px; line-height: 1.6; letter-spacing: 0; }
+.chapter-directory a strong { position: static; width: auto; max-width: none; padding: 0; color: inherit; background: none; box-shadow: none; opacity: 1; pointer-events: auto; translate: none; font-size: 14px; line-height: 1.6; letter-spacing: 0; }
+.chapter-directory a strong::before { display: none; }
+.chapter-directory a strong b { display: block; }
+.chapter-directory a strong small { display: none; }
+.chapter-directory a::before { left: -13px; right: auto; top: 8px; bottom: 8px; width: 2px; height: auto; }
 .chapter-directory a.active { background: #dfede6; }
-.directory-toggle { display: none; }
-@media (min-width: 1200px) { main { padding-left: 260px; } }
-@media (min-width: 1200px) and (max-width: 1599px) {
+main { padding-left: 232px; }
+@media (max-width: 1599px) {
   .topbar nav a { display: none; }
   .topbar nav { gap: 12px; }
 }
-@media (max-width: 1199px) {
-  [id] { scroll-margin-top: 156px; }
-  .topbar { min-height: 80px; height: 80px; }
-  .topbar nav a, .status-dot { display: none; }
-  .brand > span:last-child { max-width: 390px; }
-  .chapter-directory { position: sticky; top: 80px; left: auto; right: auto; bottom: auto; width: auto; max-height: none; margin: 0; padding: 0 var(--reading-gutter); overflow: visible; translate: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: #f5f2e9; box-shadow: 0 4px 12px rgba(16,36,31,.04); }
-  .chapter-directory-head { display: none; }
-  .directory-toggle { width: 100%; min-height: 56px; padding: 10px 0; display: flex; align-items: center; gap: 16px; color: var(--ink); background: none; border: 0; text-align: left; cursor: pointer; }
-  .directory-toggle > span { color: var(--deep-teal); font-size: 14px; font-weight: 700; }
-  .directory-toggle strong { flex: 1; font-size: 14px; font-weight: 500; }
-  .directory-toggle i { font-style: normal; font-size: 24px; }
-  .chapter-directory nav { display: none; position: absolute; top: 100%; left: var(--reading-gutter); right: var(--reading-gutter); max-height: calc(100dvh - 156px); padding: 12px; overflow-y: auto; background: #faf8f1; border: 1px solid var(--line); box-shadow: 0 18px 38px rgba(16,36,31,.14); scrollbar-width: auto; }
-  .chapter-directory nav.is-expanded { display: grid; }
-  .chapter-directory a { grid-template-columns: 36px minmax(0,1fr); grid-template-rows: auto; place-items: initial; align-items: center; border: 0; border-bottom: 1px solid var(--line); }
-  .chapter-directory a strong { position: static; width: auto; max-width: none; padding: 0; color: inherit; background: none; box-shadow: none; opacity: 1; pointer-events: auto; translate: none; }
-  .chapter-directory a strong::before, .chapter-directory a::before { display: none; }
-  .chapter-directory a strong b { display: block; }
-  .chapter-directory a strong small { display: none; }
+@media (max-width: 1180px) {
+  main { padding-left: 72px; }
+  .topbar { min-height: 80px; }
+  .status-dot { display: none; }
+  .chapter-directory { left: 8px; width: 52px; padding: 8px; }
+  .chapter-directory-head { justify-content: center; padding: 4px 0 12px; }
+  .chapter-directory-head div { display: none; }
+  .chapter-directory a { grid-template-columns: 1fr; place-items: center; padding: 10px 0; min-height: 48px; text-align: center; }
+  .chapter-directory a::before { left: -8px; }
+  .chapter-directory a strong { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 
 /* Clear hierarchy without oversized, narrowly wrapped English headings. */
