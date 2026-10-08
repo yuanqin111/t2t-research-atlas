@@ -352,18 +352,20 @@ function TrendCanvas({ data, color, label }: { data: Point[]; color: string; lab
       ctx.scale(ratio, ratio);
       const w = rect.width;
       const h = rect.height;
-      const pad = { l: 58, r: 24, t: 28, b: 42 };
       const values = data.map((item) => item.value);
       const min = Math.min(...values);
       const max = Math.max(...values);
       const span = Math.max(1, max - min);
       const lower = Math.max(0, min - span * 0.24);
       const upper = max + span * 0.2;
+      ctx.font = "14px Inter, Microsoft YaHei, sans-serif";
+      const ticks = Array.from({ length: 4 }, (_, i) => upper - (i * (upper - lower)) / 3);
+      const pad = { l: Math.ceil(Math.max(...ticks.map((tick) => ctx.measureText(formatNumber(tick)).width))) + 16, r: 26, t: 28, b: 44 };
+      const labelStep = Math.max(1, Math.ceil(((data.length - 1) * 56) / Math.max(1, w - pad.l - pad.r)));
       const x = (index: number) => pad.l + (index * (w - pad.l - pad.r)) / Math.max(1, data.length - 1);
       const y = (value: number) => pad.t + ((upper - value) * (h - pad.t - pad.b)) / Math.max(1, upper - lower);
 
       ctx.clearRect(0, 0, w, h);
-      ctx.font = "11px Inter, Microsoft YaHei, sans-serif";
       ctx.fillStyle = "#75827d";
       ctx.strokeStyle = "rgba(16,36,31,.12)";
       ctx.lineWidth = 1;
@@ -389,7 +391,7 @@ function TrendCanvas({ data, color, label }: { data: Point[]; color: string; lab
         ctx.beginPath(); ctx.arc(point.x, point.y, hovered === index ? 6 : 4, 0, Math.PI * 2);
         ctx.fillStyle = hovered === index ? "#10241f" : "#ffffff"; ctx.fill();
         ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke();
-        if (data.length <= 8 || index % 2 === 0 || index === data.length - 1) {
+        if (index === 0 || index === data.length - 1 || (index % labelStep === 0 && index <= data.length - 1 - labelStep)) {
           ctx.fillStyle = "#63716c"; ctx.textAlign = "center"; ctx.fillText(String(data[index].year), point.x, h - 16);
         }
       });
@@ -400,7 +402,7 @@ function TrendCanvas({ data, color, label }: { data: Point[]; color: string; lab
     return () => observer.disconnect();
   }, [data, color, hovered]);
 
-  const onMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
+  const onMove = (event: React.PointerEvent<HTMLCanvasElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
     const cursorX = event.clientX - rect.left;
     let nearest = 0;
@@ -412,9 +414,14 @@ function TrendCanvas({ data, color, label }: { data: Point[]; color: string; lab
 
   return (
     <div className="trend-canvas-wrap">
-      <canvas ref={ref} onMouseMove={onMove} onMouseLeave={() => setHovered(null)} aria-label={pick(`${label}产量趋势折线图`, `${label} output trend line chart`)} />
+      <canvas ref={ref} tabIndex={0} onPointerMove={onMove} onPointerDown={onMove} onPointerLeave={() => setHovered(null)} onFocus={() => setHovered(0)} onBlur={() => setHovered(null)} onKeyDown={(event) => {
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+          event.preventDefault();
+          setHovered((previous) => Math.max(0, Math.min(data.length - 1, (previous ?? 0) + (event.key === "ArrowRight" ? 1 : -1))));
+        }
+      }} aria-label={`${pick(`${label}产量趋势折线图，单位：万吨。左右方向键查看各年数据。`, `${label} output trend, in 10,000 tonnes. Use left and right arrows to inspect years.`)} ${data.map((point) => `${point.year}: ${formatNumber(point.value)}`).join("; ")}`} />
       {hovered !== null && geometry.current[hovered] && (
-        <div className="chart-tooltip" style={{ left: geometry.current[hovered].x, top: geometry.current[hovered].y }}>
+        <div className="chart-tooltip" role="status" style={{ left: Math.max(87, Math.min((ref.current?.clientWidth ?? 300) - 87, geometry.current[hovered].x)), top: Math.max(92, geometry.current[hovered].y) }}>
           <span>{data[hovered].year}</span><strong>{formatNumber(data[hovered].value)} {pick("万吨", "10,000 t")}</strong>
         </div>
       )}

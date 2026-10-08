@@ -43,7 +43,7 @@ export default function PriorityMatrix() {
             const label = language === "zh" ? action.zh : action.en;
             return (
               <div
-                className={`priority-point point-${action.quadrant}`}
+                className={`priority-point point-${action.quadrant}${action.x >= 75 ? " label-left" : ""}`}
                 key={action.zh}
                 style={{ left: `${action.x}%`, top: `${action.y}%` }}
                 title={label}

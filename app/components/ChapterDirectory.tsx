@@ -15,35 +15,45 @@ const chapters = [
 
 export default function ChapterDirectory() {
   const { language, pick } = useLanguage();
-  const [activeId, setActiveId] = useState(chapters[0].id);
+  const [activeId, setActiveId] = useState<string>(chapters[0].id);
+  const [expanded, setExpanded] = useState(false);
+  const activeChapter = chapters.find((chapter) => chapter.id === activeId) ?? chapters[0];
 
   useEffect(() => {
     const sections = chapters
       .map((chapter) => document.getElementById(chapter.id))
       .filter((section): section is HTMLElement => Boolean(section));
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible) setActiveId(visible.target.id as typeof activeId);
-      },
-      { rootMargin: "-18% 0px -64% 0px", threshold: [0, 0.08, 0.2] },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+    let frame = 0;
+    const updateActiveChapter = () => {
+      frame = 0;
+      const readingLine = Math.min(window.innerHeight * 0.32, 260);
+      const current = sections.filter((section) => section.getBoundingClientRect().top <= readingLine).at(-1);
+      setActiveId(current?.id ?? chapters[0].id);
+    };
+    const scheduleUpdate = () => { if (!frame) frame = window.requestAnimationFrame(updateActiveChapter); };
+    updateActiveChapter();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
   }, []);
 
   return (
-    <aside className="chapter-directory" aria-label={pick("核心章节目录", "Core chapter directory")}>
+    <aside className="chapter-directory" aria-label={pick("核心章节目录", "Core chapter directory")} onKeyDown={(event) => { if (event.key === "Escape") setExpanded(false); }}>
+      <button className="directory-toggle" aria-expanded={expanded} aria-controls="chapter-navigation" onClick={() => setExpanded(!expanded)}>
+        <span>{pick("目录", "Contents")}</span>
+        <strong>{activeChapter.number} · {language === "zh" ? activeChapter.shortZh : activeChapter.shortEn}</strong>
+        <i aria-hidden="true">{expanded ? "−" : "+"}</i>
+      </button>
       <div className="chapter-directory-head">
         <span>{pick("目", "§")}</span>
         <div><strong>{pick("网站内容目录", "Site Contents")}</strong>{language === "en" && <small>CONTENTS</small>}</div>
       </div>
-      <nav>
+      <nav id="chapter-navigation" className={expanded ? "is-expanded" : ""}>
         {chapters.map((chapter) => (
           <a
             key={chapter.id}
@@ -51,7 +61,7 @@ export default function ChapterDirectory() {
             className={activeId === chapter.id ? "active" : ""}
             aria-current={activeId === chapter.id ? "location" : undefined}
             data-label={language === "zh" ? chapter.zh : chapter.en}
-            onClick={() => setActiveId(chapter.id)}
+            onClick={() => { setActiveId(chapter.id); setExpanded(false); }}
           >
             <span>{chapter.number}</span>
             <strong>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CitationLinks from "./CitationLinks";
 import { useLanguage } from "./LanguageContext";
 
@@ -201,19 +201,28 @@ const guideChapters = chapters.filter((chapter) => chapter.id === "technology");
 export default function PaperFigureAtlas() {
   const { language, pick } = useLanguage();
   const [selected, setSelected] = useState<FigureRecord | null>(null);
+  const [zoomed, setZoomed] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const figureCaption = (figure: FigureRecord) => language === "zh" ? figure.caption : figureCaptionEn[figure.id];
   const figureNumber = (figure: FigureRecord) => language === "zh" ? figure.number.replace("FIG.", "图") : figure.number;
   const figureSrc = (figure: FigureRecord) => {
     const src = figure.src.replace(/^\//, "");
+    // Use the supplied paper's clearer English original; keep the prior asset intact.
+    if (language === "en" && figure.id === "4-1") return "paper-figures/fig-4-1-paper-en.png";
     return language === "en" ? src.replace(/\.png$/, "-en.png") : src;
   };
 
   useEffect(() => {
     if (!selected) return;
-    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setSelected(null); };
-    document.addEventListener("keydown", onKey);
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    setZoomed(false);
+    dialogRef.current?.showModal();
     document.body.style.overflow = "hidden";
-    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus({ preventScroll: true });
+    };
   }, [selected]);
 
   return (
@@ -283,13 +292,19 @@ export default function PaperFigureAtlas() {
       </div>
 
       {selected && (
-        <div className="figure-lightbox" role="dialog" aria-modal="true" aria-label={figureCaption(selected)} onClick={() => setSelected(null)}>
-          <button className="lightbox-close" onClick={() => setSelected(null)} aria-label={pick("关闭大图", "Close figure")}>×</button>
+        <dialog ref={dialogRef} className="figure-lightbox" aria-label={figureCaption(selected)} onCancel={(event) => { event.preventDefault(); setSelected(null); }} onClick={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
           <div className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
             <div className="lightbox-title"><span>{figureNumber(selected)}</span><h3>{figureCaption(selected)}</h3></div>
-            <img src={figureSrc(selected)} alt={figureCaption(selected)} />
+            <div className="lightbox-toolbar">
+              <button onClick={() => setZoomed(!zoomed)} aria-pressed={zoomed}>{zoomed ? pick("适合宽度", "Fit width") : pick("原尺寸阅读", "Actual size")}</button>
+              <a href={figureSrc(selected)} target="_blank" rel="noopener noreferrer">{pick("打开原图 ↗", "Open original ↗")}</a>
+              <button className="lightbox-close" autoFocus onClick={() => setSelected(null)} aria-label={pick("关闭大图", "Close figure")}>{pick("关闭 ×", "Close ×")}</button>
+            </div>
+            <div className={`lightbox-viewport${zoomed ? " is-zoomed" : ""}`} tabIndex={0} aria-label={pick("图片阅读区，可滚动查看", "Figure reading area; scroll to explore")}>
+              <img src={figureSrc(selected)} alt={figureCaption(selected)} />
+            </div>
           </div>
-        </div>
+        </dialog>
       )}
     </section>
   );
