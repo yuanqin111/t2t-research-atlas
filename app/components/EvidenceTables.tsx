@@ -69,7 +69,7 @@ export default function EvidenceTables() {
         <div className="evidence-table-scroll">
           <table>
             <thead><tr>{(language === "zh" ? table.columns : tableEnglish.columns).map((column) => <th key={column}>{column}</th>)}</tr></thead>
-            <tbody>{(language === "zh" ? table.rows : tableEnglish.rows).map((row, rowIndex) => <tr key={`front-end-${rowIndex}`}>{row.map((cell, cellIndex) => <td key={`${rowIndex}-${cellIndex}`}>{cell}</td>)}</tr>)}</tbody>
+            <tbody>{(language === "zh" ? table.rows : tableEnglish.rows).map((row, rowIndex) => <tr key={`front-end-${rowIndex}`}>{row.map((cell, cellIndex) => <td data-label={(language === "zh" ? table.columns : tableEnglish.columns)[cellIndex]} key={`${rowIndex}-${cellIndex}`}>{cell}</td>)}</tr>)}</tbody>
           </table>
         </div>
         <CitationLinks ids={table.references} />

@@ -9,6 +9,7 @@ import PriorityMatrix from "./components/PriorityMatrix";
 import ReferencesSection from "./components/ReferencesSection";
 import TechnologyRouteSummary from "./components/TechnologyRouteSummary";
 import { LanguageProvider, LanguageSwitch, useLanguage } from "./components/LanguageContext";
+import { ReadingModeProvider, ReadingModeSwitch, useReadingMode } from "./components/ReadingModeContext";
 
 const technologyRoutes = [
   {
@@ -95,17 +96,18 @@ const matrixLabels = [
 ] as const;
 
 export default function Home() {
-  return <LanguageProvider><HomeContent /></LanguageProvider>;
+  return <LanguageProvider><ReadingModeProvider><HomeContent /></ReadingModeProvider></LanguageProvider>;
 }
 
 function HomeContent() {
   const { language, pick } = useLanguage();
+  const { mode } = useReadingMode();
   const [matrixView, setMatrixView] = useState<"heat" | "bubble">("heat");
   const [selectedTech, setSelectedTech] = useState("pet-chem");
   const technology = technologyRoutes.find((item) => item.id === selectedTech) ?? technologyRoutes[0];
 
   return (
-    <main>
+    <main className={`reading-mode-${mode}`}>
       <header className="topbar">
         <a className="brand" href="#top" aria-label={pick("返回首页", "Back to home")}>
           <span className="brand-mark">T2T</span>
@@ -113,6 +115,7 @@ function HomeContent() {
         </a>
         <div className="topbar-controls">
           <span className="status-dot">{pick("2026年8月", "AUG 2026")}</span>
+          <ReadingModeSwitch />
           <LanguageSwitch />
         </div>
       </header>
@@ -122,7 +125,7 @@ function HomeContent() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <p className="eyebrow">{pick("中国纺织品—纺织品循环利用研究图谱", "CHINA TEXTILE-TO-TEXTILE CIRCULARITY · RESEARCH ATLAS")}</p>
-          <h1 className="hero-title-long">{language === "zh" ? <>中国纺织品循环利用<br />（T2T）研究图谱</> : <>China Textile-to-Textile<br />Circularity Research Atlas</>}</h1>
+          <h1 className="hero-title-long">{language === "zh" ? <>中国纺织品循环利用<br />（T2T）研究图谱</> : <>China Textile-to-Textile<br />{" "}Circularity Research Atlas</>}</h1>
           <div className="hero-actions">
             <a className="primary-btn" href="#data-lab">{pick("进入研究图谱", "Explore the atlas")} <span>↘</span></a>
             <p>{pick("证据范围 · 2013—2026", "EVIDENCE BASE · 2013—2026")}</p>
@@ -231,9 +234,16 @@ function HomeContent() {
             </div>
 
             <div className="chart-area">
+              {mode === "mobile" && matrixView === "bubble" && <p className="mobile-chart-hint">{pick("左右滑动查看完整图；点击气泡查看对应技术。", "Swipe sideways to see the full chart; tap a bubble for route details.")}</p>}
               {matrixView === "heat" ? (
                 <div className="heatmap-wrap">
-                  <div className="heatmap" role="img" aria-label={pick("主要 T2T 技术路线多维属性比较热力图", "Heatmap comparing major T2T technology routes")}>
+                  {mode === "mobile" ? <div className="mobile-route-attributes">
+                    <h3>{language === "zh" ? technology.name : technology.nameEn}</h3>
+                    <dl>{matrixLabels.map((label, index) => <div key={label[0]}>
+                      <dt>{language === "zh" ? label[0] : label[1]}</dt>
+                      <dd><i className={`score-${technology.values[index]}`} aria-hidden="true" />{[pick("低", "Low"), pick("中", "Medium"), pick("高", "High")][technology.values[index] - 1]}</dd>
+                    </div>)}</dl>
+                  </div> : <div className="heatmap" role="img" aria-label={pick("主要 T2T 技术路线多维属性比较热力图", "Heatmap comparing major T2T technology routes")}>
                     <div className="heat-spacer" />
                     {matrixLabels.map((label) => <div className="heat-label" key={label[0]}>{language === "zh" ? label[0] : label[1]}</div>)}
                     {technologyRoutes.map((route) => (
@@ -246,7 +256,7 @@ function HomeContent() {
                         ))}
                       </div>
                     ))}
-                  </div>
+                  </div>}
                   <div className="heat-legend"><span>{pick("相对等级", "Relative level")}</span><i className="score-1" /><i className="score-2" /><i className="score-3" /><span>{pick("低 → 高", "Low → High")}</span></div>
                 </div>
               ) : (

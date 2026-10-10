@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "./LanguageContext";
+import { useReadingMode } from "./ReadingModeContext";
 
 const actions = [
   { zh: "回收追溯", en: "Recovery traceability", x: 22, y: 22, quadrant: "priority" },
@@ -18,6 +19,7 @@ const actions = [
 
 export default function PriorityMatrix() {
   const { language, pick } = useLanguage();
+  const { mode } = useReadingMode();
 
   return (
     <figure className="priority-matrix-figure">
@@ -29,7 +31,17 @@ export default function PriorityMatrix() {
         <p>{pick("纵轴表示预计产业影响，横轴表示实施难度；两项均为基于论文证据的相对判断。", "The vertical axis shows expected industry impact and the horizontal axis shows implementation difficulty; both are relative assessments based on the study evidence.")}</p>
       </div>
 
-      <div className="priority-matrix-scroll">
+      {mode === "mobile" ? <div className="mobile-priority-groups">
+        {([
+          ["priority", "Ⅰ 优先启动", "I · Start first", "高影响 · 较易实施", "High impact · Easier"],
+          ["strategic", "Ⅱ 中长期攻坚", "II · Strategic scale-up", "高影响 · 较难实施", "High impact · Harder"],
+          ["support", "Ⅲ 快速改善", "III · Quick improvements", "较低影响 · 较易实施", "Lower impact · Easier"],
+          ["pilot", "Ⅳ 试点验证", "IV · Pilot & validate", "较低影响 · 较难实施", "Lower impact · Harder"],
+        ] as const).map(([key, zh, en, criteriaZh, criteriaEn]) => <article className={`mobile-priority-group group-${key}`} key={key}>
+          <h5>{pick(zh, en)}</h5><p>{pick(criteriaZh, criteriaEn)}</p>
+          <ul>{actions.map((action, index) => action.quadrant === key ? <li key={action.zh}><span>{String(index + 1).padStart(2, "0")}</span>{pick(action.zh, action.en)}</li> : null)}</ul>
+        </article>)}
+      </div> : <div className="priority-matrix-scroll">
         <div className="priority-matrix" role="img" aria-label={pick("中国 T2T 行动的产业影响与实施难度四象限图", "Four-quadrant matrix of industry impact and implementation difficulty for T2T actions in China")}>
           <div className="matrix-quadrant q-priority"><strong>{pick("Ⅰ 优先启动", "I · START FIRST")}</strong><span>{pick("高影响 · 较易实施", "High impact · Easier")}</span></div>
           <div className="matrix-quadrant q-strategic"><strong>{pick("Ⅱ 中长期攻坚", "II · STRATEGIC SCALE-UP")}</strong><span>{pick("高影响 · 较难实施", "High impact · Harder")}</span></div>
@@ -54,7 +66,7 @@ export default function PriorityMatrix() {
             );
           })}
         </div>
-      </div>
+      </div>}
 
       <figcaption>
         <div className="priority-legend">

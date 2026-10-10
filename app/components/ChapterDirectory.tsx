@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "./LanguageContext";
+import { useReadingMode } from "./ReadingModeContext";
 
 const chapters = [
   { id: "overview", number: "01", zh: "中国纺织品产量与回收规模", shortZh: "产量与回收", en: "China Textile Output & Recovery Scale", shortEn: "Output & Recovery" },
@@ -15,6 +16,9 @@ const chapters = [
 export default function ChapterDirectory() {
   const { language, pick } = useLanguage();
   const [activeId, setActiveId] = useState<string>(chapters[0].id);
+  const { mode } = useReadingMode();
+  const mobileDialog = useRef<HTMLDialogElement>(null);
+  const directoryButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const sections = chapters
@@ -39,6 +43,22 @@ export default function ChapterDirectory() {
     };
   }, []);
 
+  const activeChapter = chapters.find((chapter) => chapter.id === activeId) ?? chapters[0];
+  if (mode === "mobile") return <>
+    <div className="mobile-directory-bar">
+      <a href="#top" aria-label={pick("返回首页", "Back to home")}>T2T</a>
+      <button ref={directoryButton} onClick={() => mobileDialog.current?.showModal()} aria-haspopup="dialog">
+        <span>{pick("目录", "Contents")}</span>
+        <strong>{activeChapter.number} · {language === "zh" ? activeChapter.shortZh : activeChapter.shortEn}</strong><i aria-hidden="true">☰</i>
+      </button>
+    </div>
+    <dialog ref={mobileDialog} className="mobile-directory-dialog" aria-labelledby="mobile-directory-title" onClose={() => directoryButton.current?.focus()}>
+      <header><h2 id="mobile-directory-title">{pick("网站内容目录", "Site Contents")}</h2><button onClick={() => mobileDialog.current?.close()} aria-label={pick("关闭目录", "Close contents")}>×</button></header>
+      <nav id="mobile-chapter-navigation">{chapters.map((chapter) => <a key={chapter.id} href={`#${chapter.id}`} aria-current={activeId === chapter.id ? "location" : undefined} onClick={() => { setActiveId(chapter.id); mobileDialog.current?.close(); }}>
+        <span>{chapter.number}</span><strong>{language === "zh" ? chapter.zh : chapter.en}</strong><i aria-hidden="true">↗</i>
+      </a>)}</nav>
+    </dialog>
+  </>;
   return (
     <aside className="chapter-directory" aria-label={pick("核心章节目录", "Core chapter directory")}>
       <div className="chapter-directory-head">

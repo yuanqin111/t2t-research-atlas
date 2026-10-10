@@ -14,13 +14,18 @@ const LanguageContext = createContext<LanguageState | null>(null);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("zh");
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("t2t-language");
-    if (saved === "zh" || saved === "en") setLanguage(saved);
+    try {
+      const saved = window.localStorage.getItem("t2t-language");
+      if (saved === "zh" || saved === "en") setLanguage(saved);
+    } catch { /* Language controls also work when storage is unavailable. */ }
+    setInitialized(true);
   }, []);
 
   useEffect(() => {
+    if (!initialized) return;
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
     document.title = language === "zh"
       ? "中国纺织品循环利用（T2T）研究图谱"
@@ -29,8 +34,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (description) description.content = language === "zh"
       ? "中国纺织品循环利用（T2T）数据、技术路线、项目证据与产业发展路线的交互式研究图谱。"
       : "An interactive research atlas of data, technology routes, project evidence, and industry pathways for textile-to-textile circularity in China.";
-    window.localStorage.setItem("t2t-language", language);
-  }, [language]);
+    try { window.localStorage.setItem("t2t-language", language); } catch { /* Persistence is optional. */ }
+  }, [language, initialized]);
 
   const value = useMemo<LanguageState>(() => ({
     language,
