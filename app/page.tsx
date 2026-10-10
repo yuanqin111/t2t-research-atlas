@@ -115,13 +115,6 @@ function HomeContent() {
           <span className="status-dot">{pick("2026年8月", "AUG 2026")}</span>
           <LanguageSwitch />
         </div>
-        <nav aria-label={pick("页面导航", "Page navigation")}>
-          <a href="#data-lab">{pick("趋势与企业", "Trends & companies")}</a>
-          <a href="#evidence-tables">{pick("回收分选企业", "Collection & sorting")}</a>
-          <a href="#figure-atlas">{pick("主要回收技术与企业", "Technologies & companies")}</a>
-          <a href="#technology">{pick("技术路线综合比较", "Route comparison")}</a>
-          <a href="#roadmap">{pick("产业发展路线", "Industry roadmap")}</a>
-        </nav>
       </header>
 
       <ChapterDirectory />

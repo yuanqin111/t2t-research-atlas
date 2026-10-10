@@ -3,7 +3,7 @@
 :root { --reading-gutter: clamp(24px, 3vw, 56px); --directory-width: 216px; --directory-left: 16px; --directory-gap: 16px; }
 body { font-size: 16px; line-height: 1.65; padding-bottom: 0; }
 main > *, .section-shell > *, .chapter-content, .narrative-group > * { min-width: 0; }
-[id] { scroll-margin-top: 180px; }
+[id] { scroll-margin-top: 112px; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
   outline: 3px solid var(--deep-teal); outline-offset: 4px;
