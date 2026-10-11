@@ -13,7 +13,7 @@ export function useReadingMode() {
 }
 
 export function ReadingModeProvider({ children }: { children: ReactNode }) {
-  const { pick } = useLanguage();
+  const { language, pick } = useLanguage();
   const [mode, setMode] = useState<ReadingMode>("desktop");
   const [recommended, setRecommended] = useState<ReadingMode>("desktop");
   const dialog = useRef<HTMLDialogElement>(null);
@@ -45,11 +45,11 @@ export function ReadingModeProvider({ children }: { children: ReactNode }) {
         <div className="reading-mode-options">
           <button onClick={() => choose("mobile")} autoFocus={recommended === "mobile"}>
             <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="4" width="22" height="40" rx="4"/><path d="M21 9h6M22 38h4"/></svg>
-            <strong>{pick("手机", "Phone")}</strong><span>{pick("竖屏阅读 · 图表可放大", "Portrait reading · Zoomable figures")}</span>
+            <strong>{pick("手机", "Phone")}{language === "zh" && <small className="reading-mode-english" lang="en">Phone</small>}</strong><span>{pick("竖屏阅读 · 图表可放大", "Portrait reading · Zoomable figures")}</span>
           </button>
           <button onClick={() => choose("desktop")} autoFocus={recommended === "desktop"}>
             <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="7" width="40" height="28" rx="3"/><path d="M24 35v7M15 42h18"/></svg>
-            <strong>{pick("平板 / 电脑", "Tablet / computer")}</strong><span>{pick("侧边目录 · 大屏阅读", "Sidebar contents · Wide-screen reading")}</span>
+            <strong>{pick("平板 / 电脑", "Tablet / Computer")}{language === "zh" && <small className="reading-mode-english" lang="en">Tablet / Computer</small>}</strong><span>{pick("侧边目录 · 大屏阅读", "Sidebar contents · Wide-screen reading")}</span>
           </button>
         </div>
         <LanguageChoiceHint />

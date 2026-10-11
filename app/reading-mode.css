@@ -12,6 +12,7 @@
 .reading-mode-options button:hover { border-color: var(--deep-teal); background: #e4f0e9; }
 .reading-mode-options svg { width: 42px; height: 42px; fill: none; stroke: currentColor; stroke-width: 2; }
 .reading-mode-options strong { font-size: 19px; }
+.reading-mode-options .reading-mode-english { display: block; margin-top: 4px; font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--muted); }
 .reading-mode-options span, .reading-mode-panel .reading-mode-hint { font-size: 14px; color: var(--muted); }
 /* Slightly smaller desktop figures, without resampling or cropping the assets. */
 .reading-mode-desktop .figure-card { width: 90%; justify-self: center; }
